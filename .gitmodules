@@ -1,0 +1,3 @@
+[submodule "src/pyrusoc"]
+	path = src/pyrusoc
+	url = git@github.com:wlynch/pyrusoc.git
