@@ -13,4 +13,7 @@ public class Location {
 	String state_abbr;
 	String street;
 
+	public Location() {
+
+	}
 }
