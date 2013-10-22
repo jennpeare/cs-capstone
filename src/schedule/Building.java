@@ -9,6 +9,7 @@ public class Building {
 	String cid;
 	String description;
 	String title;
+	Location location;
 	String[] offices;
 	
 	public Building() {
