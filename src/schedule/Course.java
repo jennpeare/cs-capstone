@@ -1,7 +1,10 @@
 package schedule;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Course {
-	String campusCode;
+	@SerializedName("campusCode")
+	String campusCode;	
 	CoreCodes[] coreCodes;
 	String courseDescription;
 	String courseNotes;
@@ -12,7 +15,8 @@ public class Course {
 	String offeringUnitTime;
 	String openSections;
 	String preReqNotes;
-	Section[] section;
+	@SerializedName("sections")
+	Section[] sections;
 	String subject;
 	String subjectNotes;
 	String subjectGroupNotes;
@@ -29,6 +33,10 @@ public class Course {
 		String subject;
 		String supplement;
 		String unit;
+		
+		public CoreCodes() {
+			
+		}
 	}
 	
 	public Course() {

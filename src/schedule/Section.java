@@ -3,18 +3,18 @@ package schedule;
 public class Section {
 
 	String campusCode;
-	Comments[] comments;
+	//Comments[] comments;
 	String[] crossListedSections;
 	String examCode;
 	String[] honorsPrograms;
 	String index;
-	Instructor[] instructors;
+	//Instructor[] instructors;
 	String legendKey;
-	String[] majors;
-	MeetingTime[] meetingTimes;
+	Object[] majors;
+	//MeetingTime[] meetingTimes;
 	String[] minors;
 	String number;
-	String openStatus;
+	boolean openStatus;
 	String printed;
 	String sectionEligibility;
 	String sectionNotes;
@@ -24,15 +24,18 @@ public class Section {
 	String specialPermissionAddCodeDescritpion;
 	String specialPermissionDropCode;
 	String specialPermissionDropCodeDescritpion;
-	String stopPoint;
+	int stopPoint;
 	String subtitle;
 	String subtopic;
 	String[] unitMajors;
 	
-	public class Comments {
+	public static class Comments {
 		String code;
 		String description;
 		
+		public Comments() {
+			
+		}
 	}
 	
 	public Section() {

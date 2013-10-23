@@ -15,11 +15,14 @@ public class Schedule {
 			String json = readFile(args[0]);
 			Type collectionType = new TypeToken<Building[]>(){}.getType();
 			Building[] buildings = gson.fromJson(json, collectionType);
+			
 			json = readFile(args[1]);
-			//collectionType = new TypeToken<Course[]>(){}.getType();
-			
+			collectionType = new TypeToken<Course[]>(){}.getType();
+			Course[] courses = gson.fromJson(json, collectionType);
+			//System.out.println(courses[7].sections[0].instructors[0].name);
+			System.out.println(courses[7]);
 		} catch (IOException e) {
-			
+			System.out.println("ERROR");
 		}
 	}
 
