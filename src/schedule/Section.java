@@ -10,7 +10,7 @@ public class Section {
 	String index;
 	//Instructor[] instructors;
 	String legendKey;
-	Object[] majors;
+	Major[] majors;
 	//MeetingTime[] meetingTimes;
 	String[] minors;
 	String number;
