@@ -1,17 +1,22 @@
 package schedule;
 
+/**
+ * @author Billy Lynch
+ * @author Jenny Shi
+ * 
+ */
 public class Section {
 
 	String campusCode;
-	//Comments[] comments;
+	Comments[] comments;
 	String[] crossListedSections;
 	String examCode;
 	String[] honorsPrograms;
 	String index;
-	//Instructor[] instructors;
+	Instructor[] instructors;
 	String legendKey;
 	Major[] majors;
-	//MeetingTime[] meetingTimes;
+	MeetingTime[] meetingTimes;
 	String[] minors;
 	String number;
 	boolean openStatus;
@@ -29,6 +34,9 @@ public class Section {
 	String subtopic;
 	String[] unitMajors;
 	
+	/**
+	 *
+	 */
 	public static class Comments {
 		String code;
 		String description;

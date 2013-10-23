@@ -2,6 +2,11 @@ package schedule;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * @author Billy Lynch
+ * @author Jenny Shi
+ *
+ */
 public class Location {
 	String additional;
 	String city;
