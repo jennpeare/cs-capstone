@@ -12,6 +12,8 @@ public class Building {
 	Location location;
 	String[] offices;
 	
+	
+	
 	public Building() {
 		
 	}
