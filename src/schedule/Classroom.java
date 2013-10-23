@@ -13,7 +13,8 @@ public class Classroom {
 		
 	}
 	
-	public Classroom(String room, int capacity, boolean wheelchair, boolean restricted, String type) {
+	public Classroom(String room, int capacity, boolean wheelchair, boolean restricted,
+			String type) {
 		this.room = room;
 		this.capacity = capacity;
 		this.wheelchair = wheelchair;

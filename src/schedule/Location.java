@@ -1,16 +1,21 @@
 package schedule;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Location {
 	String additional;
 	String city;
 	String country;
-	String country_abbr;
+	@SerializedName("country_abbr")
+	String countryAbbr;
 	String latitude;
 	String longitude;
 	String name;
-	String postal_code;
+	@SerializedName("postal_code")
+	String postalCode;
 	String state;
-	String state_abbr;
+	@SerializedName("state_abbr")
+	String stateAbbr;
 	String street;
 
 	public Location() {
