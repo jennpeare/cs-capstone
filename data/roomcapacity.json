@@ -1,0 +1,3179 @@
+[
+	{
+		"Building": "Milledoler Hall",
+		"Room": "100",
+		"Room Capacity": "170",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "123",
+		"Room Capacity": "450",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "135",
+		"Room Capacity": "450",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Van Dyck Hall",
+		"Room": "211",
+		"Room Capacity": "206",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Voorhees Hall",
+		"Room": "105",
+		"Room Capacity": "265",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "184 College Avenue",
+		"Room": "101",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Bishop House",
+		"Room": "101",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Bishop House",
+		"Room": "211",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Campbell Hall",
+		"Room": "A1",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Campbell Hall",
+		"Room": "A2",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Campbell Hall",
+		"Room": "A3",
+		"Room Capacity": "65",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Campbell Hall",
+		"Room": "A4",
+		"Room Capacity": "90",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Campbell Hall",
+		"Room": "A5",
+		"Room Capacity": "90",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "School of Communication & Information",
+		"Room": "101",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "School of Communication & Information",
+		"Room": "103",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "School of Communication & Information",
+		"Room": "201",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "School of Communication & Information",
+		"Room": "203",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "School of Communication & Information",
+		"Room": "212",
+		"Room Capacity": "95",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "School of Communication & Information",
+		"Room": "304",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "School of Communication & Information",
+		"Room": "337",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Graduate School of Education",
+		"Room": "025A",
+		"Room Capacity": "35",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Graduate School of Education",
+		"Room": "025B",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Frelinghuysen Hall",
+		"Room": "A1",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Frelinghuysen Hall",
+		"Room": "A2",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Frelinghuysen Hall",
+		"Room": "A3",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Frelinghuysen Hall",
+		"Room": "A4",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Frelinghuysen Hall",
+		"Room": "A5",
+		"Room Capacity": "90",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Frelinghuysen Hall",
+		"Room": "A6",
+		"Room Capacity": "90",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Frelinghuysen Hall",
+		"Room": "B1",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Frelinghuysen Hall",
+		"Room": "B2",
+		"Room Capacity": "65",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Frelinghuysen Hall",
+		"Room": "B3",
+		"Room Capacity": "65",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Frelinghuysen Hall",
+		"Room": "B4",
+		"Room Capacity": "65",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Frelinghuysen Hall",
+		"Room": "B5",
+		"Room Capacity": "65",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Frelinghuysen Hall",
+		"Room": "B6",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Hardenbergh Hall",
+		"Room": "A1",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Hardenbergh Hall",
+		"Room": "A2",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Hardenbergh Hall",
+		"Room": "A3",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Hardenbergh Hall",
+		"Room": "A4",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Hardenbergh Hall",
+		"Room": "A5",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Hardenbergh Hall",
+		"Room": "A6",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Hardenbergh Hall",
+		"Room": "A7",
+		"Room Capacity": "90",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Hardenbergh Hall",
+		"Room": "B1",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Hardenbergh Hall",
+		"Room": "B2",
+		"Room Capacity": "65",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Hardenbergh Hall",
+		"Room": "B3",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Hardenbergh Hall",
+		"Room": "B4",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Hardenbergh Hall",
+		"Room": "B5",
+		"Room Capacity": "65",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Hardenbergh Hall",
+		"Room": "B6",
+		"Room Capacity": "48",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "001",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "002",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "003",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "111",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "112",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "113",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "114",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "115",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "204",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "207",
+		"Room Capacity": "22",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "208",
+		"Room Capacity": "70",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "210",
+		"Room Capacity": "93",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "211",
+		"Room Capacity": "93",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "212",
+		"Room Capacity": "88",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "213",
+		"Room Capacity": "88",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Murray Hall",
+		"Room": "301",
+		"Room Capacity": "73",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "101",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "102",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "103",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "104",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "105",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "106",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "114",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "115",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "116",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "119",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "120",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "121",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "201",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "202",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "203",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "204",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "205",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "206",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "207",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "214",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "215",
+		"Room Capacity": "22",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "216",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "219",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "220",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Scott Hall",
+		"Room": "221",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "3 Seminary Place",
+		"Room": "103",
+		"Room Capacity": "60",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Van Dyck Hall",
+		"Room": "011",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Voorhees Hall",
+		"Room": "001",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Voorhees Hall",
+		"Room": "104",
+		"Room Capacity": "50",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Voorhees Hall",
+		"Room": "006D",
+		"Room Capacity": "23",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Voorhees Hall",
+		"Room": "006E",
+		"Room Capacity": "23",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Zimmerli Art Museum",
+		"Room": "ED",
+		"Room Capacity": "50",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Zimmerli Art Museum",
+		"Room": "MPR",
+		"Room Capacity": "70",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "CAC"
+	},
+	{
+		"Building": "Civic Square Building",
+		"Room": "112",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "Civic Square Building",
+		"Room": "113",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "Civic Square Building",
+		"Room": "117",
+		"Room Capacity": "70",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "Civic Square Building",
+		"Room": "168",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "Civic Square Building",
+		"Room": "170",
+		"Room Capacity": "32",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "Civic Square Building",
+		"Room": "228",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "Civic Square Building",
+		"Room": "229",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "Civic Square Building",
+		"Room": "407",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "Civic Square Building",
+		"Room": "425",
+		"Room Capacity": "35",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "College of Nursing",
+		"Room": "102",
+		"Room Capacity": "85",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "College of Nursing",
+		"Room": "104",
+		"Room Capacity": "18",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "College of Nursing",
+		"Room": "202",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "College of Nursing",
+		"Room": "204",
+		"Room Capacity": "12",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "College of Nursing",
+		"Room": "302",
+		"Room Capacity": "32",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "DNB"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "103",
+		"Room Capacity": "500",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Biomedical Engineering Building",
+		"Room": "102",
+		"Room Capacity": "141",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Engineering Building",
+		"Room": "B120",
+		"Room Capacity": "165",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "114",
+		"Room Capacity": "314",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "116",
+		"Room Capacity": "105",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Pharmacy Building",
+		"Room": "111",
+		"Room Capacity": "144",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Pharmacy Building",
+		"Room": "115",
+		"Room Capacity": "144",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Physics Lecture Hall",
+		"Room": "LH",
+		"Room Capacity": "300",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "111",
+		"Room Capacity": "269",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "117",
+		"Room Capacity": "126",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "118",
+		"Room Capacity": "140",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Wright Rieman Lab",
+		"Room": "AUD",
+		"Room Capacity": "121",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Waksman Institute of Microbiology",
+		"Room": "AUD",
+		"Room Capacity": "198",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "105",
+		"Room Capacity": "66",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "107",
+		"Room Capacity": "70",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "108",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "110",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "203",
+		"Room Capacity": "18",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "204",
+		"Room Capacity": "42",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "205",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "206",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "207",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "212",
+		"Room Capacity": "12",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "324",
+		"Room Capacity": "22",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "326",
+		"Room Capacity": "22",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "333",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Biomedical Engineering Building",
+		"Room": "116",
+		"Room Capacity": "65",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Biomedical Engineering Building",
+		"Room": "122",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Biomedical Engineering Building",
+		"Room": "126",
+		"Room Capacity": "32",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Biomedical Engineering Building",
+		"Room": "128",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "009",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "124",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "248",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "250",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "252",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "423",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "425",
+		"Room Capacity": "24",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "525",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "552",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Pharmacy Building",
+		"Room": "007",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Psychology Building",
+		"Room": "307",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Psychology Building",
+		"Room": "A317",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Psychology Building",
+		"Room": "A340",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "RUTCOR Modular Building",
+		"Room": "166",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "202",
+		"Room Capacity": "60",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "203",
+		"Room Capacity": "60",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "204",
+		"Room Capacity": "38",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "205",
+		"Room Capacity": "60",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "206",
+		"Room Capacity": "38",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "207",
+		"Room Capacity": "60",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "208",
+		"Room Capacity": "70",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "209",
+		"Room Capacity": "90",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "210",
+		"Room Capacity": "90",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "211",
+		"Room Capacity": "35",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "212",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "216",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "217",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "218",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "220",
+		"Room Capacity": "36",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Serin Physics Building",
+		"Room": "106",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Serin Physics Building",
+		"Room": "232",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Wright Rieman Labs",
+		"Room": "260",
+		"Room Capacity": "50",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "AUD",
+		"Room Capacity": "391",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Business Rockafeller Road",
+		"Room": "1071",
+		"Room Capacity": "126",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Business Rockafeller Road",
+		"Room": "1095",
+		"Room Capacity": "441",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Business Rockafeller Road",
+		"Room": "2071",
+		"Room Capacity": "107",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Business Rockafeller Road",
+		"Room": "3071",
+		"Room Capacity": "107",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Business Rockafeller Road",
+		"Room": "3085",
+		"Room Capacity": "107",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Business Rockafeller Road",
+		"Room": "4085",
+		"Room Capacity": "107",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Business Rockafeller Road",
+		"Room": "5085",
+		"Room Capacity": "107",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Livingston Classroom Building",
+		"Room": "102",
+		"Room Capacity": "120",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Livingston Classroom Building",
+		"Room": "110",
+		"Room Capacity": "120",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Livingston Residence Building, Bldg. B",
+		"Room": "110",
+		"Room Capacity": "84",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Livingston Residence Building, Bldg. B",
+		"Room": "110A",
+		"Room Capacity": "84",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Livingston Residence Building, Bldg. B",
+		"Room": "111A",
+		"Room Capacity": "155",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "AUD",
+		"Room Capacity": "400",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "A142",
+		"Room Capacity": "112",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "A143",
+		"Room Capacity": "114",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "116",
+		"Room Capacity": "98",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "226",
+		"Room Capacity": "109",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "232",
+		"Room Capacity": "208",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "242",
+		"Room Capacity": "118",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "254",
+		"Room Capacity": "204",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "257",
+		"Room Capacity": "128",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "264",
+		"Room Capacity": "116",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "003",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "011",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "013",
+		"Room Capacity": "27",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "101",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "111",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "119",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "121",
+		"Room Capacity": "35",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "201",
+		"Room Capacity": "48",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "213",
+		"Room Capacity": "48",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "219",
+		"Room Capacity": "48",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "221",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "250",
+		"Room Capacity": "70",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "251",
+		"Room Capacity": "54",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "252",
+		"Room Capacity": "65",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Beck Hall",
+		"Room": "253",
+		"Room Capacity": "70",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "1144",
+		"Room Capacity": "50",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "3031",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "3038",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "3087",
+		"Room Capacity": "58",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "4031",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "4038",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "4071",
+		"Room Capacity": "58",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "4073",
+		"Room Capacity": "58",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "4087",
+		"Room Capacity": "58",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "5071",
+		"Room Capacity": "58",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "5073",
+		"Room Capacity": "58",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "5087",
+		"Room Capacity": "58",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "5095",
+		"Room Capacity": "58",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "5101",
+		"Room Capacity": "58",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "5105",
+		"Room Capacity": "58",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "5109",
+		"Room Capacity": "58",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "5113",
+		"Room Capacity": "48",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Busines Rockafeller Road",
+		"Room": "5117",
+		"Room Capacity": "58",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "School of Business (Levin Building)",
+		"Room": "006",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Livingston Classroom Building",
+		"Room": "103",
+		"Room Capacity": "80",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Livingston Classroom Building",
+		"Room": "109",
+		"Room Capacity": "80",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "A121",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "A137",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "A138",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "A139",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "A140",
+		"Room Capacity": "22",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "A256",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "B105",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "B109",
+		"Room Capacity": "24",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "B110",
+		"Room Capacity": "35",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "B111",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "B112",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "B115",
+		"Room Capacity": "78",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "B116",
+		"Room Capacity": "26",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "B117",
+		"Room Capacity": "78",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "B121",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "B123",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "B205",
+		"Room Capacity": "26",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "B267",
+		"Room Capacity": "80",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Lucy Stone Hall",
+		"Room": "B269",
+		"Room Capacity": "80",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "103A",
+		"Room Capacity": "42",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "103B",
+		"Room Capacity": "42",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "103C",
+		"Room Capacity": "44",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "103D",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "105",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "123",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "125",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "127",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "204",
+		"Room Capacity": "90",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "207",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "209",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "224",
+		"Room Capacity": "27",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "230",
+		"Room Capacity": "48",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "246",
+		"Room Capacity": "82",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "251",
+		"Room Capacity": "44",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "252",
+		"Room Capacity": "48",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "253",
+		"Room Capacity": "58",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Tillett Hall",
+		"Room": "258",
+		"Room Capacity": "104",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "LIV"
+	},
+	{
+		"Building": "Art History Hall",
+		"Room": "200",
+		"Room Capacity": "150",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Cook/Douglass Lecture Hall",
+		"Room": "102",
+		"Room Capacity": "120",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Cook/Douglass Lecture Hall",
+		"Room": "110",
+		"Room Capacity": "120",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Food Science Building",
+		"Room": "AUD",
+		"Room Capacity": "194",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "101",
+		"Room Capacity": "306",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "138",
+		"Room Capacity": "499",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Loree Addition",
+		"Room": "020",
+		"Room Capacity": "111",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Loree Addition",
+		"Room": "022",
+		"Room Capacity": "282",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Loree Addition",
+		"Room": "024",
+		"Room Capacity": "155",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Adams Building",
+		"Room": "001",
+		"Room Capacity": "144",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Art History Hall",
+		"Room": "100",
+		"Room Capacity": "60",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Art History Hall",
+		"Room": "201",
+		"Room Capacity": "35",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Art History Hall",
+		"Room": "202",
+		"Room Capacity": "35",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Biological Sciences Building",
+		"Room": "205",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Blake Hall",
+		"Room": "101",
+		"Room Capacity": "24",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Blake Hall",
+		"Room": "131",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Blake Hall",
+		"Room": "152",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Bartlett Hall",
+		"Room": "123",
+		"Room Capacity": "100",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Cook/Douglass Lecture Hall",
+		"Room": "103",
+		"Room Capacity": "80",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Cook/Douglass Lecture Hall",
+		"Room": "109",
+		"Room Capacity": "80",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Davison Hall",
+		"Room": "122",
+		"Room Capacity": "44",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Davison Hall",
+		"Room": "129",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Environmental & Natural Resource Sciences Building",
+		"Room": "123",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Environmental & Natural Resource Sciences Building",
+		"Room": "223",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Foran Hall",
+		"Room": "138A",
+		"Room Capacity": "60",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Foran Hall",
+		"Room": "138B",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Food Science Building",
+		"Room": "101",
+		"Room Capacity": "48",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Food Science Building",
+		"Room": "109",
+		"Room Capacity": "48",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "112",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "113",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "114",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "115",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "117",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "118",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "119",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "122",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "123",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "127",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "129",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "130",
+		"Room Capacity": "32",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "131",
+		"Room Capacity": "32",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "132",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "201",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "202",
+		"Room Capacity": "42",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "204",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "205",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "206",
+		"Room Capacity": "15",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "207",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "209",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "210",
+		"Room Capacity": "35",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "211",
+		"Room Capacity": "42",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "213",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "214",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "216",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "218",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Hickman Hall",
+		"Room": "313",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Heldrich Science Building",
+		"Room": "106",
+		"Room Capacity": "75",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Heldrich Science Building",
+		"Room": "201",
+		"Room Capacity": "75",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Heldrich Science Building",
+		"Room": "206",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Loree Building",
+		"Room": "115",
+		"Room Capacity": "48",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Robert Mortensen Hall",
+		"Room": "002",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Robert Mortensen Hall",
+		"Room": "026",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Robert Mortensen Hall",
+		"Room": "101",
+		"Room Capacity": "150",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Robert Mortensen Hall",
+		"Room": "209",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Adams Building",
+		"Room": "104",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Adams Building",
+		"Room": "105",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Adams Building",
+		"Room": "109A",
+		"Room Capacity": "24",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Adams Building",
+		"Room": "109B",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Adams Building",
+		"Room": "110A",
+		"Room Capacity": "32",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Adams Building",
+		"Room": "110B",
+		"Room Capacity": "32",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Adams Building",
+		"Room": "204",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Adams Building",
+		"Room": "206",
+		"Room Capacity": "70",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Adams Building",
+		"Room": "207",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Adams Building",
+		"Room": "208",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Adams Building",
+		"Room": "209A",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Adams Building",
+		"Room": "209B",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Ruth Dill Johnson Crockett Building",
+		"Room": "011",
+		"Room Capacity": "26",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Rehearsal Hall",
+		"Room": "101",
+		"Room Capacity": "36",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Rehearsal Hall",
+		"Room": "201",
+		"Room Capacity": "18",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Thompson Hall",
+		"Room": "101",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Thompson Hall",
+		"Room": "201",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Thompson Hall",
+		"Room": "206",
+		"Room Capacity": "55",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Waller Hall",
+		"Room": "203",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Waller Hall",
+		"Room": "210",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "FALSE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	},
+	{
+		"Building": "Walters Hall",
+		"Room": "129",
+		"Room Capacity": "16",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "D/C"
+	}
+]
