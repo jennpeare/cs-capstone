@@ -12,6 +12,7 @@ import com.google.gson.reflect.TypeToken;
 
 /**
  * @author Billy Lynch
+ * @author Jenny Shi
  *
  */
 public class Schedule {

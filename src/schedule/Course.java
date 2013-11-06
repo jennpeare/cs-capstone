@@ -2,6 +2,11 @@ package schedule;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * @author Billy Lynch
+ * @author Jenny Shi
+ * 
+ */
 public class Course {
 	@SerializedName("campusCode")
 	String campusCode;	
@@ -25,6 +30,9 @@ public class Course {
 	String title;
 	String unitNotes;
 	
+	/**
+	 *
+	 */
 	public static class CoreCodes {
 		String code;
 		String course;

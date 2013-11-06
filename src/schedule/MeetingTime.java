@@ -1,5 +1,10 @@
 package schedule;
 
+/**
+ * @author Billy Lynch
+ * @author Jenny Shi
+ *
+ */
 public class MeetingTime {
 
 	String baClassHours;
