@@ -1,10 +1,12 @@
 package schedule;
 
 import java.io.IOException;
+
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.Scanner;
 import java.util.TreeMap;
+import java.util.HashMap;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -36,10 +38,38 @@ public class Schedule {
 			for (Course c: courses) {
 				for (Section s: c.sections) {
 					Classroom cr = classrooms.get(classrooms.ceilingKey(s.stopPoint));
-					System.out.println(c.title + " " + c.courseNumber + " " + s.stopPoint + 
-							" " + cr.building + " " + cr.room + " " + cr.capacity);
+//					System.out.println(c.title + " " + c.courseNumber + " " + s.stopPoint + 
+//							" " + cr.building + " " + cr.room + " " + cr.capacity);
 				}
 			}
+			
+			HashMap<String, CourseCondensed> lectures = new HashMap<String, CourseCondensed>();
+			HashMap<String, CourseCondensed> recitations = new HashMap<String, CourseCondensed>();
+			String prof = "";
+			
+			for (Course c: courses) {
+				for (Section s: c.sections) {
+					if (s.instructors.length != 0) {
+						prof = s.instructors[0].name;
+					}
+					for (MeetingTime m: s.meetingTimes) {
+						if (m.meetingDay == null) {
+							continue;
+						}
+						
+						String key = m.meetingDay + m.startTime + m.endTime + m.pmCode + prof;
+						CourseCondensed cc = new CourseCondensed(c, s, m);
+						sortCourses(lectures, recitations, cc, key);
+					}
+				}
+			}
+			
+			for (CourseCondensed cc : lectures.values()) {
+				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
+						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
+						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime);
+			}
+			
 		} catch (IOException e) {
 			System.out.println("ERROR");
 		}
@@ -63,6 +93,22 @@ public class Schedule {
 			return fileContents.toString();
 		} finally {
 			scanner.close();
+		}
+	}
+	
+	private static void sortCourses(HashMap<String, CourseCondensed> lectures, 
+			HashMap<String, CourseCondensed> recitations, CourseCondensed cc, String key) {
+//		System.out.println("sortCourses: " + cc.course.title + " " + cc.course.courseNumber + " " 
+//				+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
+//				cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime);
+		if (cc.meetingTime.meetingModeCode.equals("02")) { // LEC
+			if (!lectures.containsKey(key)) {
+				lectures.put(key, cc);
+			}
+		} else if (cc.meetingTime.meetingModeCode.equals("03")) { // RECIT
+			if (!recitations.containsKey(key)) {
+				recitations.put(key, cc);
+			}
 		}
 	}
 	
