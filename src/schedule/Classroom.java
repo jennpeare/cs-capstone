@@ -1,13 +1,23 @@
 package schedule;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Classroom {
 	
+	@SerializedName("Building")
 	String building;
+	@SerializedName("Room")
 	String room;
+	@SerializedName("Room Capacity")
 	int capacity;
+	@SerializedName("Wheelchair Accessible")
 	boolean wheelchair;
+	@SerializedName("Restricted")
 	boolean restricted;
+	@SerializedName("Type")
 	String type;
+	@SerializedName("Campus")
+	String campus;
 	
 	public Classroom() {
 		
