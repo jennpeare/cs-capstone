@@ -17,6 +17,10 @@ import com.google.gson.reflect.TypeToken;
  * @author Jenny Shi
  *
  */
+/**
+ * @author jingfei
+ *
+ */
 public class Schedule {
 	
 	/**
@@ -61,10 +65,12 @@ public class Schedule {
 				}
 			}
 			
+			// HashMaps to store LEC and RECIT
 			HashMap<String, CourseCondensed> lectures = new HashMap<String, CourseCondensed>();
 			HashMap<String, CourseCondensed> recitations = new HashMap<String, CourseCondensed>();
 			String prof = "";
 			
+			// sort each MeetingTime based on LECTURE or RECITATIONS
 			for (Course c: courses) {
 				for (Section s: c.sections) {
 					if (s.instructors.length != 0) {
@@ -114,6 +120,10 @@ public class Schedule {
 		}
 	}
 
+	/**
+	 * @param classrooms
+	 * @return
+	 */
 	private static TreeMap<Integer,Classroom> buildTree(Classroom[] classrooms) {
 		TreeMap<Integer, Classroom> map = new TreeMap<Integer,Classroom>();
 		for (Classroom room: classrooms) {
@@ -122,6 +132,12 @@ public class Schedule {
 		return map;
 	}
 
+	/**
+	 * @param lectures
+	 * @param recitations
+	 * @param cc
+	 * @param key
+	 */
 	private static void sortCourses(HashMap<String, CourseCondensed> lectures, 
 			HashMap<String, CourseCondensed> recitations, CourseCondensed cc, String key) {
 //		System.out.println("sortCourses: " + cc.course.title + " " + cc.course.courseNumber + " " 
