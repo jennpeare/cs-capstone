@@ -35,7 +35,8 @@ public class Schedule {
 			for (Course c: courses) {
 				for (Section s: c.sections) {
 					Classroom cr = classrooms.get(classrooms.ceilingKey(s.stopPoint));
-					System.out.println(c.title + " " + c.courseNumber + " " + cr.building + " " + cr.room);
+					System.out.println(c.title + " " + c.courseNumber + " " + s.stopPoint + 
+							" " + cr.building + " " + cr.room + " " + cr.capacity);
 				}
 			}
 		} catch (IOException e) {
