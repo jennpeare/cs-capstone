@@ -15,6 +15,7 @@ public class MeetingTime {
 	String endTime;
 	String meetingDay;
 	String meetingModeCode;
+	String meetingModeDesc;
 	String pmCode;
 	String roomNumber;
 	String startTime;
