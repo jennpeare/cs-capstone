@@ -44,7 +44,18 @@ public class Schedule {
 			// Look for best rooms
 			for (Course c: courses) {
 				for (Section s: c.sections) {
-					Classroom cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(s.stopPoint));
+					int targetCapacity = s.stopPoint;
+					MeetingTime mt = s.meetingTimes[0];
+					if (mt.meetingDay == null)
+						continue;
+					String key = mt.meetingDay + mt.startTime + mt.endTime + mt.pmCode;
+					Classroom cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
+					while (cr.booked.containsKey(key)) {
+						targetCapacity++;
+						cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
+					}
+					cr.booked.put(key, true);
+					
 					System.out.println(c.title + " " + c.courseNumber + " " + s.stopPoint + 
 							" " + cr.building + " " + cr.room + " " + cr.capacity);
 				}

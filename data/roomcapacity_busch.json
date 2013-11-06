@@ -1,0 +1,560 @@
+[
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "103",
+		"Room Capacity": "500",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Biomedical Engineering Building",
+		"Room": "102",
+		"Room Capacity": "141",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Engineering Building",
+		"Room": "B120",
+		"Room Capacity": "165",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "114",
+		"Room Capacity": "314",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "116",
+		"Room Capacity": "105",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Pharmacy Building",
+		"Room": "111",
+		"Room Capacity": "144",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Pharmacy Building",
+		"Room": "115",
+		"Room Capacity": "144",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Physics Lecture Hall",
+		"Room": "LH",
+		"Room Capacity": "300",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "111",
+		"Room Capacity": "269",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "117",
+		"Room Capacity": "126",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "118",
+		"Room Capacity": "140",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Wright Rieman Lab",
+		"Room": "AUD",
+		"Room Capacity": "121",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Waksman Institute of Microbiology",
+		"Room": "AUD",
+		"Room Capacity": "198",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Lecture Hall",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "105",
+		"Room Capacity": "66",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "107",
+		"Room Capacity": "70",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "108",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "110",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "203",
+		"Room Capacity": "18",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "204",
+		"Room Capacity": "42",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "205",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "206",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "207",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "212",
+		"Room Capacity": "12",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "324",
+		"Room Capacity": "22",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "326",
+		"Room Capacity": "22",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Allison Road Classroom Building",
+		"Room": "333",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Biomedical Engineering Building",
+		"Room": "116",
+		"Room Capacity": "65",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Biomedical Engineering Building",
+		"Room": "122",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Biomedical Engineering Building",
+		"Room": "126",
+		"Room Capacity": "32",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Biomedical Engineering Building",
+		"Room": "128",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "009",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "124",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "248",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "250",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "252",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "423",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "425",
+		"Room Capacity": "24",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "525",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Hill Center",
+		"Room": "552",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Pharmacy Building",
+		"Room": "007",
+		"Room Capacity": "49",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Psychology Building",
+		"Room": "307",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Psychology Building",
+		"Room": "A317",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Psychology Building",
+		"Room": "A340",
+		"Room Capacity": "25",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "RUTCOR Modular Building",
+		"Room": "166",
+		"Room Capacity": "40",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "202",
+		"Room Capacity": "60",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "203",
+		"Room Capacity": "60",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "204",
+		"Room Capacity": "38",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "205",
+		"Room Capacity": "60",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "206",
+		"Room Capacity": "38",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "207",
+		"Room Capacity": "60",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "208",
+		"Room Capacity": "70",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "209",
+		"Room Capacity": "90",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "210",
+		"Room Capacity": "90",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "211",
+		"Room Capacity": "35",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "212",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "216",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "217",
+		"Room Capacity": "45",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "218",
+		"Room Capacity": "28",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Science & Engineering Resource Center",
+		"Room": "220",
+		"Room Capacity": "36",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "FALSE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Serin Physics Building",
+		"Room": "106",
+		"Room Capacity": "20",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Serin Physics Building",
+		"Room": "232",
+		"Room Capacity": "30",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	},
+	{
+		"Building": "Wright Rieman Labs",
+		"Room": "260",
+		"Room Capacity": "50",
+		"Wheelchair Accessible": "TRUE",
+		"Restricted": "TRUE",
+		"Type": "Classroom",
+		"Campus": "BUS"
+	}
+]

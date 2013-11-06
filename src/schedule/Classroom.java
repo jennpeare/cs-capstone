@@ -1,5 +1,7 @@
 package schedule;
 
+import java.util.HashMap;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Classroom {
@@ -18,6 +20,8 @@ public class Classroom {
 	String type;
 	@SerializedName("Campus")
 	String campus;
+	
+	HashMap<String, Boolean> booked = new HashMap<String, Boolean>();
 	
 	public Classroom() {
 		
