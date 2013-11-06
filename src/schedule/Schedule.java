@@ -17,10 +17,6 @@ import com.google.gson.reflect.TypeToken;
  * @author Jenny Shi
  *
  */
-/**
- * @author jingfei
- *
- */
 public class Schedule {
 	
 	/**
