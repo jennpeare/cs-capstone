@@ -40,27 +40,7 @@ public class Schedule {
 			collectionType = new TypeToken<Classroom[]>(){}.getType();
 			Classroom[] classrooms = gson.fromJson(json, collectionType);
 			TreeMap<Integer, Classroom> sortedClassrooms = buildTree(classrooms);
-			
-			// Look for best rooms
-			for (Course c: courses) {
-				for (Section s: c.sections) {
-					int targetCapacity = s.stopPoint;
-					MeetingTime mt = s.meetingTimes[0];
-					if (mt.meetingDay == null)
-						continue;
-					String key = mt.meetingDay + mt.startTime + mt.endTime + mt.pmCode;
-					Classroom cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
-					while (cr.booked.containsKey(key)) {
-						targetCapacity++;
-						cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
-					}
-					cr.booked.put(key, true);
-					
-					System.out.println(c.title + " " + c.courseNumber + " " + s.stopPoint + 
-							" " + cr.building + " " + cr.room + " " + cr.capacity);
-				}
-			}
-			
+				
 			// HashMaps to store LEC and RECIT
 			HashMap<String, CourseCondensed> lectures = new HashMap<String, CourseCondensed>();
 			HashMap<String, CourseCondensed> recitations = new HashMap<String, CourseCondensed>();
@@ -89,6 +69,10 @@ public class Schedule {
 						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
 						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime);
 			}
+		
+			// assign ideal room to lectures/recitations based on class size and room capacity
+			assignRoom(sortedClassrooms, lectures);
+			assignRoom(sortedClassrooms, recitations);
 			
 		} catch (IOException e) {
 			System.out.println("ERROR");
@@ -122,10 +106,36 @@ public class Schedule {
 	 */
 	private static TreeMap<Integer,Classroom> buildTree(Classroom[] classrooms) {
 		TreeMap<Integer, Classroom> map = new TreeMap<Integer,Classroom>();
+		
 		for (Classroom room: classrooms) {
 			map.put(room.capacity, room);
 		}
 		return map;
+	}
+	
+	/**
+	 * @param sortedClassrooms
+	 * @param courseList
+	 */
+	private static void assignRoom(TreeMap<Integer, Classroom> sortedClassrooms, 
+			HashMap<String, CourseCondensed> courseList) {
+		
+		for (CourseCondensed cc: courseList.values()) {
+			int targetCapacity = cc.section.stopPoint;
+			MeetingTime mt = cc.section.meetingTimes[0];
+			if (mt.meetingDay == null)
+				continue;
+			String key = mt.meetingDay + mt.startTime + mt.endTime + mt.pmCode;
+			Classroom cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
+			while (cr.booked.containsKey(key)) {
+				targetCapacity++;
+				cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
+			}
+			cr.booked.put(key, true);
+			
+			System.out.println(cc.course.title + " " + cc.course.courseNumber + " " + 
+					cc.section.stopPoint + " " + cr.building + " " + cr.room + " " + cr.capacity);
+		}
 	}
 
 	/**
@@ -136,6 +146,7 @@ public class Schedule {
 	 */
 	private static void sortCourses(HashMap<String, CourseCondensed> lectures, 
 			HashMap<String, CourseCondensed> recitations, CourseCondensed cc, String key) {
+		
 //		System.out.println("sortCourses: " + cc.course.title + " " + cc.course.courseNumber + " " 
 //				+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
 //				cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime);
@@ -148,5 +159,5 @@ public class Schedule {
 				recitations.put(key, cc);
 			}
 		}
-	}	
+	}
 }
