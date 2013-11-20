@@ -24,6 +24,7 @@ public class Schedule {
 	private static final String[] courseFiles = {
 		"data/92013/U/640.json",
 		"data/92013/U/198.json",
+		"data/92013/U/160.json"
 	};
 	private static final String capacityFile = "data/roomcapacity_busch.json";
 	
@@ -134,7 +135,7 @@ public class Schedule {
 	 * @param courseList
 	 */
 	private static void assignRoom(TreeMap<Integer, Classroom> sortedClassrooms, 
-			HashMap<String, CourseCondensed> courseList) {
+			HashMap<String, CourseCondensed> courseList) throws IllegalStateException{
 		
 		for (CourseCondensed cc: courseList.values()) {
 			int targetCapacity = cc.section.stopPoint;
@@ -145,6 +146,10 @@ public class Schedule {
 			Classroom cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
 			while (cr.booked.containsKey(key)) {
 				targetCapacity++;
+				if (sortedClassrooms.ceilingKey(targetCapacity) == null) {
+					// We have run out of rooms. Oh no!
+					throw new IllegalStateException();
+				}
 				cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
 			}
 			cr.booked.put(key, true);
