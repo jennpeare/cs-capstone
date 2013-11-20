@@ -20,6 +20,12 @@ import com.google.gson.reflect.TypeToken;
  */
 public class Schedule {
 	
+	private static final String buildingFile = "data/buildings.json"; 
+	private static final String[] courseFiles = {
+		"data/92013/U/198.json"
+	};
+	private static final String capacityFile = "data/roomcapacity_busch.json";
+	
 	/**
 	 * @param args
 	 */
@@ -27,16 +33,18 @@ public class Schedule {
 		Gson gson = new Gson();
 		try {
 			// Read in buildings
-			String json = readFile(args[0]);
+			String json = readFile(buildingFile);
 			Type collectionType = new TypeToken<Building[]>(){}.getType();
 			Building[] buildings = gson.fromJson(json, collectionType);
 			
 			// Read in courses
 			ArrayList<Course> courses = new ArrayList<Course>();
-			courses.addAll(importCourses(gson, args[1]));
+			for (String file: courseFiles) {
+				courses.addAll(importCourses(gson, file));
+			}
 			
 			// Read in classrooms
-			json = readFile(args[2]);
+			json = readFile(capacityFile);
 			collectionType = new TypeToken<Classroom[]>(){}.getType();
 			Classroom[] classrooms = gson.fromJson(json, collectionType);
 			TreeMap<Integer, Classroom> sortedClassrooms = buildTree(classrooms);
