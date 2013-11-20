@@ -22,7 +22,8 @@ public class Schedule {
 	
 	private static final String buildingFile = "data/buildings.json"; 
 	private static final String[] courseFiles = {
-		"data/92013/U/198.json"
+		"data/92013/U/640.json",
+		"data/92013/U/198.json",
 	};
 	private static final String capacityFile = "data/roomcapacity_busch.json";
 	
@@ -36,18 +37,21 @@ public class Schedule {
 			String json = readFile(buildingFile);
 			Type collectionType = new TypeToken<Building[]>(){}.getType();
 			Building[] buildings = gson.fromJson(json, collectionType);
+			System.out.println("Loaded buildings");
 			
 			// Read in courses
 			ArrayList<Course> courses = new ArrayList<Course>();
 			for (String file: courseFiles) {
 				courses.addAll(importCourses(gson, file));
 			}
+			System.out.println("Loaded courses");
 			
 			// Read in classrooms
 			json = readFile(capacityFile);
 			collectionType = new TypeToken<Classroom[]>(){}.getType();
 			Classroom[] classrooms = gson.fromJson(json, collectionType);
 			TreeMap<Integer, Classroom> sortedClassrooms = buildTree(classrooms);
+			System.out.println("Loaded classrooms");
 				
 			// HashMaps to store LEC and RECIT
 			HashMap<String, CourseCondensed> lectures = new HashMap<String, CourseCondensed>();

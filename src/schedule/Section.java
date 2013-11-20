@@ -9,7 +9,7 @@ public class Section {
 
 	String campusCode;
 	Comments[] comments;
-	String[] crossListedSections;
+	Object[] crossListedSections;
 	String examCode;
 	String[] honorsPrograms;
 	String index;
