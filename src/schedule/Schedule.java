@@ -1,6 +1,7 @@
 package schedule;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import java.io.File;
 import java.lang.reflect.Type;
@@ -31,9 +32,8 @@ public class Schedule {
 			Building[] buildings = gson.fromJson(json, collectionType);
 			
 			// Read in courses
-			json = readFile(args[1]);
-			collectionType = new TypeToken<Course[]>(){}.getType();
-			Course[] courses = gson.fromJson(json, collectionType);
+			ArrayList<Course> courses = new ArrayList<Course>();
+			courses.addAll(importCourses(gson, args[1]));
 			
 			// Read in classrooms
 			json = readFile(args[2]);
@@ -98,6 +98,10 @@ public class Schedule {
 		} finally {
 			scanner.close();
 		}
+	}
+
+	private static ArrayList<Course> importCourses(Gson gson, String filename) throws IOException {
+		return gson.fromJson(readFile(filename), new TypeToken<ArrayList<Course>>(){}.getType());
 	}
 
 	/**
