@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 
 /**
@@ -44,34 +45,36 @@ public class Schedule {
 			// HashMaps to store LEC and RECIT
 			HashMap<String, CourseCondensed> lectures = new HashMap<String, CourseCondensed>();
 			HashMap<String, CourseCondensed> recitations = new HashMap<String, CourseCondensed>();
-			String prof = "";
 			
-			// sort each MeetingTime based on LECTURE or RECITATIONS
-			for (Course c: courses) {
-				for (Section s: c.sections) {
-					if (s.instructors.length != 0) {
-						prof = s.instructors[0].name;
-					}
-					for (MeetingTime m: s.meetingTimes) {
-						if (m.meetingDay == null) {
-							continue;
-						}
-						
-						String key = m.meetingDay + m.startTime + m.endTime + m.pmCode + prof;
-						CourseCondensed cc = new CourseCondensed(c, s, m);
-						sortCourses(lectures, recitations, cc, key);
-					}
+			separateCourses(courses, lectures, recitations);
+			
+			System.out.println("==========LECTURES==========");
+			
+			for (CourseCondensed cc : lectures.values()) {
+				if (cc.course.courseNumber.equals("111")) {
+				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
+						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
+						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
+						cc.section.stopPoint);
+				}
+			}
+		
+			System.out.println("\n==========RECITATIONS==========");
+			
+			for (CourseCondensed cc : recitations.values()) {
+				if (cc.course.courseNumber.equals("111")) {
+				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
+						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
+						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
+						cc.section.stopPoint);
 				}
 			}
 			
-			for (CourseCondensed cc : lectures.values()) {
-				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
-						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
-						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime);
-			}
-		
 			// assign ideal room to lectures/recitations based on class size and room capacity
+			System.out.println("\n===========ASSIGN LECTURES==========");
 			assignRoom(sortedClassrooms, lectures);
+			
+			System.out.println("\n===========ASSIGN RECITATIONS==========");
 			assignRoom(sortedClassrooms, recitations);
 			
 		} catch (IOException e) {
@@ -139,25 +142,57 @@ public class Schedule {
 	}
 
 	/**
+	 * @param courses
 	 * @param lectures
 	 * @param recitations
-	 * @param cc
-	 * @param key
 	 */
-	private static void sortCourses(HashMap<String, CourseCondensed> lectures, 
-			HashMap<String, CourseCondensed> recitations, CourseCondensed cc, String key) {
+	private static void separateCourses(Course[] courses, HashMap<String, CourseCondensed> lectures, 
+			HashMap<String, CourseCondensed> recitations) {
 		
-//		System.out.println("sortCourses: " + cc.course.title + " " + cc.course.courseNumber + " " 
-//				+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
-//				cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime);
-		if (cc.meetingTime.meetingModeCode.equals("02")) { // LEC
-			if (!lectures.containsKey(key)) {
-				lectures.put(key, cc);
+		String prof = "", key = "", ptr = "";
+		int classSize = 0;
+		
+		// sort each MeetingTime based on LECTURE or RECITATIONS
+		for (Course c: courses) {
+			
+			for (Section s: c.sections) {
+				
+				// copy of each Section s to preserve recitation stopPoint
+				Section sr = new Section(s);
+				
+				if (s.instructors.length != 0) {
+					prof = s.instructors[0].name;
+					if (lectures.containsKey(ptr)) {
+						lectures.get(ptr).section.stopPoint = classSize;
+					}
+					classSize = s.stopPoint;
+				} else {
+					classSize += s.stopPoint;
+				}
+				
+				for (MeetingTime m: s.meetingTimes) {
+					
+					if (m.meetingDay == null) 
+						continue; // if no scheduled meeting time, skip;
+					
+					key = m.meetingDay + m.startTime + m.endTime + m.pmCode + m.buildingCode + 
+							m.roomNumber + prof;
+					CourseCondensed cl = new CourseCondensed(c, s, m); // lecture specific CC
+					CourseCondensed cr = new CourseCondensed(c, sr, m); // recitation specific CC
+					
+					//insert cc into appropriate hashmap
+					if (m.meetingModeCode.equals("02")) { // LEC
+						if (!lectures.containsKey(key)) {
+							ptr = key; // keep track of last lecture in hashmap
+							lectures.put(key, cl);
+						}
+					} else if (m.meetingModeCode.equals("03")) { // RECIT
+						if (!recitations.containsKey(key)) {
+							recitations.put(key, cr);
+						}
+					}
+				}
 			}
-		} else if (cc.meetingTime.meetingModeCode.equals("03")) { // RECIT
-			if (!recitations.containsKey(key)) {
-				recitations.put(key, cc);
-			}
-		}
+		}		
 	}
 }
