@@ -10,7 +10,6 @@ import java.util.HashMap;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 
 /**
@@ -51,23 +50,21 @@ public class Schedule {
 			System.out.println("==========LECTURES==========");
 			
 			for (CourseCondensed cc : lectures.values()) {
-				if (cc.course.courseNumber.equals("111")) {
+				if (cc.course.courseNumber.equals("112"))
 				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
 						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
 						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
 						cc.section.stopPoint);
-				}
 			}
 		
 			System.out.println("\n==========RECITATIONS==========");
 			
 			for (CourseCondensed cc : recitations.values()) {
-				if (cc.course.courseNumber.equals("111")) {
+				if (cc.course.courseNumber.equals("112"))
 				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
 						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
 						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
 						cc.section.stopPoint);
-				}
 			}
 			
 			// assign ideal room to lectures/recitations based on class size and room capacity
@@ -132,6 +129,7 @@ public class Schedule {
 			Classroom cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
 			while (cr.booked.containsKey(key)) {
 				targetCapacity++;
+				//System.out.println(cc.course.title + " " + targetCapacity);
 				cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
 			}
 			cr.booked.put(key, true);
@@ -142,9 +140,9 @@ public class Schedule {
 	}
 
 	/**
-	 * @param courses
-	 * @param lectures
-	 * @param recitations
+	 * @param courses Array of course objects
+	 * @param lectures HashMap storing unique lectures
+	 * @param recitations HashMap storing unique recitations
 	 */
 	private static void separateCourses(Course[] courses, HashMap<String, CourseCondensed> lectures, 
 			HashMap<String, CourseCondensed> recitations) {
@@ -162,8 +160,18 @@ public class Schedule {
 				
 				if (s.instructors.length != 0) {
 					prof = s.instructors[0].name;
+
 					if (lectures.containsKey(ptr)) {
-						lectures.get(ptr).section.stopPoint = classSize;
+//						System.out.println("currentKey: " + key + " prevKey: " + ptr);
+						if (! lectures.get(ptr).section.editedCap) {
+							lectures.get(ptr).section.stopPoint = classSize;
+//							lectures.get(ptr).section.editedCap = true;
+//						} else {
+//							int prevCap = lectures.get(ptr).section.stopPoint;
+//							System.out.println(lectures.get(ptr).course.title + " " + prevCap);
+//							lectures.get(ptr).section.stopPoint = prevCap + classSize;
+//							System.out.println(lectures.get(ptr).section.stopPoint);
+						}
 					}
 					classSize = s.stopPoint;
 				} else {
@@ -172,23 +180,24 @@ public class Schedule {
 				
 				for (MeetingTime m: s.meetingTimes) {
 					
+					// if no scheduled meeting time, skip;
 					if (m.meetingDay == null) 
-						continue; // if no scheduled meeting time, skip;
+						continue;
 					
+					// hash key to distinguish unique lectures and recitations
 					key = m.meetingDay + m.startTime + m.endTime + m.pmCode + m.buildingCode + 
 							m.roomNumber + prof;
-					CourseCondensed cl = new CourseCondensed(c, s, m); // lecture specific CC
-					CourseCondensed cr = new CourseCondensed(c, sr, m); // recitation specific CC
 					
-					//insert cc into appropriate hashmap
-					if (m.meetingModeCode.equals("02")) { // LEC
+					// insert MeetingTime into appropriate hashmap
+					if (m.meetingModeCode.equals(MeetingTime.lectureCode)) {
 						if (!lectures.containsKey(key)) {
 							ptr = key; // keep track of last lecture in hashmap
-							lectures.put(key, cl);
+							//System.out.println(ptr);
+							lectures.put(key, new CourseCondensed(c, s, m));
 						}
-					} else if (m.meetingModeCode.equals("03")) { // RECIT
+					} else if (m.meetingModeCode.equals(MeetingTime.recitationCode)) {
 						if (!recitations.containsKey(key)) {
-							recitations.put(key, cr);
+							recitations.put(key, new CourseCondensed(c, sr, m));
 						}
 					}
 				}

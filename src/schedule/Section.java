@@ -34,6 +34,8 @@ public class Section {
 	String subtopic;
 	String[] unitMajors;
 	
+	boolean editedCap;
+	
 	/**
 	 *
 	 */
@@ -77,6 +79,7 @@ public class Section {
 		this.subtitle = s.subtitle;
 		this.subtopic = s.subtopic;
 		this.unitMajors = s.unitMajors;
+		this.editedCap = s.editedCap;
 	}
 	
 }
