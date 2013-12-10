@@ -50,7 +50,6 @@ public class Schedule {
 			System.out.println("==========LECTURES==========");
 			
 			for (CourseCondensed cc : lectures.values()) {
-				if (cc.course.courseNumber.equals("112"))
 				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
 						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
 						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
@@ -60,7 +59,6 @@ public class Schedule {
 			System.out.println("\n==========RECITATIONS==========");
 			
 			for (CourseCondensed cc : recitations.values()) {
-				if (cc.course.courseNumber.equals("112"))
 				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
 						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
 						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
