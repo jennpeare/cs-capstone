@@ -2,9 +2,10 @@ package schedule;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import java.io.File;
 import java.lang.reflect.Type;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.HashMap;
@@ -79,11 +80,23 @@ public class Schedule {
 			}
 			
 			// assign ideal room to lectures/recitations based on class size and room capacity
+			HashMap<CourseCondensed, Classroom> schedule = new HashMap<CourseCondensed, Classroom>();
+			ArrayList<CourseCondensed> failed = new ArrayList<CourseCondensed>();
 			System.out.println("\n===========ASSIGN LECTURES==========");
-			assignRoom(sortedClassrooms, lectures);
+			assignRoom(sortedClassrooms, lectures, schedule, failed);
 			
 			System.out.println("\n===========ASSIGN RECITATIONS==========");
-			assignRoom(sortedClassrooms, recitations);
+			assignRoom(sortedClassrooms, recitations, schedule, failed);
+			
+			for (CourseCondensed cc: schedule.keySet()) {
+				System.out.println("Scheduled: " + cc.course.title + "\t" + cc.course.courseNumber + "\t" + 
+						cc.section.stopPoint + " " + schedule.get(cc).building + " " + schedule.get(cc).room + " " + schedule.get(cc).capacity);
+			}
+			
+			for (CourseCondensed cc: failed) {
+				System.out.println("Failed: " + cc.course.title + "\t" + cc.course.courseNumber + "\t" + 
+						cc.section.stopPoint);
+			}
 			
 		} catch (IOException e) {
 			System.out.println("ERROR");
@@ -133,34 +146,34 @@ public class Schedule {
 	 * @param courseList
 	 */
 	private static void assignRoom(TreeMap<Integer, Classroom> sortedClassrooms, 
-			HashMap<String, CourseCondensed> courseList) throws IllegalStateException{
+			HashMap<String, CourseCondensed> courseList, HashMap<CourseCondensed, Classroom> schedule, 
+			List<CourseCondensed> failed) throws IllegalStateException{
 		
-		for (CourseCondensed cc: courseList.values()) {
+		List<CourseCondensed> classes = new ArrayList<CourseCondensed>(courseList.values());
+		Collections.sort(classes);
+		for (CourseCondensed cc: classes) {
 			int targetCapacity = cc.section.stopPoint;
 			MeetingTime mt = cc.section.meetingTimes[0];
 			if (mt.meetingDay == null)
 				continue;
+			
 			String key = mt.meetingDay + mt.startTime + mt.endTime + mt.pmCode;
-			Classroom cr = new Classroom();
-			
-			try {
+			Classroom cr = null;
+			boolean scheduled = false;
+			while ((sortedClassrooms.ceilingKey(targetCapacity) != null)) {
 				cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
-			} catch(NullPointerException e){
-				System.out.println(e.getMessage());
-			}
-			
-			while (cr.booked.containsKey(key)) {
-				targetCapacity++;
-				if (sortedClassrooms.ceilingKey(targetCapacity) == null) {
-					// We have run out of rooms. Oh no!
-					throw new IllegalStateException();
+				if (!cr.booked.containsKey(key)) {
+					cr.booked.put(key, true);
+					schedule.put(cc, cr);
+					scheduled = true;
+					break;
 				}
-				cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
+				targetCapacity++;
 			}
-			cr.booked.put(key, true);
+			if (!scheduled) {
+				failed.add(cc);
+			}
 			
-			System.out.println(cc.course.title + " " + cc.course.courseNumber + " " + 
-					cc.section.stopPoint + " " + cr.building + " " + cr.room + " " + cr.capacity);
 		}
 	}
 
