@@ -16,6 +16,5 @@ public class CourseCondensed implements Comparable<CourseCondensed> {
 	public int compareTo(CourseCondensed o) {
 		// TODO Auto-generated method stub
 		return o.section.stopPoint - this.section.stopPoint;
-		//return this.section.stopPoint - o.section.stopPoint;
 	}
 }
