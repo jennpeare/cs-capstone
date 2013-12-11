@@ -17,7 +17,7 @@ public class Section {
 	String legendKey;
 	Major[] majors;
 	MeetingTime[] meetingTimes;
-	String[] minors;
+	Object[] minors;
 	String number;
 	boolean openStatus;
 	String printed;
@@ -32,7 +32,7 @@ public class Section {
 	int stopPoint;
 	String subtitle;
 	String subtopic;
-	String[] unitMajors;
+	Object[] unitMajors;
 	
 	boolean editedCap;
 	
