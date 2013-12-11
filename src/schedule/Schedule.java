@@ -2,9 +2,10 @@ package schedule;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import java.io.File;
 import java.lang.reflect.Type;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.HashMap;
@@ -135,20 +136,17 @@ public class Schedule {
 	private static void assignRoom(TreeMap<Integer, Classroom> sortedClassrooms, 
 			HashMap<String, CourseCondensed> courseList) throws IllegalStateException{
 		
-		for (CourseCondensed cc: courseList.values()) {
+		List<CourseCondensed> classes = new ArrayList<CourseCondensed>(courseList.values());
+		Collections.sort(classes);
+		for (CourseCondensed cc: classes) {
 			int targetCapacity = cc.section.stopPoint;
 			MeetingTime mt = cc.section.meetingTimes[0];
 			if (mt.meetingDay == null)
 				continue;
 			String key = mt.meetingDay + mt.startTime + mt.endTime + mt.pmCode;
-			Classroom cr = new Classroom();
+			Classroom cr = null;
 			
-			try {
-				cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
-			} catch(NullPointerException e){
-				System.out.println(e.getMessage());
-			}
-			
+			cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
 			while (cr.booked.containsKey(key)) {
 				targetCapacity++;
 				if (sortedClassrooms.ceilingKey(targetCapacity) == null) {
@@ -158,8 +156,7 @@ public class Schedule {
 				cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
 			}
 			cr.booked.put(key, true);
-			
-			System.out.println(cc.course.title + " " + cc.course.courseNumber + " " + 
+			System.out.println(cc.course.title + "\t" + cc.course.courseNumber + "\t" + 
 					cc.section.stopPoint + " " + cr.building + " " + cr.room + " " + cr.capacity);
 		}
 	}
