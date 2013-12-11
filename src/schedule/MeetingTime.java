@@ -20,6 +20,9 @@ public class MeetingTime {
 	String roomNumber;
 	String startTime;
 	
+	public static final String lectureCode = "02";
+	public static final String recitationCode = "03";
+	
 	public MeetingTime() {
 		
 	}

@@ -57,34 +57,32 @@ public class Schedule {
 			// HashMaps to store LEC and RECIT
 			HashMap<String, CourseCondensed> lectures = new HashMap<String, CourseCondensed>();
 			HashMap<String, CourseCondensed> recitations = new HashMap<String, CourseCondensed>();
-			String prof = "";
 			
-			// sort each MeetingTime based on LECTURE or RECITATIONS
-			for (Course c: courses) {
-				for (Section s: c.sections) {
-					if (s.instructors.length != 0) {
-						prof = s.instructors[0].name;
-					}
-					for (MeetingTime m: s.meetingTimes) {
-						if (m.meetingDay == null) {
-							continue;
-						}
-						
-						String key = m.meetingDay + m.startTime + m.endTime + m.pmCode + prof;
-						CourseCondensed cc = new CourseCondensed(c, s, m);
-						sortCourses(lectures, recitations, cc, key);
-					}
-				}
-			}
+			separateCourses(courses, lectures, recitations);
+			
+			System.out.println("==========LECTURES==========");
 			
 			for (CourseCondensed cc : lectures.values()) {
 				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
 						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
-						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime);
+						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
+						cc.section.stopPoint);
 			}
 		
+			System.out.println("\n==========RECITATIONS==========");
+			
+			for (CourseCondensed cc : recitations.values()) {
+				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
+						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
+						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
+						cc.section.stopPoint);
+			}
+			
 			// assign ideal room to lectures/recitations based on class size and room capacity
+			System.out.println("\n===========ASSIGN LECTURES==========");
 			assignRoom(sortedClassrooms, lectures);
+			
+			System.out.println("\n===========ASSIGN RECITATIONS==========");
 			assignRoom(sortedClassrooms, recitations);
 			
 		} catch (IOException e) {
@@ -143,7 +141,14 @@ public class Schedule {
 			if (mt.meetingDay == null)
 				continue;
 			String key = mt.meetingDay + mt.startTime + mt.endTime + mt.pmCode;
-			Classroom cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
+			Classroom cr = new Classroom();
+			
+			try {
+				cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
+			} catch(NullPointerException e){
+				System.out.println(e.getMessage());
+			}
+			
 			while (cr.booked.containsKey(key)) {
 				targetCapacity++;
 				if (sortedClassrooms.ceilingKey(targetCapacity) == null) {
@@ -160,25 +165,62 @@ public class Schedule {
 	}
 
 	/**
-	 * @param lectures
-	 * @param recitations
-	 * @param cc
-	 * @param key
+	 * @param courses Array of course objects
+	 * @param lectures HashMap storing unique lectures
+	 * @param recitations HashMap storing unique recitations
 	 */
-	private static void sortCourses(HashMap<String, CourseCondensed> lectures, 
-			HashMap<String, CourseCondensed> recitations, CourseCondensed cc, String key) {
+	private static void separateCourses(ArrayList<Course> courses, HashMap<String, CourseCondensed> lectures, 
+			HashMap<String, CourseCondensed> recitations) {
 		
-//		System.out.println("sortCourses: " + cc.course.title + " " + cc.course.courseNumber + " " 
-//				+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
-//				cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime);
-		if (cc.meetingTime.meetingModeCode.equals("02")) { // LEC
-			if (!lectures.containsKey(key)) {
-				lectures.put(key, cc);
+		String prof = "", key = "", ptr = "";
+		int classSize = 0;
+		
+		// sort each MeetingTime based on LECTURE or RECITATIONS
+		for (Course c: courses) {
+			
+			for (Section s: c.sections) {
+				
+				// copy of each Section s to preserve recitation stopPoint
+				Section sr = new Section(s);
+				
+				if (s.instructors.length != 0) {
+					prof = s.instructors[0].name;
+					
+					if (lectures.containsKey(ptr)) {
+//						System.out.println("currentKey: " + key + " prevKey: " + ptr);
+						if (! lectures.get(ptr).section.editedCap) {
+							lectures.get(ptr).section.stopPoint = classSize;
+						}
+					}
+					classSize = s.stopPoint;
+				} else {
+					classSize += s.stopPoint;
+				}
+				
+				for (MeetingTime m: s.meetingTimes) {
+					
+					// if no scheduled meeting time, skip;
+					if (m.meetingDay == null) 
+						continue;
+					
+					// hash key to distinguish unique lectures and recitations
+					key = m.meetingDay + m.startTime + m.endTime + m.pmCode + m.buildingCode + 
+							m.roomNumber + prof;
+					
+					// insert MeetingTime into appropriate hashmap
+					if (m.meetingModeCode.equals(MeetingTime.lectureCode)) {
+						if (!lectures.containsKey(key)) {
+							ptr = key; // keep track of last lecture in hashmap
+							//System.out.println(ptr);
+							lectures.put(key, new CourseCondensed(c, s, m));
+						}
+					} else if (m.meetingModeCode.equals(MeetingTime.recitationCode)) {
+						if (!recitations.containsKey(key)) {
+							recitations.put(key, new CourseCondensed(c, sr, m));
+						}
+					}
+				}
 			}
-		} else if (cc.meetingTime.meetingModeCode.equals("03")) { // RECIT
-			if (!recitations.containsKey(key)) {
-				recitations.put(key, cc);
-			}
-		}
+		}		
 	}
 }
