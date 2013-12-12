@@ -233,20 +233,24 @@ public class Schedule {
 			HashMap<CourseCondensed, Classroom> schedule = new HashMap<CourseCondensed, Classroom>();
 			ArrayList<CourseCondensed> failed = new ArrayList<CourseCondensed>();
 			System.out.println("\n===========ASSIGN LECTURES==========");
-			assignRoom(sortedClassrooms, lectures, schedule, failed);
+			assignRoom(sortedClassrooms, lectures, schedule, failed, "courseInc");
 			
 			System.out.println("\n===========ASSIGN RECITATIONS==========");
-			assignRoom(sortedClassrooms, recitations, schedule, failed);
+			assignRoom(sortedClassrooms, recitations, schedule, failed, "courseDec");
 			
 			for (CourseCondensed cc: schedule.keySet()) {
 				System.out.println("Scheduled: " + cc.course.title + "\t" + cc.course.courseNumber + "\t" + 
 						cc.section.stopPoint + " " + schedule.get(cc).building + " " + schedule.get(cc).room + " " + schedule.get(cc).capacity);
 			}
 			
+			/*
 			for (CourseCondensed cc: failed) {
 				System.out.println("Failed: " + cc.course.title + "\t" + cc.course.courseNumber + "\t" + 
 						cc.section.stopPoint);
 			}
+			System.out.println("Success: " + schedule.size());
+			System.out.println("Failed: " + failed.size());
+			*/
 			
 		} catch (IOException e) {
 			System.out.println("ERROR");
@@ -297,7 +301,11 @@ public class Schedule {
 	 */
 	private static void assignRoom(TreeMap<Integer, Classroom> sortedClassrooms, 
 			HashMap<String, CourseCondensed> courseList, HashMap<CourseCondensed, Classroom> schedule, 
-			List<CourseCondensed> failed) throws IllegalStateException{
+			List<CourseCondensed> failed, String sortMode) throws IllegalStateException{
+		
+		
+		// Set sorting order for room assignment
+		CourseCondensed.setSortMode(sortMode);
 		
 		List<CourseCondensed> classes = new ArrayList<CourseCondensed>(courseList.values());
 		Collections.sort(classes);
