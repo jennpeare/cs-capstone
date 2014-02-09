@@ -35,6 +35,7 @@ public class CampusTest {
 		assertEquals(-1, campus[1].getPeriod("125", "p"));
 		assertEquals(-1, campus[2].getPeriod("125", "p"));
 		assertEquals(2, campus[3].getPeriod("125", "p"));
+		assertEquals(2, campus[3].getPeriod("1235", "p"));
 	}
 
 }

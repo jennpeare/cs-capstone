@@ -6,10 +6,14 @@ import java.io.File;
 import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.HashMap;
 
+import schedule.campus.*;
+
+import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -23,7 +27,7 @@ public class Schedule {
 	
 	private static final String buildingFile = "data/buildings.json"; 
 	private static final String[] courseFiles = {
-		
+		/*
 		"data/92013/U/001.json",
 		"data/92013/U/010.json",
 		"data/92013/U/011.json",
@@ -171,11 +175,18 @@ public class Schedule {
 		"data/92013/U/965.json",
 		"data/92013/U/966.json",
 		"data/92013/U/988.json",
+		*/
 		"data/92013/U/640.json",
 		"data/92013/U/198.json",
 		"data/92013/U/160.json"
 	};
 	private static final String capacityFile = "data/roomcapacity.json";
+	private static final Map<String, Campus> campus = ImmutableMap.of(
+			"COLLEGE AVENUE", new CollegeAve(),
+			"BUSCH", new Busch(),
+			"LIVINGSTON", new Livingston(),
+			"DOUGLAS/COOK", new CookDouglass()
+	);
 	
 	/**
 	 * @param args
@@ -310,12 +321,15 @@ public class Schedule {
 				continue;
 			
 			String key = mt.meetingDay + mt.startTime + mt.endTime + mt.pmCode;
+			int startPeriod = campus.get(mt.campusName).getPeriod(mt.startTime, mt.pmCode), 
+					endPeriod = campus.get(mt.campusName).getPeriod(mt.endTime, mt.pmCode);
+			System.out.println(mt.campusName + " " + mt.startTime + " " + mt.endTime + " " + startPeriod +" "+ endPeriod);
 			Classroom room = null;
 			boolean scheduled = false;
-			while ((sortedClassrooms.ceilingKey(targetCapacity) != null)) {
+			while ((sortedClassrooms.ceilingKey(targetCapacity) != null) && (startPeriod != -1) && (endPeriod != -1)) {
 				room = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
-				if (!room.booked.containsKey(key)) {
-					room.booked.put(key, true);
+				// TODO(wlynch): Figure out what to do for non-standard start/stop times
+				if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
 					schedule.put(cc, room);
 					scheduled = true;
 					break;
