@@ -171,11 +171,9 @@ public class Schedule {
 		"data/92013/U/965.json",
 		"data/92013/U/966.json",
 		"data/92013/U/988.json",
-		/*
 		"data/92013/U/640.json",
 		"data/92013/U/198.json",
 		"data/92013/U/160.json"
-		*/
 	};
 	private static final String capacityFile = "data/roomcapacity.json";
 	
@@ -212,21 +210,12 @@ public class Schedule {
 			separateCourses(courses, lectures, recitations);
 			
 			System.out.println("==========LECTURES==========");
-			
 			for (CourseCondensed cc : lectures.values()) {
-				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
-						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
-						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
-						cc.section.stopPoint);
+				System.out.println(cc);
 			}
-		
 			System.out.println("\n==========RECITATIONS==========");
-			
 			for (CourseCondensed cc : recitations.values()) {
-				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
-						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
-						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
-						cc.section.stopPoint);
+				System.out.println(cc);
 			}
 			
 			// assign ideal room to lectures/recitations based on class size and room capacity
@@ -238,22 +227,24 @@ public class Schedule {
 			System.out.println("\n===========ASSIGN RECITATIONS==========");
 			assignRoom(sortedClassrooms, recitations, schedule, failed, "courseDec");
 			
+			/*
 			for (CourseCondensed cc: schedule.keySet()) {
 				System.out.println("Scheduled: " + cc.course.title + "\t" + cc.course.courseNumber + "\t" + 
 						cc.section.stopPoint + " " + schedule.get(cc).building + " " + schedule.get(cc).room + " " + schedule.get(cc).capacity);
 			}
+			*/
 			
-			/*
+			
 			for (CourseCondensed cc: failed) {
 				System.out.println("Failed: " + cc.course.title + "\t" + cc.course.courseNumber + "\t" + 
 						cc.section.stopPoint);
 			}
 			System.out.println("Success: " + schedule.size());
 			System.out.println("Failed: " + failed.size());
-			*/
+			
 			
 		} catch (IOException e) {
-			System.out.println("ERROR");
+			System.out.println(e);
 		}
 	}
 
@@ -296,8 +287,11 @@ public class Schedule {
 	}
 	
 	/**
-	 * @param sortedClassrooms
-	 * @param courseList
+	 * @param sortedClassrooms List of classrooms in sorted order
+	 * @param courseList List of courses to schedule
+	 * @param schedule Schedule to return
+	 * @param failed List of failed classes to return
+	 * @param sortMode In what order should courses be assigned
 	 */
 	private static void assignRoom(TreeMap<Integer, Classroom> sortedClassrooms, 
 			HashMap<String, CourseCondensed> courseList, HashMap<CourseCondensed, Classroom> schedule, 
@@ -316,13 +310,13 @@ public class Schedule {
 				continue;
 			
 			String key = mt.meetingDay + mt.startTime + mt.endTime + mt.pmCode;
-			Classroom cr = null;
+			Classroom room = null;
 			boolean scheduled = false;
 			while ((sortedClassrooms.ceilingKey(targetCapacity) != null)) {
-				cr = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
-				if (!cr.booked.containsKey(key)) {
-					cr.booked.put(key, true);
-					schedule.put(cc, cr);
+				room = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
+				if (!room.booked.containsKey(key)) {
+					room.booked.put(key, true);
+					schedule.put(cc, room);
 					scheduled = true;
 					break;
 				}
