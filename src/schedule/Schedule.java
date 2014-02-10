@@ -61,23 +61,23 @@ public class Schedule {
 
 			separateCourses(courses, lectures, recitations);
 
-			System.out.println("\n==========LECTURES==========");
-
-			for (CourseCondensed cc : lectures.values()) {
-				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
-						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
-						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
-						cc.section.stopPoint);
-			}
-
-			System.out.println("\n==========RECITATIONS==========");
-
-			for (CourseCondensed cc : recitations.values()) {
-				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
-						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
-						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
-						cc.section.stopPoint);
-			}
+//			System.out.println("\n==========LECTURES==========");
+//
+//			for (CourseCondensed cc : lectures.values()) {
+//				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
+//						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
+//						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
+//						cc.section.stopPoint);
+//			}
+//
+//			System.out.println("\n==========RECITATIONS==========");
+//
+//			for (CourseCondensed cc : recitations.values()) {
+//				System.out.println(cc.course.title + " " + cc.course.courseNumber + " " 
+//						+ cc.section.number + " " + cc.meetingTime.meetingModeDesc + " " + 
+//						cc.meetingTime.meetingDay + " " + cc.meetingTime.startTime + " " +
+//						cc.section.stopPoint);
+//			}
 
 			// assign ideal room to lectures/recitations based on class size and room capacity
 			System.out.println("\n===========ASSIGN LECTURES==========");
@@ -173,36 +173,20 @@ public class Schedule {
 	private static void separateCourses(ArrayList<Course> courses, HashMap<String, CourseCondensed> lectures, 
 			HashMap<String, CourseCondensed> recitations) {
 
-		String prof = "", key = "", recKey = "", prev = "";
-		int classSize = 0, slot = 0;
-		String[] verifyKeys = new String[3];
+		String prof = "", key = "", recKey = "";
 
 		// sort each MeetingTime based on LECTURE or RECITATIONS
+		//System.out.println("\n==========SEPARATION==========");
+		
 		for (Course c: courses) {
-			//System.out.println("COURSE: " + c.title);
 			
 			for (Section s: c.sections) {
 				// copy of each Section s to preserve recitation stopPoint
 				Section sr = new Section(s);
 				
-				//System.out.println("section: " + s.number + " | " + s.stopPoint);
-
 				if (s.instructors.length != 0) {
 					prof = s.instructors[0].name;
-					//System.out.println("RESET SLOT TO 0");
-					slot = 0;
 				}
-				
-				if (verifyKeys[0] != null) {
-					//System.out.println("verifyKey is not null");
-					if (verifyKeys[0].equals(prev) || verifyKeys[1].equals(prev) || verifyKeys[2].equals(prev)) {
-						classSize += s.stopPoint;
-					} else {
-						//System.out.println("RESET SLOT TO 0");
-						slot = 0;
-					}
-				}
-				//System.out.println("classSize: " + classSize + " | slot: " + slot);
 
 				for (MeetingTime m: s.meetingTimes) {
 					
@@ -215,28 +199,10 @@ public class Schedule {
 					
 					recKey = m.meetingDay + m.startTime + m.endTime + m.pmCode + m.buildingCode + 
 							m.roomNumber + prof;
-
+					
 					// insert MeetingTime into appropriate hashmap
 					if (m.meetingModeCode.equals(MeetingTime.lectureCode)) {
 						if (!lectures.containsKey(key)) {
-							if (slot < verifyKeys.length) {
-								if (slot == 0) {
-									if (lectures.containsKey(prev)) {
-										//System.out.println("---> UPDATE STOPPOINT");
-										lectures.get(prev).section.stopPoint += (classSize - s.stopPoint);
-										if (lectures.get(prev).section.stopPoint < 0) {
-											// set stopPoint to 0 if negative
-											lectures.get(prev).section.stopPoint = 0;
-										}
-										//System.out.println("reset classSize to 0");
-										classSize = 0;
-									}
-								}
-								//System.out.println("updated verifyKeys");
-								verifyKeys[slot] = key;
-								slot++;
-							}
-							prev = key; // keep track of last lecture in hashmap
 							lectures.put(key, new CourseCondensed(c, s, m));
 						}
 					} else if (m.meetingModeCode.equals(MeetingTime.recitationCode)) {
@@ -244,19 +210,49 @@ public class Schedule {
 							recitations.put(recKey, new CourseCondensed(c, sr, m));
 						}
 					}
-					
-					//end MeetingTime
 				}
-
-//				System.out.println("verifyKeys: " + verifyKeys[0] + " | " + verifyKeys[1] + " | " + verifyKeys[2]);
-//				System.out.println("section: " + s.number + " | prev: " + prev);
-				//System.out.println("section: " + s.number + " | key: " + key);
-				
-				//end Section
 			}
-
-			// end Course
 		}
+		
+		boolean first = false; // prevent double counting stopPoint of first sections
+		
+		// fix class size for lecture sections
+		//System.out.println("\n==========AGGREGATION==========");
+		for (Course c: courses) {
+			
+			first = true;
+			
+			for (Section s: c.sections) {
+				
+				if (s.instructors.length != 0) {
+					prof = s.instructors[0].name;
+					first = true;
+				}
+				
+				for (MeetingTime m: s.meetingTimes) {
+					
+					// if no scheduled meeting time, skip;
+					if (m.meetingDay == null) 
+						continue;
 
+					// hash key to distinguish unique lectures and recitations
+					key = c.courseNumber + m.meetingDay + m.startTime + m.endTime + m.pmCode + prof;
+					
+					if (m.meetingModeCode.equals(MeetingTime.lectureCode)) {
+						if (lectures.containsKey(key)) {
+							
+							// prevent double counting due to multiple lectures for same section
+							if (first == true) {
+								lectures.get(key).section.stopPoint = s.stopPoint;
+								first = false;
+							} else {
+								lectures.get(key).section.stopPoint += s.stopPoint;
+							}
+							break;
+						}
+					}
+				}
+			}
+		}
 	}
 }
