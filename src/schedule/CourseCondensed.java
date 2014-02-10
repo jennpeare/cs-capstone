@@ -17,7 +17,7 @@ public class CourseCondensed implements Comparable<CourseCondensed> {
 		this(course, section, meetingTime);
 	}
 	
-	public static  void setSortMode(String mode) {
+	public static void setSortMode(String mode) {
 		 sortMode = mode;
 	}
 	
@@ -31,5 +31,13 @@ public class CourseCondensed implements Comparable<CourseCondensed> {
 		} else {
 			return o.section.stopPoint - this.section.stopPoint;
 		}
+	}
+	
+	@Override
+	public String toString(){
+		return this.course.title + " " + this.course.courseNumber + " " 
+				+ this.section.number + " " + this.meetingTime.meetingModeDesc + " " + 
+				this.meetingTime.meetingDay + " " + this.meetingTime.startTime + " " +
+				this.section.stopPoint;
 	}
 }
