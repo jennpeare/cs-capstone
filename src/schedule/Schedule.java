@@ -24,7 +24,7 @@ import com.google.gson.reflect.TypeToken;
  *
  */
 public class Schedule {
-	
+
 	private static final String buildingFile = "data/buildings.json"; 
 	private static final String[] courseFiles = {
 		/*
@@ -199,25 +199,25 @@ public class Schedule {
 			Type collectionType = new TypeToken<Building[]>(){}.getType();
 			Building[] buildings = gson.fromJson(json, collectionType);
 			System.out.println("Loaded buildings");
-			
+
 			// Read in courses
 			ArrayList<Course> courses = new ArrayList<Course>();
 			for (String file: courseFiles) {
 				courses.addAll(importCourses(gson, file));
 			}
 			System.out.println("Loaded courses");
-			
+
 			// Read in classrooms
 			json = readFile(capacityFile);
 			collectionType = new TypeToken<Classroom[]>(){}.getType();
 			Classroom[] classrooms = gson.fromJson(json, collectionType);
 			TreeMap<Integer, Classroom> sortedClassrooms = buildTree(classrooms);
 			System.out.println("Loaded classrooms");
-				
+
 			// HashMaps to store LEC and RECIT
 			HashMap<String, CourseCondensed> lectures = new HashMap<String, CourseCondensed>();
 			HashMap<String, CourseCondensed> recitations = new HashMap<String, CourseCondensed>();
-			
+
 			separateCourses(courses, lectures, recitations);
 			
 			System.out.println("==========LECTURES==========");
@@ -233,6 +233,7 @@ public class Schedule {
 			HashMap<CourseCondensed, Classroom> schedule = new HashMap<CourseCondensed, Classroom>();
 			ArrayList<CourseCondensed> failed = new ArrayList<CourseCondensed>();
 			System.out.println("\n===========ASSIGN LECTURES==========");
+
 			assignRoom(sortedClassrooms, lectures, schedule, failed, "courseInc");
 			
 			System.out.println("\n===========ASSIGN RECITATIONS==========");
@@ -290,13 +291,13 @@ public class Schedule {
 	 */
 	private static TreeMap<Integer,Classroom> buildTree(Classroom[] classrooms) {
 		TreeMap<Integer, Classroom> map = new TreeMap<Integer,Classroom>();
-		
+
 		for (Classroom room: classrooms) {
 			map.put(room.capacity, room);
 		}
 		return map;
 	}
-	
+
 	/**
 	 * @param sortedClassrooms List of classrooms in sorted order
 	 * @param courseList List of courses to schedule
@@ -308,7 +309,6 @@ public class Schedule {
 			HashMap<String, CourseCondensed> courseList, HashMap<CourseCondensed, Classroom> schedule, 
 			List<CourseCondensed> failed, String sortMode) throws IllegalStateException{
 		
-		
 		// Set sorting order for room assignment
 		CourseCondensed.setSortMode(sortMode);
 		
@@ -318,8 +318,7 @@ public class Schedule {
 			int targetCapacity = cc.section.stopPoint;
 			MeetingTime mt = cc.section.meetingTimes[0];
 			if (mt.meetingDay == null)
-				continue;
-			
+				continue;			
 			String key = mt.meetingDay + mt.startTime + mt.endTime + mt.pmCode;
 			int startPeriod = campus.get(mt.campusName).getPeriod(mt.startTime, mt.pmCode), 
 					endPeriod = campus.get(mt.campusName).getPeriod(mt.endTime, mt.pmCode);
@@ -339,7 +338,6 @@ public class Schedule {
 			if (!scheduled) {
 				failed.add(cc);
 			}
-			
 		}
 	}
 
@@ -350,30 +348,61 @@ public class Schedule {
 	 */
 	private static void separateCourses(ArrayList<Course> courses, HashMap<String, CourseCondensed> lectures, 
 			HashMap<String, CourseCondensed> recitations) {
-		
-		String prof = "", key = "", ptr = "";
-		int classSize = 0;
-		
+
+		String prof = "", key = "", recKey = "";
+
 		// sort each MeetingTime based on LECTURE or RECITATIONS
+		//System.out.println("\n==========SEPARATION==========");
+		
 		for (Course c: courses) {
 			
 			for (Section s: c.sections) {
-				
 				// copy of each Section s to preserve recitation stopPoint
 				Section sr = new Section(s);
 				
 				if (s.instructors.length != 0) {
 					prof = s.instructors[0].name;
+				}
+
+				for (MeetingTime m: s.meetingTimes) {
 					
-					if (lectures.containsKey(ptr)) {
-//						System.out.println("currentKey: " + key + " prevKey: " + ptr);
-						if (! lectures.get(ptr).section.editedCap) {
-							lectures.get(ptr).section.stopPoint = classSize;
+					// if no scheduled meeting time, skip;
+					if (m.meetingDay == null) 
+						continue;
+
+					// hash key to distinguish unique lectures and recitations
+					key = c.courseNumber + m.meetingDay + m.startTime + m.endTime + m.pmCode + prof;
+					
+					recKey = m.meetingDay + m.startTime + m.endTime + m.pmCode + m.buildingCode + 
+							m.roomNumber + prof;
+					
+					// insert MeetingTime into appropriate hashmap
+					if (m.meetingModeCode.equals(MeetingTime.lectureCode)) {
+						if (!lectures.containsKey(key)) {
+							lectures.put(key, new CourseCondensed(c, s, m));
+						}
+					} else if (m.meetingModeCode.equals(MeetingTime.recitationCode)) {
+						if (!recitations.containsKey(recKey)) {
+							recitations.put(recKey, new CourseCondensed(c, sr, m));
 						}
 					}
-					classSize = s.stopPoint;
-				} else {
-					classSize += s.stopPoint;
+				}
+			}
+		}
+		
+		boolean first = false; // prevent double counting stopPoint of first sections
+		
+		// fix class size for lecture sections
+		//System.out.println("\n==========AGGREGATION==========");
+		for (Course c: courses) {
+			
+			first = true;
+			
+			for (Section s: c.sections) {
+				
+				if (s.instructors.length != 0) {
+					prof = s.instructors[0].name;
+					first = true;
 				}
 				
 				for (MeetingTime m: s.meetingTimes) {
@@ -381,25 +410,25 @@ public class Schedule {
 					// if no scheduled meeting time, skip;
 					if (m.meetingDay == null) 
 						continue;
-					
+
 					// hash key to distinguish unique lectures and recitations
-					key = m.meetingDay + m.startTime + m.endTime + m.pmCode + m.buildingCode + 
-							m.roomNumber + prof;
+					key = c.courseNumber + m.meetingDay + m.startTime + m.endTime + m.pmCode + prof;
 					
-					// insert MeetingTime into appropriate hashmap
 					if (m.meetingModeCode.equals(MeetingTime.lectureCode)) {
-						if (!lectures.containsKey(key)) {
-							ptr = key; // keep track of last lecture in hashmap
-							//System.out.println(ptr);
-							lectures.put(key, new CourseCondensed(c, s, m));
-						}
-					} else if (m.meetingModeCode.equals(MeetingTime.recitationCode)) {
-						if (!recitations.containsKey(key)) {
-							recitations.put(key, new CourseCondensed(c, sr, m));
+						if (lectures.containsKey(key)) {
+							
+							// prevent double counting due to multiple lectures for same section
+							if (first == true) {
+								lectures.get(key).section.stopPoint = s.stopPoint;
+								first = false;
+							} else {
+								lectures.get(key).section.stopPoint += s.stopPoint;
+							}
+							break;
 						}
 					}
 				}
 			}
-		}		
+		}
 	}
 }
