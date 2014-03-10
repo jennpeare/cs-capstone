@@ -13,6 +13,22 @@ public class CourseCondensed implements Comparable<CourseCondensed> {
 		this.meetingTime = meetingTime;
 	}
 	
+	public Course getCourse() {
+		return course;
+	}
+
+	public Section getSection() {
+		return section;
+	}
+
+	public MeetingTime getMeetingTime() {
+		return meetingTime;
+	}
+
+	public static String getSortMode() {
+		return sortMode;
+	}
+
 	public CourseCondensed(Course course, Section section, MeetingTime meetingTime, String sortMode) {
 		this(course, section, meetingTime);
 	}
