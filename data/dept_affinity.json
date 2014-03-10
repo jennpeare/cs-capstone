@@ -1,0 +1,732 @@
+[
+    {
+        "dept": "010",
+        "description": "ACCOUNTING",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "011",
+        "description": "ADMINISTRATIVE STUDIES",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "013",
+        "description": "AFRICAN, M. EAST. & S. ASIAN LANG & LIT",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "016",
+        "description": "AFRICAN STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "014",
+        "description": "AFRICANA STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "050",
+        "description": "AMERICAN STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "067",
+        "description": "ANIMAL SCIENCE",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "070",
+        "description": "ANTHROPOLOGY",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "078",
+        "description": "ARMENIAN",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "080",
+        "description": "ART",
+        "affinity": "DNB"
+    },
+    {
+        "dept": "082",
+        "description": "ART HISTORY",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "090",
+        "description": "ARTS AND SCIENCES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "098",
+        "description": "ASIAN STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "105",
+        "description": "ASTROPHYSICS",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "115",
+        "description": "BIOCHEMISTRY",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "117",
+        "description": "BIOENVIRONMENTAL ENGINEERING",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "119",
+        "description": "BIOLOGICAL SCIENCES",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "125",
+        "description": "BIOMEDICAL ENGINEERING",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "126",
+        "description": "BIOTECHNOLOGY",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "136",
+        "description": "BUSINESS ANALYTICS AND INFORMATION TECH ",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "140",
+        "description": "BUSINESS LAW",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "146",
+        "description": "CELL BIO & NEURO SCI",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "155",
+        "description": "CHEMICAL AND BIOCHEMICAL ENGINEERING",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "158",
+        "description": "CHEMICAL BIOLOGY",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "160",
+        "description": "CHEMISTRY",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "165",
+        "description": "CHINESE",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "170",
+        "description": "CHINESE STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "175",
+        "description": "CINEMA STUDIES",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "180",
+        "description": "CIVIL AND ENVIRONMENTAL ENGINEERING",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "190",
+        "description": "CLASSICS",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "185",
+        "description": "COGNITIVE SCIENCES",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "192",
+        "description": "COMMUNICATION",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "189",
+        "description": "COMMUNICATION AND INFORMATION",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "195",
+        "description": "COMPARATIVE LITERATURE",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "198",
+        "description": "COMPUTER SCIENCE",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "202",
+        "description": "CRIMINAL JUSTICE",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "203",
+        "description": "DANCE",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "206",
+        "description": "DANCE - MGSA",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "207",
+        "description": "DANCE EDUCATION",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "214",
+        "description": "EAST ASIAN LANGUAGES AND AREA STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "704",
+        "description": "ECOLOGY AND NATURAL RESOURCES",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "220",
+        "description": "ECONOMICS",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "300",
+        "description": "EDUCATION",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "332",
+        "description": "ELECTRICAL AND COMPU.",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "350",
+        "description": "ENGLISH",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "351",
+        "description": "ENGLISH",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "354",
+        "description": "ENGLISH - FILM STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "356",
+        "description": "ENGLISH AS A SECOND LANGUAGE",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "355",
+        "description": "ENGLISH: COMP & WRITING",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "353",
+        "description": "ENGLISH: LITERARY THEORY",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "370",
+        "description": "ENTOMOLOGY",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "382",
+        "description": "ENTREPRENEURSHIP",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "374",
+        "description": "ENVIRON. POLICY, INSTITUTIONS & BEHAVIOR",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "015",
+        "description": "ENVIRONMENTAL AND BIOLOGICAL SCIENCES",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "373",
+        "description": "ENVIRONMENTAL AND BUSINESS ECONOMICS",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "372",
+        "description": "ENVIRONMENTAL RESOURCES",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "375",
+        "description": "ENVIRONMENTAL SCIENCES",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "360",
+        "description": "EUROPEAN STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "001",
+        "description": "EXCHANGE",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "377",
+        "description": "EXERCISE SCIENCE AND SPORT STUDIES",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "390",
+        "description": "FINANCE",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "400",
+        "description": "FOOD SCIENCE",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "420",
+        "description": "FRENCH",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "440",
+        "description": "GENERAL ENGINEERING",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "447",
+        "description": "GENETICS",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "450",
+        "description": "GEOGRAPHY",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "460",
+        "description": "GEOLOGICAL SCIENCES",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "470",
+        "description": "GERMAN",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "490",
+        "description": "GREEK",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "489",
+        "description": "GREEK, MODERN",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "506",
+        "description": "HISTORY GENERAL/COMPARATIVE",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "508",
+        "description": "HISTORY, AFR ASIA LATIN AM",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "512",
+        "description": "HISTORY, AMERICAN",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "510",
+        "description": "HISTORY, EUROPEAN",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "533",
+        "description": "HUMAN RESOURCE MANAGEMENT",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "540",
+        "description": "INDUSTRIAL AND SYSTEMS ENGINEERING",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "547",
+        "description": "INFORMATION TECHNOLOGY AND INFORMATICS",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "554",
+        "description": "INTERDISCIPLINARY - SEBS",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "556",
+        "description": "INTERDISCIPLINARY STUDIES - ARTS & SCI",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "522",
+        "description": "INTERNATIONAL BUSINESS AND BUSINESS",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "560",
+        "description": "ITALIAN",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "565",
+        "description": "JAPANESE",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "563",
+        "description": "JEWISH STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "567",
+        "description": "JOURNALISM AND MEDIA STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "574",
+        "description": "KOREAN",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "575",
+        "description": "LABOR STUDIES",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "550",
+        "description": "LANDSCAPE ARCHITECTURE",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "580",
+        "description": "LATIN",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "590",
+        "description": "LATIN AMERICAN STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "595",
+        "description": "LATINO AND HISPANIC CARIBBEAN STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "607",
+        "description": "LEADERSHIP SKILLS",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "606",
+        "description": "LIBERAL STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "615",
+        "description": "LINGUISTICS",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "620",
+        "description": "MANAGEMENT",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "628",
+        "description": "MARINE AND COASTAL SCIENCES",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "630",
+        "description": "MARKETING",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "632",
+        "description": "MASON GROSS DIGITAL FILMMAKING",
+        "affinity": "DNB"
+    },
+    {
+        "dept": "635",
+        "description": "MATERIALS SCIENCE AND ENGINEERING",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "640",
+        "description": "MATHEMATICS",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "650",
+        "description": "MECHANICAL AND AEROSPACE ENGINEERING",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "660",
+        "description": "MEDICAL TECHNOLOGY",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "667",
+        "description": "MEDIEVAL STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "670",
+        "description": "METEOROLOGY",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "680",
+        "description": "MICROBIOLOGY",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "685",
+        "description": "MIDDLE EASTERN STUDIES",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "690",
+        "description": "MILITARY EDUCATION, AIR FORCE",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "691",
+        "description": "MILITARY EDUCATION, ARMY",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "692",
+        "description": "MILITARY EDUCATION, NAVY",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "694",
+        "description": "MOL BIO & BIOCHEM",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "700",
+        "description": "MUSIC",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "701",
+        "description": "MUSIC, APPLIED (UNITS 07 AND 08)",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "705",
+        "description": "NURSING",
+        "affinity": "DNB"
+    },
+    {
+        "dept": "709",
+        "description": "NUTRITIONAL SCIENCES",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "711",
+        "description": "OPERATIONS RESEARCH",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "713",
+        "description": "ORGANIZATIONAL LEADERSHIP",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "715",
+        "description": "PHARMACEUTICAL CHEMISTRY",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "721",
+        "description": "PHARMACEUTICS",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "718",
+        "description": "PHARMACOLOGY AND TOXICOLOGY",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "720",
+        "description": "PHARMACY",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "725",
+        "description": "PHARMACY PRACTICE AND ADMINISTRATION",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "730",
+        "description": "PHILOSOPHY",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "745",
+        "description": "PHYSICIAN ASSISTANT",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "750",
+        "description": "PHYSICS",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "762",
+        "description": "PLANNING AND PUBLIC POLICY",
+        "affinity": "DNB"
+    },
+    {
+        "dept": "776",
+        "description": "PLANT SCIENCE",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "787",
+        "description": "POLISH",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "790",
+        "description": "POLITICAL SCIENCE",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "810",
+        "description": "PORTUGUESE",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "830",
+        "description": "PSYCHOLOGY",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "832",
+        "description": "PUBLIC HEALTH",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "833",
+        "description": "PUBLIC POLICY",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "840",
+        "description": "RELIGION",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "860",
+        "description": "RUSSIAN",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "880",
+        "description": "SCIENCE, TECHNOLOGY AND SOCIETY",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "902",
+        "description": "SEBS INTERNSHIP",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "888",
+        "description": "SEXUALITIES STUDIES",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "904",
+        "description": "SOCIAL JUSTICE",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "920",
+        "description": "SOCIOLOGY",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "940",
+        "description": "SPANISH",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "960",
+        "description": "STATISTICS",
+        "affinity": "BUS"
+    },
+    {
+        "dept": "959",
+        "description": "STUDY ABROAD",
+        "affinity": "CAC"
+    },
+    {
+        "dept": "799",
+        "description": "SUPPLY CHAIN MANAGEMENT",
+        "affinity": "LIV"
+    },
+    {
+        "dept": "965",
+        "description": "THEATER",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "966",
+        "description": "THEATER ARTS - MGSA",
+        "affinity": "D/C"
+    },
+    {
+        "dept": "081",
+        "description": "VISUAL ARTS",
+        "affinity": "DNB"
+    },
+    {
+        "dept": "988",
+        "description": "WOMEN'S & GENDER STUDIES",
+        "affinity": "D/C"
+    }
+]
