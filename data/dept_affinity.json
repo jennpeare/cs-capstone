@@ -177,7 +177,7 @@
     {
         "dept": "202",
         "description": "CRIMINAL JUSTICE",
-        "affinity": "CAC"
+        "affinity": "LIV"
     },
     {
         "dept": "203",
@@ -442,12 +442,12 @@
     {
         "dept": "590",
         "description": "LATIN AMERICAN STUDIES",
-        "affinity": "CAC"
+        "affinity": "LIV"
     },
     {
         "dept": "595",
         "description": "LATINO AND HISPANIC CARIBBEAN STUDIES",
-        "affinity": "CAC"
+        "affinity": "LIV"
     },
     {
         "dept": "607",
@@ -642,7 +642,7 @@
     {
         "dept": "830",
         "description": "PSYCHOLOGY",
-        "affinity": "BUS"
+        "affinity": "LIV"
     },
     {
         "dept": "832",
