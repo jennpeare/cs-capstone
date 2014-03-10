@@ -64,7 +64,7 @@ public class Analysis {
 				s =  new Stats(cc.getCourse().getSubject());
 				freq.put(cc.getCourse().getSubject(), s);
 			}
-			s.addCampus(cc.getMeetingTime().getCampusAbbrev());
+			s.addCampus(schedule.get(cc).getCampus());
 		}
 		return freq;
 	}

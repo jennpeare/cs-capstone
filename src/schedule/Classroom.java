@@ -66,6 +66,42 @@ public class Classroom {
 		return false;
 	}
 	
+	public String getBuilding() {
+		return building;
+	}
+
+	public String getRoom() {
+		return room;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public boolean isWheelchair() {
+		return wheelchair;
+	}
+
+	public boolean isRestricted() {
+		return restricted;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public String getCampus() {
+		return campus;
+	}
+
+	public boolean[][] getBooked() {
+		return booked;
+	}
+
+	public static Map<String, Integer> getWeekday() {
+		return weekday;
+	}
+
 	/**
 	 * Books a classroom.
 	 * @param day
