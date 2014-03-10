@@ -46,9 +46,9 @@ public class Analysis {
 					
 		}
 		public String toString() {
-			String retval = this.dept + " : "; 
+			String retval = this.dept + ":\t"; 
 			for (int i = 0; i < campusFreq.length; i++) {
-				retval += this.campusFreq[i] + " ";
+				retval += this.campusFreq[i] + "\t";
 			}
 			retval += this.total;
 			return retval;
@@ -71,6 +71,8 @@ public class Analysis {
 	
 	public static void analyze(HashMap<CourseCondensed, Classroom> schedule) {
 		HashMap<String, Stats> stats = generateStats(schedule);
+		
+		System.out.println("dept\tBUS\tLIV\tCAC\tD/C\tDNB");
 		
 		for (Stats s: stats.values()) {
 			System.out.println(s);
