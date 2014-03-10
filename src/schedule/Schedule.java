@@ -10,8 +10,13 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.HashMap;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import schedule.campus.*;
+import analysis.Analysis;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
@@ -181,38 +186,46 @@ public class Schedule {
 		"data/92013/U/160.json"
 	};
 	private static final String capacityFile = "data/roomcapacity.json";
-	private static final Map<String, Campus> campus = ImmutableMap.of(
+	public static final Map<String, Campus> campus = ImmutableMap.of(
 			"COLLEGE AVENUE", new CollegeAve(),
 			"BUSCH", new Busch(),
 			"LIVINGSTON", new Livingston(),
 			"DOUGLAS/COOK", new CookDouglass()
 	);
+	private static Logger log;
 	
 	/**
 	 * @param args
 	 */
 	public static void main(String args[]) {
+		log = Logger.getLogger("my.logger");
+		log.setLevel(Level.INFO);
+		ConsoleHandler handler = new ConsoleHandler();
+		handler.setFormatter(new SimpleFormatter());
+		handler.setLevel(Level.OFF);
+		log.addHandler(handler);
+		
 		Gson gson = new Gson();
 		try {
 			// Read in buildings
 			String json = readFile(buildingFile);
 			Type collectionType = new TypeToken<Building[]>(){}.getType();
 			Building[] buildings = gson.fromJson(json, collectionType);
-			System.out.println("Loaded buildings");
+			log.info("Loaded buildings");
 
 			// Read in courses
 			ArrayList<Course> courses = new ArrayList<Course>();
 			for (String file: courseFiles) {
 				courses.addAll(importCourses(gson, file));
 			}
-			System.out.println("Loaded courses");
+			log.info("Loaded courses");
 
 			// Read in classrooms
 			json = readFile(capacityFile);
 			collectionType = new TypeToken<Classroom[]>(){}.getType();
 			Classroom[] classrooms = gson.fromJson(json, collectionType);
 			TreeMap<Integer, Classroom> sortedClassrooms = buildTree(classrooms);
-			System.out.println("Loaded classrooms");
+			log.info("Loaded classrooms");
 
 			// HashMaps to store LEC and RECIT
 			HashMap<String, CourseCondensed> lectures = new HashMap<String, CourseCondensed>();
@@ -220,43 +233,35 @@ public class Schedule {
 
 			separateCourses(courses, lectures, recitations);
 			
-			System.out.println("==========LECTURES==========");
-			for (CourseCondensed cc : lectures.values()) {
-				System.out.println(cc);
-			}
-			System.out.println("\n==========RECITATIONS==========");
-			for (CourseCondensed cc : recitations.values()) {
-				System.out.println(cc);
-			}
-			
 			// assign ideal room to lectures/recitations based on class size and room capacity
 			HashMap<CourseCondensed, Classroom> schedule = new HashMap<CourseCondensed, Classroom>();
 			ArrayList<CourseCondensed> failed = new ArrayList<CourseCondensed>();
-			System.out.println("\n===========ASSIGN LECTURES==========");
+			log.fine("\n===========ASSIGN LECTURES==========");
 
 			assignRoom(sortedClassrooms, lectures, schedule, failed, "courseInc");
 			
-			System.out.println("\n===========ASSIGN RECITATIONS==========");
+			log.fine("\n===========ASSIGN RECITATIONS==========");
 			assignRoom(sortedClassrooms, recitations, schedule, failed, "courseDec");
 			
 			/*
 			for (CourseCondensed cc: schedule.keySet()) {
-				System.out.println("Scheduled: " + cc.course.title + "\t" + cc.course.courseNumber + "\t" + 
+				log.fine("Scheduled: " + cc.course.title + "\t" + cc.course.courseNumber + "\t" + 
 						cc.section.stopPoint + " " + schedule.get(cc).building + " " + schedule.get(cc).room + " " + schedule.get(cc).capacity);
 			}
 			*/
 			
+			Analysis.analyze(schedule);
 			
 			for (CourseCondensed cc: failed) {
-				System.out.println("Failed: " + cc.course.title + "\t" + cc.course.courseNumber + "\t" + 
+				log.warning("Failed: " + cc.course.title + "\t" + cc.course.courseNumber + "\t" + 
 						cc.section.stopPoint);
 			}
-			System.out.println("Success: " + schedule.size());
-			System.out.println("Failed: " + failed.size());
+			log.info("Success: " + schedule.size());
+			log.info("Failed: " + failed.size());
 			
 			
 		} catch (IOException e) {
-			System.out.println(e);
+			log.severe(e.getMessage());
 		}
 	}
 
@@ -322,12 +327,11 @@ public class Schedule {
 			String key = mt.meetingDay + mt.startTime + mt.endTime + mt.pmCode;
 			int startPeriod = campus.get(mt.campusName).getPeriod(mt.startTime, mt.pmCode), 
 					endPeriod = campus.get(mt.campusName).getPeriod(mt.endTime, mt.pmCode);
-			System.out.println(mt.campusName + " " + mt.startTime + " " + mt.endTime + " " + startPeriod +" "+ endPeriod);
+			log.fine(mt.campusName + " " + mt.startTime + " " + mt.endTime + " " + startPeriod +" "+ endPeriod);
 			Classroom room = null;
 			boolean scheduled = false;
 			while ((sortedClassrooms.ceilingKey(targetCapacity) != null) && (startPeriod != -1) && (endPeriod != -1)) {
 				room = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
-				// TODO(wlynch): Figure out what to do for non-standard start/stop times
 				if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
 					schedule.put(cc, room);
 					scheduled = true;
@@ -352,7 +356,7 @@ public class Schedule {
 		String prof = "", key = "", recKey = "";
 
 		// sort each MeetingTime based on LECTURE or RECITATIONS
-		//System.out.println("\n==========SEPARATION==========");
+		//log.fine("\n==========SEPARATION==========");
 		
 		for (Course c: courses) {
 			
@@ -393,7 +397,7 @@ public class Schedule {
 		boolean first = false; // prevent double counting stopPoint of first sections
 		
 		// fix class size for lecture sections
-		//System.out.println("\n==========AGGREGATION==========");
+		//log.fine("\n==========AGGREGATION==========");
 		for (Course c: courses) {
 			
 			first = true;

@@ -23,6 +23,83 @@ public class Course {
 	@SerializedName("sections")
 	Section[] sections;
 	String subject;
+	
+	public String getCampusCode() {
+		return campusCode;
+	}
+
+	public CoreCodes[] getCoreCodes() {
+		return coreCodes;
+	}
+
+	public String getCourseDescription() {
+		return courseDescription;
+	}
+
+	public String getCourseNotes() {
+		return courseNotes;
+	}
+
+	public String getCourseNumber() {
+		return courseNumber;
+	}
+
+	public String getCredits() {
+		return credits;
+	}
+
+	public String getExpandedTitle() {
+		return expandedTitle;
+	}
+
+	public String getOfferingUnitCode() {
+		return offeringUnitCode;
+	}
+
+	public String getOfferingUnitTime() {
+		return offeringUnitTime;
+	}
+
+	public String getOpenSections() {
+		return openSections;
+	}
+
+	public String getPreReqNotes() {
+		return preReqNotes;
+	}
+
+	public Section[] getSections() {
+		return sections;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public String getSubjectNotes() {
+		return subjectNotes;
+	}
+
+	public String getSubjectGroupNotes() {
+		return subjectGroupNotes;
+	}
+
+	public String getSupplementCode() {
+		return supplementCode;
+	}
+
+	public String getSynopsisUrl() {
+		return synopsisUrl;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public String getUnitNotes() {
+		return unitNotes;
+	}
+
 	String subjectNotes;
 	String subjectGroupNotes;
 	String supplementCode;
