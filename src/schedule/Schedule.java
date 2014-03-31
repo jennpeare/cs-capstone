@@ -31,6 +31,7 @@ import com.google.gson.reflect.TypeToken;
 public class Schedule {
 
 	private static final String buildingFile = "data/buildings.json"; 
+	private static final String deptAffinityFile = "data/dept_affinity.json";
 	private static final String[] courseFiles = {
 		/*
 		"data/92013/U/001.json",
@@ -199,10 +200,9 @@ public class Schedule {
 	 */
 	public static void main(String args[]) {
 		log = Logger.getLogger("my.logger");
-		log.setLevel(Level.INFO);
+		log.setLevel(Level.ALL);
 		ConsoleHandler handler = new ConsoleHandler();
 		handler.setFormatter(new SimpleFormatter());
-		handler.setLevel(Level.OFF);
 		log.addHandler(handler);
 		
 		Gson gson = new Gson();
@@ -222,11 +222,23 @@ public class Schedule {
 
 			// Read in classrooms
 			json = readFile(capacityFile);
-			collectionType = new TypeToken<Classroom[]>(){}.getType();
-			Classroom[] classrooms = gson.fromJson(json, collectionType);
+			collectionType = new TypeToken<ArrayList<Classroom>>(){}.getType();
+			ArrayList<Classroom> classroomBuffer = gson.fromJson(json, collectionType);
+			
+			// Load campus affinities
+			json =  readFile(deptAffinityFile);
+			collectionType = new TypeToken<Affinity[]>(){}.getType();
+			Affinity[] affinitys = gson.fromJson(json, collectionType);
+			for (Affinity a : affinitys) {
+				for (int i = 0; i < 2; i++) {
+					classroomBuffer.add(a.newClassroom("generic" + i));
+				}
+			}
+			Classroom[] classrooms = classroomBuffer.toArray(new Classroom[0]);
+			
 			TreeMap<Integer, Classroom> sortedClassrooms = buildTree(classrooms);
 			log.info("Loaded classrooms");
-
+			
 			// HashMaps to store LEC and RECIT
 			HashMap<String, CourseCondensed> lectures = new HashMap<String, CourseCondensed>();
 			HashMap<String, CourseCondensed> recitations = new HashMap<String, CourseCondensed>();
@@ -243,12 +255,12 @@ public class Schedule {
 			log.fine("\n===========ASSIGN RECITATIONS==========");
 			assignRoom(sortedClassrooms, recitations, schedule, failed, "courseDec");
 			
-			/*
+			
 			for (CourseCondensed cc: schedule.keySet()) {
 				log.fine("Scheduled: " + cc.course.title + "\t" + cc.course.courseNumber + "\t" + 
 						cc.section.stopPoint + " " + schedule.get(cc).building + " " + schedule.get(cc).room + " " + schedule.get(cc).capacity);
 			}
-			*/
+			
 			
 			Analysis.analyze(schedule);
 			
