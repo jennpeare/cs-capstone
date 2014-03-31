@@ -228,8 +228,8 @@ public class Schedule {
 			// Load campus affinities
 			json =  readFile(deptAffinityFile);
 			collectionType = new TypeToken<Affinity[]>(){}.getType();
-			Affinity[] affinitys = gson.fromJson(json, collectionType);
-			for (Affinity a : affinitys) {
+			Affinity[] affinities = gson.fromJson(json, collectionType);
+			for (Affinity a : affinities) {
 				for (int i = 0; i < 2; i++) {
 					classroomBuffer.add(a.newClassroom("generic" + i));
 				}
