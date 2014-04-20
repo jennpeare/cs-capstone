@@ -28,7 +28,7 @@ import com.google.gson.reflect.TypeToken;
  */
 public class Schedule {
 
-	private static final int NUMBER_OF_GENERIC_ROOMS = 4;
+	private static final int NUMBER_OF_GENERIC_ROOMS = 1000;
 	private static final String buildingFile = "data/buildings.json"; 
 	private static final String deptAffinityFile = "data/dept_affinity.json";
 	private static final String[] courseFiles = {
@@ -200,7 +200,7 @@ public class Schedule {
 	 */
 	public static void main(String args[]) {
 		log = Logger.getLogger("my.logger");
-		log.setLevel(Level.INFO);
+		log.setLevel(Level.ALL);
 		
 		Gson gson = new Gson();
 		try {
@@ -228,12 +228,12 @@ public class Schedule {
 			Affinity[] affinities = gson.fromJson(json, collectionType);
 			for (Affinity a : affinities) {
 				for (int i = 0; i < NUMBER_OF_GENERIC_ROOMS; i++) {
-					classroomBuffer.add(a.newClassroom("generic" + i));
+					classroomBuffer.add(a.newClassroom(a.department + "generic" + i));
 				}
 			}
 			Classroom[] classrooms = classroomBuffer.toArray(new Classroom[0]);
 			
-			TreeMap<Integer, Classroom> sortedClassrooms = buildTree(classrooms);
+			TreeMap<Integer, ArrayList<Classroom>> sortedClassrooms = buildTree(classrooms);
 			log.info("Loaded classrooms");
 			
 			// HashMaps to store LEC and RECIT
@@ -303,11 +303,13 @@ public class Schedule {
 	 * @param classrooms
 	 * @return
 	 */
-	private static TreeMap<Integer,Classroom> buildTree(Classroom[] classrooms) {
-		TreeMap<Integer, Classroom> map = new TreeMap<Integer,Classroom>();
+	private static TreeMap<Integer, ArrayList<Classroom>> buildTree(Classroom[] classrooms) {
+		TreeMap<Integer, ArrayList<Classroom>> map = new TreeMap<Integer,ArrayList<Classroom>>();
 
 		for (Classroom room: classrooms) {
-			map.put(room.capacity, room);
+			if (!map.containsKey(room.capacity))
+				map.put(room.capacity, new ArrayList<Classroom>());
+			map.get(room.capacity).add(room);
 		}
 		return map;
 	}
@@ -319,7 +321,7 @@ public class Schedule {
 	 * @param failed List of failed classes to return
 	 * @param sortMode In what order should courses be assigned
 	 */
-	private static void assignRoom(TreeMap<Integer, Classroom> sortedClassrooms, 
+	private static void assignRoom(TreeMap<Integer, ArrayList<Classroom>> sortedClassrooms, 
 			HashMap<String, CourseCondensed> courseList, HashMap<CourseCondensed, Classroom> schedule, 
 			List<CourseCondensed> failed, String sortMode) throws IllegalStateException{
 		
@@ -338,16 +340,27 @@ public class Schedule {
 			int startPeriod = campus.get(mt.campusName).getPeriod(mt.startTime, mt.pmCode), 
 					endPeriod = campus.get(mt.campusName).getPeriod(mt.endTime, mt.pmCode);
 			log.fine(mt.campusName + " " + mt.startTime + " " + mt.endTime + " " + startPeriod +" "+ endPeriod);
-			Classroom room = null;
+			//Classroom room = null;
 			boolean scheduled = false;
+			
+			if ((startPeriod == -1) || (endPeriod == -1)) {
+				System.out.println(cc + " | " + mt.startTime + " " + mt.endTime + " " + startPeriod + " " + endPeriod);
+				continue;
+			}
 			while ((sortedClassrooms.ceilingKey(targetCapacity) != null) && (startPeriod != -1) && (endPeriod != -1)) {
-				room = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
-				if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
-					schedule.put(cc, room);
-					scheduled = true;
-					break;
+				for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
+				//room = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
+					if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
+						schedule.put(cc, room);
+						scheduled = true;
+						break;
+					}
 				}
-				targetCapacity++;
+				// Check to see if we need to check another room
+				if (scheduled)
+					break;
+				else
+					targetCapacity++;
 			}
 			if (!scheduled) {
 				failed.add(cc);
