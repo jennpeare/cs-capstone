@@ -340,7 +340,6 @@ public class Schedule {
 			int startPeriod = campus.get(mt.campusName).getPeriod(mt.startTime, mt.pmCode), 
 					endPeriod = campus.get(mt.campusName).getPeriod(mt.endTime, mt.pmCode);
 			log.fine(mt.campusName + " " + mt.startTime + " " + mt.endTime + " " + startPeriod +" "+ endPeriod);
-			//Classroom room = null;
 			boolean scheduled = false;
 			
 			if ((startPeriod == -1) || (endPeriod == -1)) {
@@ -349,7 +348,6 @@ public class Schedule {
 			}
 			while ((sortedClassrooms.ceilingKey(targetCapacity) != null) && (startPeriod != -1) && (endPeriod != -1)) {
 				for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
-				//room = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
 					if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
 						schedule.put(cc, room);
 						scheduled = true;
