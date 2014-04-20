@@ -31,7 +31,7 @@ public class Classroom {
 			.put("TH", 3)
 			.put("F", 4)
 			.put("S", 5)
-			.put("SU", 6)
+			.put("U", 6)
 			.build();
 	
 	

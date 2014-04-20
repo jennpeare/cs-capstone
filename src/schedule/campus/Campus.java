@@ -20,11 +20,12 @@ public abstract class Campus {
 		
 		// Find corresponding period
 		for (int i = 0; i < periods.length; i++) {
-			if (time >= periods[i][0] && time <= periods[i][1]) {
+			if ((time >= periods[i][0] && time <= periods[i][1]) ||
+					(time >= periods[i][1] && i < periods.length && i <= periods[i+1][0]) ||
+					(time <= periods[i][0] && i > 0 && i >= periods[i-1][1])) {
 				return i;
 			}
 		}
-		
 		return -1;
 	}
 }
