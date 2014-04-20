@@ -13,7 +13,7 @@ public class Affinity {
 		Classroom c = new Classroom();
 		c.building = name;
 		c.room = name;
-		c.capacity = 1000;
+		c.capacity = 40;
 		c.campus = this.affinity;
 		c.restricted = true;
 		c.type = "Classroom";

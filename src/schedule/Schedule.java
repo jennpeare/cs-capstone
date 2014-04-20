@@ -28,7 +28,7 @@ import com.google.gson.reflect.TypeToken;
  */
 public class Schedule {
 
-	private static final int NUMBER_OF_GENERIC_ROOMS = 1000;
+	private static final int NUMBER_OF_GENERIC_ROOMS = 6;
 	private static final String buildingFile = "data/buildings.json"; 
 	private static final String deptAffinityFile = "data/dept_affinity.json";
 	private static final String[] courseFiles = {
@@ -200,7 +200,7 @@ public class Schedule {
 	 */
 	public static void main(String args[]) {
 		log = Logger.getLogger("my.logger");
-		log.setLevel(Level.ALL);
+		log.setLevel(Level.INFO);
 		
 		Gson gson = new Gson();
 		try {
@@ -344,8 +344,8 @@ public class Schedule {
 			boolean scheduled = false;
 			
 			if ((startPeriod == -1) || (endPeriod == -1)) {
-				System.out.println(cc + " | " + mt.startTime + " " + mt.endTime + " " + startPeriod + " " + endPeriod);
-				continue;
+				log.warning(cc + " | " + mt.startTime + " " + mt.endTime + " " + startPeriod + " " + endPeriod);
+				//continue;
 			}
 			while ((sortedClassrooms.ceilingKey(targetCapacity) != null) && (startPeriod != -1) && (endPeriod != -1)) {
 				for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
