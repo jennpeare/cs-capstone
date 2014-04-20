@@ -10,10 +10,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.HashMap;
-import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 import schedule.campus.*;
 import analysis.Analysis;
@@ -30,10 +28,10 @@ import com.google.gson.reflect.TypeToken;
  */
 public class Schedule {
 
+	private static final int NUMBER_OF_GENERIC_ROOMS = 6;
 	private static final String buildingFile = "data/buildings.json"; 
 	private static final String deptAffinityFile = "data/dept_affinity.json";
 	private static final String[] courseFiles = {
-		/*
 		"data/92013/U/001.json",
 		"data/92013/U/010.json",
 		"data/92013/U/011.json",
@@ -181,17 +179,19 @@ public class Schedule {
 		"data/92013/U/965.json",
 		"data/92013/U/966.json",
 		"data/92013/U/988.json",
-		*/
+		/*
 		"data/92013/U/640.json",
 		"data/92013/U/198.json",
 		"data/92013/U/160.json"
+		*/
 	};
 	private static final String capacityFile = "data/roomcapacity.json";
 	public static final Map<String, Campus> campus = ImmutableMap.of(
 			"COLLEGE AVENUE", new CollegeAve(),
 			"BUSCH", new Busch(),
 			"LIVINGSTON", new Livingston(),
-			"DOUGLAS/COOK", new CookDouglass()
+			"DOUGLAS/COOK", new CookDouglass(),
+			"DOWNTOWN NB", new CollegeAve()
 	);
 	private static Logger log;
 	
@@ -200,10 +200,7 @@ public class Schedule {
 	 */
 	public static void main(String args[]) {
 		log = Logger.getLogger("my.logger");
-		log.setLevel(Level.ALL);
-		ConsoleHandler handler = new ConsoleHandler();
-		handler.setFormatter(new SimpleFormatter());
-		log.addHandler(handler);
+		log.setLevel(Level.INFO);
 		
 		Gson gson = new Gson();
 		try {
@@ -230,13 +227,13 @@ public class Schedule {
 			collectionType = new TypeToken<Affinity[]>(){}.getType();
 			Affinity[] affinities = gson.fromJson(json, collectionType);
 			for (Affinity a : affinities) {
-				for (int i = 0; i < 2; i++) {
-					classroomBuffer.add(a.newClassroom("generic" + i));
+				for (int i = 0; i < NUMBER_OF_GENERIC_ROOMS; i++) {
+					classroomBuffer.add(a.newClassroom(a.department + "generic" + i));
 				}
 			}
 			Classroom[] classrooms = classroomBuffer.toArray(new Classroom[0]);
 			
-			TreeMap<Integer, Classroom> sortedClassrooms = buildTree(classrooms);
+			TreeMap<Integer, ArrayList<Classroom>> sortedClassrooms = buildTree(classrooms);
 			log.info("Loaded classrooms");
 			
 			// HashMaps to store LEC and RECIT
@@ -306,11 +303,13 @@ public class Schedule {
 	 * @param classrooms
 	 * @return
 	 */
-	private static TreeMap<Integer,Classroom> buildTree(Classroom[] classrooms) {
-		TreeMap<Integer, Classroom> map = new TreeMap<Integer,Classroom>();
+	private static TreeMap<Integer, ArrayList<Classroom>> buildTree(Classroom[] classrooms) {
+		TreeMap<Integer, ArrayList<Classroom>> map = new TreeMap<Integer,ArrayList<Classroom>>();
 
 		for (Classroom room: classrooms) {
-			map.put(room.capacity, room);
+			if (!map.containsKey(room.capacity))
+				map.put(room.capacity, new ArrayList<Classroom>());
+			map.get(room.capacity).add(room);
 		}
 		return map;
 	}
@@ -322,7 +321,7 @@ public class Schedule {
 	 * @param failed List of failed classes to return
 	 * @param sortMode In what order should courses be assigned
 	 */
-	private static void assignRoom(TreeMap<Integer, Classroom> sortedClassrooms, 
+	private static void assignRoom(TreeMap<Integer, ArrayList<Classroom>> sortedClassrooms, 
 			HashMap<String, CourseCondensed> courseList, HashMap<CourseCondensed, Classroom> schedule, 
 			List<CourseCondensed> failed, String sortMode) throws IllegalStateException{
 		
@@ -334,22 +333,32 @@ public class Schedule {
 		for (CourseCondensed cc: classes) {
 			int targetCapacity = cc.section.stopPoint;
 			MeetingTime mt = cc.section.meetingTimes[0];
-			if (mt.meetingDay == null)
+			// Check for things we don't need to schedule: Online/off campus
+			if (mt.meetingDay == null || mt.campusName == null || mt.campusName.equals("OFF CAMPUS"))
 				continue;			
 			String key = mt.meetingDay + mt.startTime + mt.endTime + mt.pmCode;
 			int startPeriod = campus.get(mt.campusName).getPeriod(mt.startTime, mt.pmCode), 
 					endPeriod = campus.get(mt.campusName).getPeriod(mt.endTime, mt.pmCode);
 			log.fine(mt.campusName + " " + mt.startTime + " " + mt.endTime + " " + startPeriod +" "+ endPeriod);
-			Classroom room = null;
 			boolean scheduled = false;
+			
+			if ((startPeriod == -1) || (endPeriod == -1)) {
+				log.warning(cc + " | " + mt.startTime + " " + mt.endTime + " " + startPeriod + " " + endPeriod);
+				//continue;
+			}
 			while ((sortedClassrooms.ceilingKey(targetCapacity) != null) && (startPeriod != -1) && (endPeriod != -1)) {
-				room = sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity));
-				if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
-					schedule.put(cc, room);
-					scheduled = true;
-					break;
+				for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
+					if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
+						schedule.put(cc, room);
+						scheduled = true;
+						break;
+					}
 				}
-				targetCapacity++;
+				// Check to see if we need to check another room
+				if (scheduled)
+					break;
+				else
+					targetCapacity++;
 			}
 			if (!scheduled) {
 				failed.add(cc);
