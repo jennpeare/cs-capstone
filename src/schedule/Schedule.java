@@ -28,7 +28,7 @@ import com.google.gson.reflect.TypeToken;
  */
 public class Schedule {
 
-	private static final int NUMBER_OF_GENERIC_ROOMS = 6;
+	private static final int NUMBER_OF_GENERIC_ROOMS = 10;
 	private static final String buildingFile = "data/buildings.json"; 
 	private static final String deptAffinityFile = "data/dept_affinity.json";
 	private static final String[] courseFiles = {
@@ -219,19 +219,21 @@ public class Schedule {
 
 			// Read in classrooms
 			json = readFile(capacityFile);
-			collectionType = new TypeToken<ArrayList<Classroom>>(){}.getType();
-			ArrayList<Classroom> classroomBuffer = gson.fromJson(json, collectionType);
+			collectionType = new TypeToken<Classroom[]>(){}.getType();
+			Classroom[] classrooms = gson.fromJson(json, collectionType);
 			
 			// Load campus affinities
 			json =  readFile(deptAffinityFile);
 			collectionType = new TypeToken<Affinity[]>(){}.getType();
 			Affinity[] affinities = gson.fromJson(json, collectionType);
+			HashMap<String, ArrayList<Classroom>> genericRooms = new HashMap<String, ArrayList<Classroom>>();
 			for (Affinity a : affinities) {
+				genericRooms.put(a.department, new ArrayList<Classroom>());
 				for (int i = 0; i < NUMBER_OF_GENERIC_ROOMS; i++) {
-					classroomBuffer.add(a.newClassroom(a.department + "generic" + i));
+					genericRooms.get(a.department).add(a.newClassroom(a.department + "generic" + i));
 				}
 			}
-			Classroom[] classrooms = classroomBuffer.toArray(new Classroom[0]);
+			
 			
 			TreeMap<Integer, ArrayList<Classroom>> sortedClassrooms = buildTree(classrooms);
 			log.info("Loaded classrooms");
@@ -247,10 +249,10 @@ public class Schedule {
 			ArrayList<CourseCondensed> failed = new ArrayList<CourseCondensed>();
 			log.fine("\n===========ASSIGN LECTURES==========");
 
-			assignRoom(sortedClassrooms, lectures, schedule, failed, "courseInc");
+			assignRoom(sortedClassrooms, genericRooms, lectures, schedule, failed, "courseInc");
 			
 			log.fine("\n===========ASSIGN RECITATIONS==========");
-			assignRoom(sortedClassrooms, recitations, schedule, failed, "courseDec");
+			assignRoom(sortedClassrooms, genericRooms, recitations, schedule, failed, "courseDec");
 			
 			
 			for (CourseCondensed cc: schedule.keySet()) {
@@ -316,13 +318,16 @@ public class Schedule {
 
 	/**
 	 * @param sortedClassrooms List of classrooms in sorted order
+	 * @param deptClassrooms List of department specific classrooms
 	 * @param courseList List of courses to schedule
 	 * @param schedule Schedule to return
 	 * @param failed List of failed classes to return
 	 * @param sortMode In what order should courses be assigned
 	 */
 	private static void assignRoom(TreeMap<Integer, ArrayList<Classroom>> sortedClassrooms, 
-			HashMap<String, CourseCondensed> courseList, HashMap<CourseCondensed, Classroom> schedule, 
+			HashMap<String, ArrayList<Classroom>> deptClassrooms, 
+			HashMap<String, CourseCondensed> courseList,
+			HashMap<CourseCondensed, Classroom> schedule,
 			List<CourseCondensed> failed, String sortMode) throws IllegalStateException{
 		
 		// Set sorting order for room assignment
@@ -344,9 +349,20 @@ public class Schedule {
 			
 			if ((startPeriod == -1) || (endPeriod == -1)) {
 				log.warning(cc + " | " + mt.startTime + " " + mt.endTime + " " + startPeriod + " " + endPeriod);
-				//continue;
+				continue;
 			}
 			while ((sortedClassrooms.ceilingKey(targetCapacity) != null) && (startPeriod != -1) && (endPeriod != -1)) {
+				// Try to schedule in dept rooms first
+				if (deptClassrooms.containsKey(cc.course.subject)) {
+					for (Classroom room: deptClassrooms.get(cc.course.subject)) {
+						if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
+							schedule.put(cc, room);
+							scheduled = true;
+							break;
+						}
+					}
+				}
+					
 				for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
 					if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
 						schedule.put(cc, room);
