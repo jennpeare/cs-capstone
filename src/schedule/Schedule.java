@@ -33,7 +33,6 @@ public class Schedule {
 	private static final String buildingFile = "data/buildings.json"; 
 	private static final String deptAffinityFile = "data/dept_affinity.json";
 	private static final String[] courseFiles = {
-		/*
 		"data/92013/U/001.json",
 		"data/92013/U/010.json",
 		"data/92013/U/011.json",
@@ -181,7 +180,6 @@ public class Schedule {
 		"data/92013/U/965.json",
 		"data/92013/U/966.json",
 		"data/92013/U/988.json",
-		*/
 		"data/92013/U/640.json",
 		"data/92013/U/198.json",
 		"data/92013/U/160.json"
