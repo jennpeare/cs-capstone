@@ -1,6 +1,9 @@
 package schedule;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Affinity {
+	@SerializedName("dept")
 	String department;
 	String description;
 	String affinity;
