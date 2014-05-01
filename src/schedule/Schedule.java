@@ -28,7 +28,15 @@ import com.google.gson.reflect.TypeToken;
  */
 public class Schedule {
 
+	// CONFIGS
+	// Should depts be bound by their affinities?
+	private static final boolean AFFINITY_BOUND = false;
+	// Should intro classes be distributed between all campuses?
+	private static final boolean DISTRIBUTE_INTRO = false;
+	// How many dummy rooms per dept?
 	private static final int NUMBER_OF_GENERIC_ROOMS = 10;
+	// Capacity of each dummy room
+	private static final int GENERIC_ROOM_CAPACITY = 40;
 	private static final String buildingFile = "data/buildings.json"; 
 	private static final String deptAffinityFile = "data/dept_affinity.json";
 	private static final String[] courseFiles = {
@@ -193,6 +201,13 @@ public class Schedule {
 			"DOUGLAS/COOK", new CookDouglass(),
 			"DOWNTOWN NB", new CollegeAve()
 	);
+	public static final Map<String, Campus> campusAbbrev = ImmutableMap.of(
+			"CAC", campus.get("COLLEGE AVENUE"),
+			"BUS", campus.get("BUSCH"),
+			"LIV", campus.get("LIVINGSTON"),
+			"D/C", campus.get("DOUGLAS/COOK"),
+			"DNB", campus.get("DOWNTOWN NB")
+	);
 	private static Logger log;
 	
 	/**
@@ -230,7 +245,7 @@ public class Schedule {
 			for (Affinity a : affinities) {
 				genericRooms.put(a.department, new ArrayList<Classroom>());
 				for (int i = 0; i < NUMBER_OF_GENERIC_ROOMS; i++) {
-					genericRooms.get(a.department).add(a.newClassroom(a.department + "generic" + i));
+					genericRooms.get(a.department).add(a.newClassroom(a.department + "generic" + i, GENERIC_ROOM_CAPACITY));
 				}
 			}
 			
@@ -341,7 +356,6 @@ public class Schedule {
 			// Check for things we don't need to schedule: Online/off campus
 			if (mt.meetingDay == null || mt.campusName == null || mt.campusName.equals("OFF CAMPUS"))
 				continue;			
-			String key = mt.meetingDay + mt.startTime + mt.endTime + mt.pmCode;
 			int startPeriod = campus.get(mt.campusName).getPeriod(mt.startTime, mt.pmCode), 
 					endPeriod = campus.get(mt.campusName).getPeriod(mt.endTime, mt.pmCode);
 			log.fine(mt.campusName + " " + mt.startTime + " " + mt.endTime + " " + startPeriod +" "+ endPeriod);
@@ -357,15 +371,56 @@ public class Schedule {
 					for (Classroom room: deptClassrooms.get(cc.course.subject)) {
 						if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
 							schedule.put(cc, room);
+							campusAbbrev.get(room.campus).count++;
 							scheduled = true;
 							break;
 						}
 					}
 				}
+				
+				if (DISTRIBUTE_INTRO && cc.course.courseNumber.startsWith("1")) {
+					// Find min campus
+					Campus[] c = campus.values().toArray(new Campus[5]);
+					int min = 0;
+					// Find campus with least amount of classes
+					for (int i = 1; i < c.length; i++) {
+						// Let campus affinity take precedence
+						if (c[i].count == c[min].count && c[min].getName().equals(deptClassrooms.get(cc.course.subject).get(0).campus)) {
+							min = i;
+						}
+						if (c[i].count < c[min].count) {
+							min = i;
+						}
+					}
 					
+					// Find best room with least used campus as affinity
+					for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
+						if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod) && room.campus.equals(deptClassrooms.get(cc.course.subject).get(0).campus)) {
+							schedule.put(cc, room);
+							campusAbbrev.get(room.campus).count++;
+							scheduled = true;
+							break;
+						}
+					}
+				}
+				
+				// Search for rooms on the affinity campus
+				if (AFFINITY_BOUND) {
+					for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
+						if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod) && room.campus.equals(deptClassrooms.get(cc.course.subject).get(0).campus) ) {
+							schedule.put(cc, room);
+							campusAbbrev.get(room.campus).count++;
+							scheduled = true;
+							break;
+						}
+					}
+				}
+				
+				// Else search elsewhere
 				for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
 					if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
 						schedule.put(cc, room);
+						campusAbbrev.get(room.campus).count++;
 						scheduled = true;
 						break;
 					}
