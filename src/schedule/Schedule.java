@@ -378,7 +378,7 @@ public class Schedule {
 					}
 				}
 				
-				if (DISTRIBUTE_INTRO && cc.course.courseNumber.startsWith("1")) {
+				if (!scheduled && DISTRIBUTE_INTRO && cc.course.courseNumber.startsWith("1")) {
 					// Find min campus
 					Campus[] c = campus.values().toArray(new Campus[5]);
 					int min = 0;
@@ -405,7 +405,7 @@ public class Schedule {
 				}
 				
 				// Search for rooms on the affinity campus
-				if (AFFINITY_BOUND) {
+				if (!scheduled && AFFINITY_BOUND) {
 					for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
 						if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod) && room.campus.equals(deptClassrooms.get(cc.course.subject).get(0).campus) ) {
 							schedule.put(cc, room);
@@ -417,20 +417,24 @@ public class Schedule {
 				}
 				
 				// Else search elsewhere
-				for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
-					if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
-						schedule.put(cc, room);
-						campusAbbrev.get(room.campus).count++;
-						scheduled = true;
-						break;
+				if (!scheduled){
+					for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
+						if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
+							schedule.put(cc, room);
+							campusAbbrev.get(room.campus).count++;
+							scheduled = true;
+							break;
+						}
 					}
 				}
-				// Check to see if we need to check another room
-				if (scheduled)
+				// Check to see if we need to check another room with higher capacity
+				if (scheduled) {
 					break;
-				else
+				} else {
 					targetCapacity++;
+				}
 			}
+			// If rooms are exhausted, add to failed
 			if (!scheduled) {
 				failed.add(cc);
 			}
