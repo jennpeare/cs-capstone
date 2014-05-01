@@ -28,7 +28,13 @@ import com.google.gson.reflect.TypeToken;
  */
 public class Schedule {
 
+	// CONFIGS
+	// Should depts be bound by their affinities?
+	private static final boolean affinityBound = true;
+	// How many dummy rooms per dept?
 	private static final int NUMBER_OF_GENERIC_ROOMS = 10;
+	// Capacity of each dummy room
+	private static final int GENERIC_ROOM_CAPACITY = 40;
 	private static final String buildingFile = "data/buildings.json"; 
 	private static final String deptAffinityFile = "data/dept_affinity.json";
 	private static final String[] courseFiles = {
@@ -230,7 +236,7 @@ public class Schedule {
 			for (Affinity a : affinities) {
 				genericRooms.put(a.department, new ArrayList<Classroom>());
 				for (int i = 0; i < NUMBER_OF_GENERIC_ROOMS; i++) {
-					genericRooms.get(a.department).add(a.newClassroom(a.department + "generic" + i));
+					genericRooms.get(a.department).add(a.newClassroom(a.department + "generic" + i, GENERIC_ROOM_CAPACITY));
 				}
 			}
 			
@@ -362,7 +368,19 @@ public class Schedule {
 						}
 					}
 				}
-					
+				
+				// Search for rooms on the affinity campus
+				if (affinityBound) {
+					for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
+						if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod) && room.campus.equals(deptClassrooms.get(cc.course.subject).get(0).campus) ) {
+							schedule.put(cc, room);
+							scheduled = true;
+							break;
+						}
+					}
+				}
+				
+				// Else search elsewhere
 				for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
 					if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod)) {
 						schedule.put(cc, room);

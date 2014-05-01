@@ -2,6 +2,7 @@ package schedule.campus;
 
 public abstract class Campus {
 	protected int[][] periods;
+	protected int count;
 		
 	public static int parseTime(String timeStr, String pmCode) {
 		if (timeStr.equals("1200") && pmCode.equalsIgnoreCase("a")) {

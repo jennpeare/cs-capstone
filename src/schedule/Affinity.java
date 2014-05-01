@@ -13,10 +13,14 @@ public class Affinity {
 	}
 	
 	public Classroom newClassroom(String name) {
+		return newClassroom(name, 40);
+	}
+	
+	public Classroom newClassroom(String name, int cap) {
 		Classroom c = new Classroom();
 		c.building = name;
 		c.room = name;
-		c.capacity = 40;
+		c.capacity = cap;
 		c.campus = this.affinity;
 		c.restricted = true;
 		c.type = "Classroom";
