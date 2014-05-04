@@ -32,7 +32,7 @@ public class Schedule {
 	// Should depts be bound by their affinities?
 	private static final boolean AFFINITY_BOUND = false;
 	// Should intro classes be distributed between all campuses?
-	private static final boolean DISTRIBUTE_INTRO = false;
+	private static final boolean DISTRIBUTE_INTRO = true;
 	// How many dummy rooms per dept?
 	private static final int NUMBER_OF_GENERIC_ROOMS = 10;
 	// Capacity of each dummy room
@@ -395,7 +395,7 @@ public class Schedule {
 					
 					// Find best room with least used campus as affinity
 					for (Classroom room: sortedClassrooms.get(sortedClassrooms.ceilingKey(targetCapacity))) {
-						if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod) && room.campus.equals(deptClassrooms.get(cc.course.subject).get(0).campus)) {
+						if (room.bookRoom(mt.meetingDay, startPeriod, endPeriod) && room.campus.equals(c[min])) {
 							schedule.put(cc, room);
 							campusAbbrev.get(room.campus).count++;
 							scheduled = true;
