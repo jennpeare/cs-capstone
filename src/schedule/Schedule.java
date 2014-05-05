@@ -30,7 +30,7 @@ public class Schedule {
 
 	// CONFIGS
 	// Should depts be bound by their affinities?
-	private static final boolean AFFINITY_BOUND = true;
+	private static final boolean AFFINITY_BOUND = false;
 	// Should intro classes be distributed between all campuses?
 	private static final boolean DISTRIBUTE_INTRO = false;
 	// How many dummy rooms per dept?

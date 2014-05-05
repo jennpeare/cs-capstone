@@ -17,12 +17,12 @@
     {
         "dept": "016",
         "description": "AFRICAN STUDIES",
-        "affinity": "CAC"
+        "affinity": "LIV"
     },
     {
         "dept": "014",
         "description": "AFRICANA STUDIES",
-        "affinity": "CAC"
+        "affinity": "LIV"
     },
     {
         "dept": "050",
@@ -232,7 +232,7 @@
     {
         "dept": "354",
         "description": "ENGLISH - FILM STUDIES",
-        "affinity": "CAC"
+        "affinity": "D/C"
     },
     {
         "dept": "356",
@@ -242,7 +242,7 @@
     {
         "dept": "355",
         "description": "ENGLISH: COMP & WRITING",
-        "affinity": "CAC"
+        "affinity": "LIV"
     },
     {
         "dept": "353",
@@ -292,7 +292,7 @@
     {
         "dept": "001",
         "description": "EXCHANGE",
-        "affinity": "CAC"
+        "affinity": "LIV"
     },
     {
         "dept": "377",
@@ -312,7 +312,7 @@
     {
         "dept": "420",
         "description": "FRENCH",
-        "affinity": "CAC"
+        "affinity": "D/C"
     },
     {
         "dept": "440",
@@ -437,7 +437,7 @@
     {
         "dept": "580",
         "description": "LATIN",
-        "affinity": "CAC"
+        "affinity": "D/C"
     },
     {
         "dept": "590",
@@ -522,7 +522,7 @@
     {
         "dept": "685",
         "description": "MIDDLE EASTERN STUDIES",
-        "affinity": "CAC"
+        "affinity": "LIV"
     },
     {
         "dept": "690",
@@ -632,12 +632,12 @@
     {
         "dept": "790",
         "description": "POLITICAL SCIENCE",
-        "affinity": "CAC"
+        "affinity": "D/C"
     },
     {
         "dept": "810",
         "description": "PORTUGUESE",
-        "affinity": "CAC"
+        "affinity": "D/C"
     },
     {
         "dept": "830",
