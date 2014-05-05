@@ -32,7 +32,7 @@ public class Schedule {
 	// Should depts be bound by their affinities?
 	private static final boolean AFFINITY_BOUND = false;
 	// Should intro classes be distributed between all campuses?
-	private static final boolean DISTRIBUTE_INTRO = true;
+	private static final boolean DISTRIBUTE_INTRO = false;
 	// How many dummy rooms per dept?
 	private static final int NUMBER_OF_GENERIC_ROOMS = 10;
 	// Capacity of each dummy room
@@ -215,7 +215,7 @@ public class Schedule {
 	 */
 	public static void main(String args[]) {
 		log = Logger.getLogger("my.logger");
-		log.setLevel(Level.INFO);
+		log.setLevel(Level.OFF);
 		
 		Gson gson = new Gson();
 		try {
@@ -275,15 +275,20 @@ public class Schedule {
 						cc.section.stopPoint + " " + schedule.get(cc).building + " " + schedule.get(cc).room + " " + schedule.get(cc).capacity);
 			}
 			
-			
+			if (AFFINITY_BOUND)
+				System.out.println("AFFINTIY_BOUND enabled");
+			if (DISTRIBUTE_INTRO)
+				System.out.println("DISTRIBUTE_INTRO enabled");
+			System.out.println("Number of generic rooms: " + NUMBER_OF_GENERIC_ROOMS);
+			System.out.println("Generic room capacity: " + GENERIC_ROOM_CAPACITY);
 			Analysis.analyze(schedule);
 			
 			for (CourseCondensed cc: failed) {
 				log.warning("Failed: " + cc.course.title + "\t" + cc.course.courseNumber + "\t" + 
 						cc.section.stopPoint);
 			}
-			log.info("Success: " + schedule.size());
-			log.info("Failed: " + failed.size());
+			System.out.println("Success: " + schedule.size());
+			System.out.println("Failed: " + failed.size());
 			
 			
 		} catch (IOException e) {
