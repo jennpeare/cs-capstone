@@ -6,7 +6,7 @@ import schedule.Classroom;
 import schedule.CourseCondensed;
 
 public class Analysis {
-	
+	private static int[] campusTotalFreq = new int[6];
 	private static class Stats {
 		int[] campusFreq;
 		int total;
@@ -20,26 +20,32 @@ public class Analysis {
 			switch (campus) {
 				case "BUS":
 					campusFreq[0]++;
+					campusTotalFreq[0]++;
 					total++;
 					return campusFreq[0];
 				case "LIV":
 					campusFreq[1]++;
+					campusTotalFreq[1]++;
 					total++;
 					return campusFreq[1];
 				case "CAC":
 					campusFreq[2]++;
+					campusTotalFreq[2]++;
 					total++;
 					return campusFreq[2];
 				case "D/C":
 					campusFreq[3]++;
+					campusTotalFreq[3]++;
 					total++;
 					return campusFreq[3];
 				case "DNB":
 					campusFreq[4]++;
+					campusTotalFreq[4]++;
 					total++;
 					return campusFreq[4];
 				default:
 					campusFreq[5]++;
+					campusTotalFreq[5]++;
 					total++;
 					return campusFreq[5];
 			}
@@ -77,5 +83,10 @@ public class Analysis {
 		for (Stats s: stats.values()) {
 			System.out.println(s);
 		}
+		
+		for (int x: campusTotalFreq) {
+			System.out.print("\t" + x);
+		}
+		System.out.println();
 	}
 }
