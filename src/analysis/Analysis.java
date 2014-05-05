@@ -72,7 +72,7 @@ public class Analysis {
 	public static void analyze(HashMap<CourseCondensed, Classroom> schedule) {
 		HashMap<String, Stats> stats = generateStats(schedule);
 		
-		System.out.println("dept\tBUS\tLIV\tCAC\tD/C\tDNB");
+		System.out.println("dept\tBUS\tLIV\tCAC\tD/C\tDNB\tOther\tTotal");
 		
 		for (Stats s: stats.values()) {
 			System.out.println(s);
