@@ -12,7 +12,7 @@
     {
         "dept": "013",
         "description": "AFRICAN, M. EAST. & S. ASIAN LANG & LIT",
-        "affinity": "CAC"
+        "affinity": "LIV"
     },
     {
         "dept": "016",
@@ -27,7 +27,7 @@
     {
         "dept": "050",
         "description": "AMERICAN STUDIES",
-        "affinity": "CAC"
+        "affinity": "D/C"
     },
     {
         "dept": "067",
@@ -57,7 +57,7 @@
     {
         "dept": "090",
         "description": "ARTS AND SCIENCES",
-        "affinity": "CAC"
+        "affinity": "BUS"
     },
     {
         "dept": "098",
@@ -147,7 +147,7 @@
     {
         "dept": "190",
         "description": "CLASSICS",
-        "affinity": "CAC"
+        "affinity": "D/C"
     },
     {
         "dept": "185",
@@ -287,7 +287,7 @@
     {
         "dept": "360",
         "description": "EUROPEAN STUDIES",
-        "affinity": "CAC"
+        "affinity": "D/C"
     },
     {
         "dept": "001",
@@ -392,7 +392,7 @@
     {
         "dept": "556",
         "description": "INTERDISCIPLINARY STUDIES - ARTS & SCI",
-        "affinity": "CAC"
+        "affinity": "BUS"
     },
     {
         "dept": "522",
@@ -507,7 +507,7 @@
     {
         "dept": "667",
         "description": "MEDIEVAL STUDIES",
-        "affinity": "CAC"
+        "affinity": "LIV"
     },
     {
         "dept": "670",
@@ -567,12 +567,12 @@
     {
         "dept": "711",
         "description": "OPERATIONS RESEARCH",
-        "affinity": "CAC"
+        "affinity": "BUS"
     },
     {
         "dept": "713",
         "description": "ORGANIZATIONAL LEADERSHIP",
-        "affinity": "CAC"
+        "affinity": "LIV"
     },
     {
         "dept": "715",
@@ -647,12 +647,12 @@
     {
         "dept": "832",
         "description": "PUBLIC HEALTH",
-        "affinity": "CAC"
+        "affinity": "LIV"
     },
     {
         "dept": "833",
         "description": "PUBLIC POLICY",
-        "affinity": "CAC"
+        "affinity": "LIV"
     },
     {
         "dept": "840",
@@ -692,7 +692,7 @@
     {
         "dept": "940",
         "description": "SPANISH",
-        "affinity": "CAC"
+        "affinity": "D/C"
     },
     {
         "dept": "960",

@@ -30,7 +30,7 @@ public class Schedule {
 
 	// CONFIGS
 	// Should depts be bound by their affinities?
-	private static final boolean AFFINITY_BOUND = false;
+	private static final boolean AFFINITY_BOUND = true;
 	// Should intro classes be distributed between all campuses?
 	private static final boolean DISTRIBUTE_INTRO = false;
 	// How many dummy rooms per dept?
@@ -289,7 +289,6 @@ public class Schedule {
 			}
 			System.out.println("Success: " + schedule.size());
 			System.out.println("Failed: " + failed.size());
-			
 			
 		} catch (IOException e) {
 			log.severe(e.getMessage());
