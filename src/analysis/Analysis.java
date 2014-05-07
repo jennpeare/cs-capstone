@@ -1,6 +1,8 @@
 package analysis;
 
 import java.util.HashMap;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import schedule.Classroom;
 import schedule.CourseCondensed;
@@ -80,8 +82,10 @@ public class Analysis {
 		
 		System.out.println("dept\tBUS\tLIV\tCAC\tD/C\tDNB\tOther\tTotal");
 		
-		for (Stats s: stats.values()) {
-			System.out.println(s);
+		SortedSet<String> keys = new TreeSet<String>(stats.keySet());
+		for (String key : keys) { 
+		   Stats s = stats.get(key);
+		   System.out.println(s);
 		}
 		
 		for (int x: campusTotalFreq) {
