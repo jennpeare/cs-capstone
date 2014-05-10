@@ -63,6 +63,11 @@ public class Analysis {
 		}
 	}
 	
+	/**
+	 * Gets the distribution of classes across campuses for each dept.
+	 * @param schedule List of classrooms
+	 * @return Map of stats for each dept
+	 */
 	private static HashMap<String, Stats> generateStats(HashMap<CourseCondensed, Classroom> schedule) {
 		HashMap<String, Stats> freq =  new HashMap<String, Stats>();
 		
@@ -77,6 +82,10 @@ public class Analysis {
 		return freq;
 	}
 	
+	/**
+	 * Prints stats about scheduling
+	 * @param schedule Schedule
+	 */
 	public static void analyze(HashMap<CourseCondensed, Classroom> schedule) {
 		HashMap<String, Stats> stats = generateStats(schedule);
 		
