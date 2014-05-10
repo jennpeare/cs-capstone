@@ -30,7 +30,7 @@ public class Schedule {
 
 	// CONFIGS
 	// Should depts be bound by their affinities?
-	private static final boolean AFFINITY_BOUND = true;
+	private static final boolean AFFINITY_BOUND = false;
 	// Should intro classes be distributed between all 	campuses?
 	private static final boolean DISTRIBUTE_INTRO = true;
 	// How many dummy rooms per dept?
@@ -236,6 +236,7 @@ public class Schedule {
 			json = readFile(capacityFile);
 			collectionType = new TypeToken<Classroom[]>(){}.getType();
 			Classroom[] classrooms = gson.fromJson(json, collectionType);
+			System.out.println(classrooms.length);
 			
 			// Load campus affinities
 			json =  readFile(deptAffinityFile);
@@ -248,7 +249,7 @@ public class Schedule {
 					genericRooms.get(a.department).add(a.newClassroom(a.department + "generic" + i, GENERIC_ROOM_CAPACITY));
 				}
 			}
-			
+			System.out.println(genericRooms.size());
 			
 			TreeMap<Integer, ArrayList<Classroom>> sortedClassrooms = buildTree(classrooms);
 			log.info("Loaded classrooms");
@@ -296,8 +297,9 @@ public class Schedule {
 	}
 
 	/**
-	 * @param pathname
-	 * @return
+	 * Reads a file.
+	 * @param pathname File to read
+	 * @return String of file contents
 	 * @throws IOException
 	 */
 	private static String readFile(String pathname) throws IOException {
@@ -316,13 +318,21 @@ public class Schedule {
 		}
 	}
 
+	/**
+	 * Imports courses from a json file
+	 * @param gson GSON object to use for importing
+	 * @param filename File to import
+	 * @return List of courses
+	 * @throws IOException
+	 */
 	private static ArrayList<Course> importCourses(Gson gson, String filename) throws IOException {
 		return gson.fromJson(readFile(filename), new TypeToken<ArrayList<Course>>(){}.getType());
 	}
 
 	/**
-	 * @param classrooms
-	 * @return
+	 * Build map of classrooms
+	 * @param classrooms List of classrooms
+	 * @return TreeMap of capacity, room lists
 	 */
 	private static TreeMap<Integer, ArrayList<Classroom>> buildTree(Classroom[] classrooms) {
 		TreeMap<Integer, ArrayList<Classroom>> map = new TreeMap<Integer,ArrayList<Classroom>>();
@@ -336,6 +346,7 @@ public class Schedule {
 	}
 
 	/**
+	 * Assign classes to rooms
 	 * @param sortedClassrooms List of classrooms in sorted order
 	 * @param deptClassrooms List of department specific classrooms
 	 * @param courseList List of courses to schedule
@@ -388,7 +399,7 @@ public class Schedule {
 					Campus[] c = campusAbbrev.values().toArray(new Campus[5]);
 					int min = 0;
 					// Find campus with least amount of classes
-					for (int i = 1; i < c.length; i++) {
+					for (int i = 1; i < c.length-1; i++) {
 						// Let campus affinity take precedence
 						if (c[i].count == c[min].count && c[min].getName().equals(deptClassrooms.get(cc.course.subject).get(0).campus)) {
 							min = i;
@@ -448,6 +459,7 @@ public class Schedule {
 	}
 
 	/**
+	 * Parse out courses to lectures and recitations
 	 * @param courses Array of course objects
 	 * @param lectures HashMap storing unique lectures
 	 * @param recitations HashMap storing unique recitations
