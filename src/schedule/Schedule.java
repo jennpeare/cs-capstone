@@ -20,7 +20,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-
 /**
  * @author Billy Lynch
  * @author Jenny Shi
@@ -28,15 +27,20 @@ import com.google.gson.reflect.TypeToken;
  */
 public class Schedule {
 
-	// CONFIGS
-	// Should depts be bound by their affinities?
+	/* CONFIGS */
+	/** Should depts be bound by their affinities? **/
 	private static final boolean AFFINITY_BOUND = false;
-	// Should intro classes be distributed between all campuses?
+	
+	/** Should intro classes be distributed between all campuses? **/
 	private static final boolean DISTRIBUTE_INTRO = true;
-	// How many dummy rooms per dept?
+	
+	/** How many dummy rooms per dept? **/
 	private static final int NUMBER_OF_GENERIC_ROOMS = 10;
-	// Capacity of each dummy room
+	
+	/** Capacity of each dummy room **/
 	private static final int GENERIC_ROOM_CAPACITY = 40;
+	
+	/* DATA FILES */
 	private static final String buildingFile = "data/buildings.json"; 
 	private static final String deptAffinityFile = "data/dept_affinity.json";
 	private static final String[] courseFiles = {
