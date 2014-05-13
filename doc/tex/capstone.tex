@@ -5,319 +5,298 @@
 
 \title{Rutgers Room Scheduling Optimization}
 \author {William Lynch \\ wlynch92@cs.rutgers.edu \\ Rutgers University
-	\and Jingfei Shi \\ jenny.shi@rutgers.edu \\ Rutgers University
-}
+	\and Jingfei Shi \\ jenny.shi@rutgers.edu \\ Rutgers University}
+	
 \begin{document}
 \maketitle
-\section{Abstract}
-An examination of the University Course Timetabling Problem (UCTP) at Rutgers
-University is presented. The current scheduling process is a manual process,
-which prompts an exploration for ways to algorithmically assign courses so as
-to optimize the existing system. The solution features a basic greedy algorithm
-to select the best room for a given course. In addition, assigning courses of
-the same academic major to rooms in geographic clusters, and the distribution
-of introductory courses across sub-campuses are features that can be layered on
-top of the greedy algorithm. The results for different ways to schedule courses
-are displayed and analyzed. Finally, the various issues and future improvements
-are discussed.
+\begin{abstract}
+An examination of the University Course Timetabling Problem (UCTP) at Rutgers University is presented. The current scheduling process is a manual process, which prompts an exploration for ways to algorithmically assign courses so as to optimize the existing system. The solution features a basic greedy algorithm to select the best room for a given course. In addition, assigning courses of the same academic major to rooms in geographic clusters, and the distribution of introductory courses across sub-campuses are features that can be layered on top of the greedy algorithm. The results for different ways to schedule courses are displayed and analyzed. Finally, the various issues and future improvements are discussed.
 \\\\
-Keywords: \emph{University Course Timetabling Problem (UCTP), Rutgers University
-course scheduling, optimization, course-room assignments, greedy algorithm,
-geographical clustering, course distribution}
+Keywords: \emph{University Course Timetabling Problem (UCTP), Rutgers University course scheduling, optimization, course-room assignments, greedy algorithm, geographical clustering, course distribution}
+\end{abstract}
 
 \section{Introduction}
-	Course-room assignment is an integral part of the Rutgers University
-	administration. An efficient and functional implementation allows students to
-	build schedules with minimal travel time and without conflicts. This is
-	especially important for a large, multi-campus university, where students could
-	potentially spend a significant amount of time traveling between classes via
-	campus buses. While the Scheduling and Space Management office at Rutgers
-	(University Scheduling) have created a functional system to provide working
-	assignments for each semester, resulting schedules may be inefficient for the
-	students. Depending on a student's academic major, traveling between classes
-	located on different campuses can be arduous and seemingly arbitrary (i.e. back
-	and forth between two campuses). With that, there is a need to analyze the
-	current scheduling process at Rutgers and generate ways to optimize it.
-
-	This process is part of the University Course Timetabling Problem (UCTP). The
-	UCTP deals with assigning all events or classes to available time slots and
-	classrooms. As described by Murray et al., UCTP is a resource allocation
-	problem, where the solution must satisfy both hard and soft constraints so as
-	to avoid scheduling conflicts \cite{citation1}. This is largely dependent on the university
-	layout, available resources, and main method of transportation. Unfortunately,
-	the current scheduling system at Rutgers is mostly a manual process, but this
-	also creates room for improvement. 
-
-	This paper provides an overview of the current scheduling implementation at
-	Rutgers, as well as existing studies done by researchers at Purdue University.
-	Moreover, a solution has been developed for automating and optimizing the
-	current system. The basis for this is a greedy algorithm that assigns courses
-	to rooms. Rather than over-extending this function, two other factors of the
-	scheduling problem are identified and they work in conjunction with the greedy
-	algorithm. These factors are concerned with geographical clustering and the
-	distribution of introductory classes across the sub-campuses. The algorithm and
-	each of these factors will be examined in greater details. Overall, this
-	solution successfully schedules 76\% of undergraduate lectures and recitations.
-	An analysis of the results, as well as factors contributing and/or affecting
-	the scheduling process are also detailed in the following sections.
+Course-room assignment is an integral part of the Rutgers University administration. An efficient and functional implementation allows students to build schedules with minimal travel time and without conflicts. This is especially important for a large, multi-campus university, where students could potentially spend a significant amount of time traveling between classes via campus buses. While the Scheduling and Space Management office at Rutgers (University Scheduling) have created a functional system to provide working assignments for each semester, resulting schedules may be inefficient for the students. Depending on a student's academic major, traveling between classes located on different campuses can be arduous and seemingly arbitrary (i.e. back and forth between two campuses). With that, there is a need to analyze the current scheduling process at Rutgers and generate ways to optimize it.
+\\\\
+This process is part of the University Course Timetabling Problem (UCTP). The UCTP deals with assigning all events or classes to available time slots and classrooms. As described by Murray \emph{et al.}, UCTP is a resource allocation problem, where the solution must satisfy both hard and soft constraints so as to avoid scheduling conflicts \cite{citation1}. This is largely dependent on the university layout, available resources, and main method of transportation. Unfortunately, the current scheduling system at Rutgers is mostly a manual process, but this also creates room for improvement. 
+\\\\
+This paper provides an overview of the current scheduling implementation at Rutgers, as well as existing studies done by researchers at Purdue University. Moreover, a solution has been developed for automating and optimizing the current system. The basis for this is a greedy algorithm that assigns courses to rooms. Rather than over-extending this function, two other factors of the scheduling problem are identified and they work in conjunction with the greedy algorithm. These factors are concerned with geographical clustering and the distribution of introductory classes across the sub-campuses. The algorithm and each of these factors will be examined in greater details. Overall, this solution successfully schedules 76\% of undergraduate lectures and recitations. An analysis of the results, as well as factors contributing and/or affecting the scheduling process are also detailed in the following sections.
 
 \section{Motivation}
-	Although there have been several different methods of scheduling implemented
-	for other universities, Rutgers is in a unique position for improvements due to
-	its large campus size. Since the New Brunswick campus is spread over a large
-	geographic area that is segmented into five sub-campuses, it is difficult to
-	make ideal course-room assignments for the entire university. Nevertheless,
-	the large campus size highlights the necessity to minimize time spent on the
-	campus buses for students. 
-	\\\\
-	The main motivation behind this optimization is to automate the Rutgers
-	scheduling process. At the same time, it endeavors to localize the amount of
-	travel needed for students to go between classes. Therefore, it is crucial to
-	examine ways to algorithmically assign classes of the same academic major rooms
-	in geographic clusters. Both the university and its students may benefit from
-	this optimization: while students can enjoy more free time by not having to
-	travel back and forth between classes, a reduction in travel means that the
-	university does not have to deploy as many buses. This directly translates to
-	thousands of dollars worth of savings over time. 
+Although there have been several different scheduling methods implemented for other universities, Rutgers is in a unique position for improvements due to its large campus size. Since the New Brunswick campus is spread over a large geographic area that is segmented into five sub-campuses, it is difficult to make ideal course-room assignments for the entire university. Nevertheless, the large campus size highlights the necessity to minimize time spent on the campus buses for students. 
+\\\\
+The main motivation behind this optimization is to automate the Rutgers scheduling process. At the same time, it endeavors to localize the amount of travel needed for students to go between classes. Therefore, it is crucial to examine ways to algorithmically assign classes of the same academic major rooms in geographic clusters. Both the university and its students may benefit from this optimization: while students can enjoy more free time by not having to travel back and forth between classes, a reduction in travel means that the University does not have to deploy as many buses. This directly translates to thousands of dollars worth of savings over time. 
 
-	\subsection{Current Implementation}
-		As previously mentioned, the current Rutgers scheduling system is a manual
-		process. University Scheduling takes the schedule for the previous semester,
-		duplicate the assignments for the courses, and manually fix any conflicts and
-		unassigned courses. For example, the Fall 2014 schedule is largely based on the
-		Fall 2013 schedule, with minor differences accounting for changes in course
-		offering and building availability. While this system is effective in producing
-		a working schedule, it does not allow for flexibility of course-room
-		assignments. Once a class has been assigned to a certain campus, and if it
-		continues to be offered in subsequent semesters without conflicts, its location
-		is unlikely to change. However, if an assignment creates a conflict, or if
-		there is available space to relocate courses, then the new assignments change
-		will persist across future semesters. This gradual shifting makes little sense
-		under certain situations, and this directly relates to the motivation for this
-		optimization.
+\subsection{Current Implementation}
+As previously mentioned, the current Rutgers scheduling system is a manual process. University Scheduling duplicates the course-room assignments for the previous semester, and manually fix any conflicts and unassigned courses. For example, the Fall 2014 schedule is chiefly based on the Fall 2013 schedule, with minor differences accounting for changes in course offering and room availability. While this system is effective in producing a working schedule, it does not allow for flexibility of course-room assignments. In other words, once a class has been assigned to a certain campus, and if it continues to be offered in subsequent semesters without conflicts, its location is unlikely to change. However, if an assignment creates a conflict, or if there is available space to relocate courses, then new assignment changes will persist across future semesters. This shifting behavior makes little sense under certain situations, and an example of this can be seen with courses in the Computer Science department. 
 
-		\subsubsection{Course Shifting in the Computer Science Department}
-			With the completion of the Rutgers Business School building, most of the
-			business classes migrated from the existing classrooms on Livingston to the new
-			building. In order to fill in these empty rooms, University Scheduling many
-			traditionally “Busch courses” to Livingston. These courses include a majority
-			of the Computer Science department. The tables below clearly illustrate this
-			shift between the course offering for Fall 2012 and Fall 2014.
+\subsubsection{Course Shifting in the Computer Science Department}
+With the completion of the Rutgers Business School building, most of the business classes migrated from existing classrooms on Livingston to the new building. In order to fill in these empty rooms, University Scheduling moved many traditionally ``Busch courses" to Livingston. A majority of the Computer Science department courses were affected by this migration. The tables below clearly illustrate the location shift between the Fall 2012 and Fall 2014 course offering.
 			
-			\begin{center}
-				\captionof{table}{CS Department Courses, Fall 2014} \label{tab:asdf} 
-				\begin{tabular}{ | l | l | l | l | }
-					\hline
-					Course & Campus & Course &	Campus \\ \hline
-					111 & CAC, LIV & 344 & LIV \\ \hline
-					112 & LIV & 352 & BUS \\ \hline
-					205 & LIV & 416 & LIV \\ \hline
-					206 & LIV & 417 & LIV \\ \hline
-					211 & LIV & 431 & BUS \\ \hline
-					214 & LIV & 437 & LIV \\ \hline
-					314 & BUS, LIV & 440 & LIV \\ \hline
-					334 & BUS & 452 & LIV \\ \hline
-					336 & LIV & & \\ 
-					\hline
-				\end{tabular}
-			\end{center}
-			\begin{center}
-				\captionof{table}{CS Department Courses, Fall 2012} \label{tab:title} 
-				\begin{tabular} { | l | l | l | l | }
-					\hline
-					Course & 	Campus & Course & Campus \\ \hline
-					111 & CAC, BUS & 336 & BUS \\ \hline
-					112 & LIV, BUS & 344 & BUS \\ \hline
-					205 & BUS & 352 & BUS \\ \hline	
-					206 & BUS &	416 & BUS \\ \hline
-					211 & BUS &	417 & BUS \\ \hline		
-					214 & LIV &	431 & BUS \\ \hline		
-					314 & BUS & 440 & BUS \\ \hline		
-					334 & BUS & & \\
-					\hline
-				\end{tabular}
-			\end{center}
-			The newly renovated Livingston classes may have been a good reason to migrate
-			the Computer Science courses. However, it poses an inconvenience to the
-			students and staff. Since the Computer Science department is on Busch, the
-			majority of the professors’ offices are located at Hill Center or CoRE. This
-			shift causes an inconvenience for them, since they will have to allocate more
-			time for traveling in their schedule in order to teach their courses. For the
-			students, their resources (e.g. office hour, peer mentoring, iLab, etc.) are
-			all located on Busch. It would make more sense to keep their classes and
-			resources on the same campus. 
+\begin{center}
+	\captionof{table}{CS Department Courses, Fall 2012} \label{tab:title} 
+	\begin{tabular} { | l | l | l | l | }
+		\hline
+		Course & 	Campus & Course & Campus \\ \hline
+		111 & CAC, BUS & 336 & BUS \\ \hline
+		112 & LIV, BUS & 344 & BUS \\ \hline
+		205 & BUS & 352 & BUS \\ \hline	
+		206 & BUS &	416 & BUS \\ \hline
+		211 & BUS &	417 & BUS \\ \hline		
+		214 & LIV &	431 & BUS \\ \hline		
+		314 & BUS & 440 & BUS \\ \hline		
+		334 & BUS & & \\
+		\hline
+	\end{tabular}
+\end{center}
+\begin{center}
+	\captionof{table}{CS Department Courses, Fall 2014} \label{tab:asdf} 
+	\begin{tabular}{ | l | l | l | l | }
+		\hline
+		Course & Campus & Course &	Campus \\ \hline
+		111 & CAC, LIV & 344 & LIV \\ \hline
+		112 & LIV & 352 & BUS \\ \hline
+		205 & LIV & 416 & LIV \\ \hline
+		206 & LIV & 417 & LIV \\ \hline
+		211 & LIV & 431 & BUS \\ \hline
+		214 & LIV & 437 & LIV \\ \hline
+		314 & BUS, LIV & 440 & LIV \\ \hline
+		334 & BUS & 452 & LIV \\ \hline
+		336 & LIV & & \\ 
+		\hline
+	\end{tabular}
+\end{center}
 
-	\subsection{Goals for Optimization}
-	In response to the shortcomings of the current scheduling system, a solution to
-	automate the scheduling process has been proposed. In this solution, an “ideal”
-	schedule is defined as one where courses in the same department are assigned to
-	the same campus. At the same time, the solution should minimize scheduling
-	conflicts in an attempt to not overburden a particular campus. 
-	\\\\
-	Two key factors involved in the UCTP are identified to help produce the said
-	schedule. The first factor is the affinity of a course, which dictates that it
-	should be assigned near or on the same campus as the location of the
-	department. This way, students can minimize travel time while enjoying easy
-	access to academic resources for their affiliated departments. The second
-	factor is the distribution of introductory courses, where the affinities for
-	100 level courses are overruled in favor of equal distribution among all
-	campuses. These two factors and their implementations will be further analyzed
-	in the Method section.
+\hfill\\
+The newly renovated Livingston classes and better technological support may have been good reasons to move the Computer Science courses. However, it poses an inconvenience for the students and staff. Since the Computer Science department is located on Busch, the majority of the professors' offices are in Hill Center or CoRE. This shift means that they will have to allocate more time for traveling in their schedule in order to teach their courses. For the students, their resources (e.g. office hour, peer mentoring, iLab, etc.) are all located on Busch and not Livingston. Therefore, it would make more sense to keep their classes and resources on the same campus. 
+
+\subsection{Goals for Optimization}
+In response to the shortcomings of the current scheduling system, a solution to automate and improve the scheduling process is proposed. In this solution, an ``ideal" schedule is defined as one where courses in the same department are assigned to the same campus. At the same time, the solution should minimize scheduling conflicts in an attempt to not overburden a particular campus. 
+\\\\
+Two key factors involved in the UCTP are identified to help produce this ``ideal" schedule. The first factor is the course affinity, which dictates that courses should be assigned near or on the same campus as the location of their departments. This way, students can minimize travel time while enjoying easy access to academic resources for their affiliated departments. The second factor is the distribution of introductory courses, where the affinities for 100-level courses are overruled in favor of equal distribution among all campuses. These two factors and their implementations will be discussed in detail in the Method section.
 
 \section{Existing Research}
-The University Course Timetabling Problem has been studied by researchers at
-many universities. Specifically, Murray, Müller, and Rudová have provided a
-summary and analysis of their scheduling model in [1] under Purdue University
-and Masaryk University (Czech Republic). For Murray et al., the UCTP is a
-multi-layered problem and can be decomposed into subproblems. In addition,
-there exists a set of constraints for each course being scheduled, and these
-can be categorized into soft and hard constraints. The solution presented in
-this paper is partially influenced by several aspects of their research.
+The University Course Timetabling Problem has been studied by researchers at many universities. Specifically, Murray, M{\"u}ller, and Rudov{\'a} have provided a summary and analysis of their scheduling model in \cite{citation1} under Purdue University and Masaryk University (Czech Republic). For Murray \emph{et al.}, the UCTP is a multi-layered problem and can be decomposed into subproblems. In addition, there exists a set of constraints for each course being scheduled, and these can be categorized into either soft constraints or hard constraints. The solution presented in this paper is partially influenced by several aspects of their research.
 
 \subsection{Subproblems}
-The UCTP is an extremely complex problem, and it is difficult to develop a
-solution that will meet all of the details and requirements. With that, Murray
-et al. approached the problem by breaking it into a general course model with
-customizable constraints and relationships. This enables the use of a single
-solution that will apply to all courses, instead of separate designed
-specifically to fit certain departments. Each aspect of this model can then be
-broken down into subproblems with specific characteristics. Solutions to each
-subproblem are found and combined into one complete implementation.
-\\\\
-Some subproblems identified by Murray et al. are listed below:
+The UCTP is an extremely complex problem, and it is difficult to develop a solution that will meet all of the details and requirements. With that, Murray \emph{et al.} approached the problem by breaking it into a general course model with customizable constraints and relationships. This enables the use of a single solution that will apply to all courses, instead of separate ones designed specifically to fit certain departments. Each aspect of this model can then be broken down into subproblems with specific characteristics. Solutions to each subproblem are found and combined into one complete implementation. Some subproblems identified by Murray \emph{et al.} are listed below:
 
 \begin{enumerate}
-	\item centrally timetabled large lecture room problem
-	\item individually timetabled departmental problems
-	\item centrally timetabled computer laboratory problem
+	\item Centrally timetabled large lecture room problem
+	\item Individually timetabled departmental problems
+	\item Centrally timetabled computer laboratory problem
 \end{enumerate}
 
-While the timetabling system is different at Purdue University, the general
-idea of decomposition is applicable for Rutgers University scheduling. All
-courses have lectures, and some include recitations and labs. The proposed
-solution only analyzes lectures and recitations, but the subproblem approach is
-largely inspired by Murray et al.
+\hfill\\
+While the timetabling system is different at Purdue University, the general idea of decomposing a large problem into subproblems is still applicable for Rutgers University scheduling. In this solution, courses are decomposed into lectures and recitations. This bottom-up strategy focuses on these individual components, then creates a solution that encompasses all of the parts. This approach is inspired by Murray \emph{et al.}
 
 \subsection{Soft vs. Hard Constraints}
-In addition to being a resource allocation problem, the UCTP problem can also
-be viewed as a constraint satisfaction and optimization problem (CSOP). Each
-course being scheduled contains a set of finite constraints, which can be
-categorized into hard or soft. Hard constraints are constraints that must be
-met in order to successfully schedule a course, while soft constraints are
-associated with optimization. Therefore, the goal of the constraint
-satisfaction and optimization problem is to meet all of the hard constraints,
-while violating the least number of soft constraints.
+In addition to being a resource allocation problem, the UCTP problem can also be viewed as a constraint satisfaction and optimization problem (CSOP) \cite{citation1}. Each course being scheduled contains a set of hard and soft constraints. Hard constraints must be met in order to successfully schedule a course, while soft constraints are associated with optimization. Therefore, the goal of the constraint satisfaction and optimization problem is to meet all of the hard constraints while violating the least number of soft constraints.
 \\\\
-Recognizing the UCTP as a CSOP is the driving force behind the design to this
-proposed optimization. It is obvious that courses must be scheduled based on
-their capacity and time--the hard constraints. The soft constraints aspect of
-the CSOP inspired the addition of two factors: affinity and distribution of
-introductory courses. This solution endeavors to satisfy these soft constraints
-after fulfilling the hard constraints.
+Recognizing the UCTP as a CSOP is the driving force behind the design of this solution. It is obvious that courses must be scheduled based on their capacity and time, which are the hard constraints. The soft constraints aspect of the CSOP prompted the incorporation of two factors: affinity and distribution of introductory courses. This solution endeavors to satisfy these soft constraints after fulfilling the hard constraints.
 
 \section{Method}
-	\subsection{Generate Generic Rooms}
-	
-	\subsection{Best-Fit}
+It is important to note that some factors of the UCTP are excluded from this solution. This includes the problem of assigning time slots to courses. University Scheduling has implemented a staggered class schedule with preset time slots (periods), and course times are generally decided before room assignments \cite{citation2}. Thus, the algorithm does not try to optimize time slots for classes, but this should not affect the results. Next, personal or political constraints on courses (e.g. a professor insists on teaching at a certain location) are also excluded in order to simplify the scheduling process, since it is not feasible to gather personal schedules of all professors. Furthermore, missing fields from the data collection makes it difficult to schedule other aspects of courses, such as labs. For this reason, only lectures and recitations are scheduled. Finally, the course data only includes undergraduate classes. Since there are significantly more undergraduate courses than graduate courses at Rutgers, it is more meaningful to schedule the former. 
+\\\\
+This implementation is comprised of a single greedy assignment algorithm that works together with the two factors identified in the previous sections: geographical clustering and distribution of introductory courses.
 
-	\subsection{Geographical Clustering}
+\subsection{Generate Generic Rooms}
+Before any scheduling is done, it is imperative to recognize that the building data obtained from the University Scheduling website does not include department rooms, such as conference rooms that are sometimes used for classes. In order to fill in the gap, a specified number of generic classrooms is generated for each department. Taking into considering the incomplete building data, this step is necessary and improves the accuracy of the classroom dataset.
 
-	\subsection{Distribution of Introductory Courses}
+\subsection{Best-Fit}
+The room assignment method of this solution determines the best-fit room by examining the room capacities of the courses. This is essentially a greedy algorithm that finds the global minimum room capacity. For each course, the algorithm picks the smallest room that will support the course capacity. If the room has not been assigned, the system will book the course to this room. Otherwise, it will look for the next smallest available room.
+\\\\
+The nature of this problem can be modeled as the Knapsack problem, which is commonly used in resource allocation problems. The collection of courses to schedule is the set of items, the class size is the weight for the items, and the collection of available rooms is the knapsack. Thus, the goal is to fit as many course into the rooms as possible, while taking into consideration the course sizes and the capacity of the rooms. Because of this, a greedy algorithm is a sufficient approach to try to solve this problem as best as possible.
+
+\subsection{Geographical Clustering}
+On top of the greedy algorithm, there is an option for favoring a specific campus during the assignment process. This directly relates to the motivation for this solution: it makes sense for courses of similar academic majors to be located on the same campus. 
+\\\\
+A campus (affinity) is assigned to each subject; this decision is based on where the department building for the subject is located. For example, Mathematics and Computer Science are closely related majors, and both departments are located at Hill Center on Busch Campus. With that, Busch serves as the affinity, and it is assigned to both departments.
+\\\\
+The greedy algorithm adapts to these two elements--campus affinity and generic rooms--and makes a modification to the assignment process. For a course in the Computer Science department, the algorithm now computes the local minimum generic room capacity for Busch campus. If none of the generic rooms can host the course, the rest of the classrooms on Busch are examined in order to make an assignment. If there are none available on Busch, the greedy algorithm resorts back to the initial strategy and picks the best-fit room on any campus.
+
+\subsection{Distribution of Introductory Courses}
+The introductory courses should only follow a loose geographical clustering strategy. Since a large population of students takes 100-level classes, it makes little sense to overburden the campus (affinity) associated with these classes. Instead, the introductory courses should be distributed among the five sub-campuses while taking the affinity and campus availability into account.
+\\\\
+For each course, the distribution implementation first carries out a comparison among the five campuses to determine the campus with the least number of assignments. The affinity associated with the course takes precedence in this process, but one campus is selected to potentially host the course. From this campus, the greedy algorithm is once again used to find the smallest room that can support the course. If this assignment succeeds, the course is booked. If the algorithm cannot find an available room on the selected campus for the course, then the distribution factor is discarded and the course will be assigned using the generic greedy algorithm.
 
 \section{Experiment}
+To test the methods described above, course and building data must first be collected. Then, the affinity for each department is assigned. Finally, four scheduling trials are done and their results are compared.
 
-	\subsection{Data Collection and Organization}
+\subsection{Data Collection and Organization}
+Data for courses and building/classrooms are pulled from a variety of sources. Course information is gathered from the Rutgers Schedule of Classes API. Data from this API is separated by two categories: semester (including year) and department. Building information is gathered from the University Scheduling website.
+\\\\
+Since the raw data is structured for display, it follows a one directional, hierarchical format (i.e. department to course to section). However, this implies that there are no other links between the entities, creating complications for the scheduling procedure. For example, information about each section must be examined for a given course, but since the section do not have associations with their parent course, a backward reference cannot be made. To alleviate this issue, a wrapper class is introduced to flatten the hierarchy and to exclude any unnecessary information. This simplifies the information retrieval process, and individual sections or lectures can be easily passed through as parameters for organization. At this point, any malformed courses, such as those with invalid time slots, are tossed out and excluded from the rest of the scheduling process. 
 
-	\subsection{Data Separation}
+\subsection{Data Separation}
+A significant portion of this solution is the separation of unique lectures and recitations for the course data. A unique lecture is defined by a key comprised of the following attributes:
+
+\begin{verbatim}
+uniqueLecture = courseNumber + meetingDay + startTime + 
+endTime + pmCode + professorName
+\end{verbatim}
+
+\hfill\\
+Similarly, the following key defines a unique recitation:
+
+\begin{verbatim}
+uniqueRecitation = meetingDay + startTime + endTime + 
+pmCode + buildingCode + roomNumber + professorName
+\end{verbatim}
+
+\hfill\\
+Since a lecture is comprised of several sections, by iterating through each section, the number of unique lectures for a given course can be determined. At the same time, the aggregation of section sizes for each unique lecture is computed. This aggregation step is crucial for the greedy algorithm, since it ensures that lectures can be appropriately assigned to lecture halls instead of smaller classrooms. The key is paired with the wrapper course object to form a key-value pair, which is stored into a hashmap of lectures. 
+\\\\
+The process for storing recitations is identical to that of the lectures. Uniqueness is determined based on the generated key of attributes, but the class sizes are left untouched for the recitations. These recitation objects are stored in a separate hashmap.
+\\\\
+The two hashmaps will be the main repositories for retrieving lectures and recitations for room assignments.
+
+\subsection{Ways to Schedule}
+There are four ways to schedule classes with this solution:
+
+\begin{enumerate}
+	\item Greedy course-room assignment
+	\item Geographical clustering (affinity)
+	\item Distribution of introductory courses (distribution)
+	\item Both affinity and distribution
+\end{enumerate}
+
+\hfill\\
+The two features can be toggled by changing their boolean values. In addition, the number of generic rooms and their capacity can also be customized. The default is set to 10 and 40, respectively, since they are a good estimate for the number of available departmental rooms and their capacity in reality.
 
 \section{Results}
+The results include four sample runs to showcase all four ways to schedule classes. A breakdown of each department--its affinity and distribution of classes--is displayed. The number of generic rooms and capacity, as well as the number of assigned/unassigned classes is identical for all four combinations, so they are only presented once in the results.
+\\\\
+There are around 150 courses with invalid timeslots and vital information missing, rendering them impossible to schedule with this implementation. These courses have been eliminated prior to the scheduling process, so they are not included in these tabulations.
 
-	\subsection{Sample Runs}
-		Number of generic rooms: 10 \\
-		Generic room capacity: 40
-		\begin{center}
-			\captionof{table}{Greedy Algorithm} \label{tab:title} 
-			\begin{tabular} { | l | l | l | l | l | l | l | l | l | }
-				\hline
-				Dept & AFF & BUS & LIV & CAC & D/C & DNB & Other & Total \\ \hline
-				165 & CAC & 0 & 0 & 37 & 0 & 0 & 0 & 37 \\ \hline
-				198 & BUS & 44 & 2 & 4 & 1 & 0 & 0 & 51 \\ \hline
-				355 & LIV & 111 & 184 & 196 & 185 & 41 & 0 & 717 \\ \hline
-				640 & BUS & 123 & 132 & 55 & 70 & 9 & 0 & 389 \\ \hline
-				940 & D/C & 2 & 11 & 15 & 50 & 1 & 0 & 79 \\ \hline
-			\end{tabular}
-		\end{center}
+\subsection{Sample Runs}
+	Number of generic rooms: 10 \\
+	Generic room capacity: 40
+	\begin{center}
+		\captionof{table}{Greedy Algorithm} \label{tab:title} 
+		\begin{tabular} { | l | l | l | l | l | l | l | l | l | }
+			\hline
+			Dept & Affinity & BUS & LIV & CAC & D/C & DNB & Other & Total \\ \hline
+			165 & CAC & 0 & 0 & 37 & 0 & 0 & 0 & 37 \\ \hline
+			198 & BUS & 44 & 2 & 4 & 1 & 0 & 0 & 51 \\ \hline
+			355 & LIV & 111 & 184 & 196 & 185 & 41 & 0 & 717 \\ \hline
+			640 & BUS & 123 & 132 & 55 & 70 & 9 & 0 & 389 \\ \hline
+			940 & D/C & 2 & 11 & 15 & 50 & 1 & 0 & 79 \\ \hline
+		\end{tabular}
+	\end{center}
 
-		\begin{center}
-			\captionof{table}{Affinity} \label{tab:title} 
-			\begin{tabular} { | l | l | l | l | l | l | l | l | l | }
-				\hline
-				Dept & AFF & BUS & LIV & CAC & D/C & DNB & Other & Total \\ \hline
-				165 & CAC & 0 & 0 & 37 & 0 & 0 & 0 & 37 \\ \hline
-				198 & BUS & 44 & 1 & 5 & 1 & 0 & 0 & 51 \\ \hline
-				355 & LIV & 93 & 226 & 179 & 179 & 40 & 0 & 717 \\ \hline
-				640 & BUS & 155 & 129 & 36 & 64 & 5 & 0 & 389 \\ \hline
-				940 & D/C & 0 & 6 & 17 & 56 & 0 & 0 & 79 \\ \hline
-			\end{tabular}
-		\end{center}
+	\begin{center}
+		\captionof{table}{Affinity} \label{tab:title} 
+		\begin{tabular} { | l | l | l | l | l | l | l | l | l | }
+			\hline
+			Dept & Affinity & BUS & LIV & CAC & D/C & DNB & Other & Total \\ \hline
+			165 & CAC & 0 & 0 & 37 & 0 & 0 & 0 & 37 \\ \hline
+			198 & BUS & 44 & 1 & 5 & 1 & 0 & 0 & 51 \\ \hline
+			355 & LIV & 93 & 226 & 179 & 179 & 40 & 0 & 717 \\ \hline
+			640 & BUS & 155 & 129 & 36 & 64 & 5 & 0 & 389 \\ \hline
+			940 & D/C & 0 & 6 & 17 & 56 & 0 & 0 & 79 \\ \hline
+		\end{tabular}
+	\end{center}
 
-		\begin{center}
-			\captionof{table}{Distribution} \label{tab:title} 
-			\begin{tabular} { | l | l | l | l | l | l | l | l | l | }
-				\hline
-				Dept & AFF & BUS & LIV & CAC & D/C & DNB & Other & Total \\ \hline
-				165 & CAC & 0 & 0 & 37 & 0 & 0 & 0 & 37 \\ \hline
-				198 & BUS & 44 & 2 & 4 & 1 & 0 & 0 & 51 \\ \hline
-				355 & LIV & 111 & 184 & 196 & 185 & 41 & 0 & 717 \\ \hline
-				640 & BUS & 123 & 132 & 54 & 70 & 10 & 0 & 389 \\ \hline
-				940 & D/C & 2 & 11 & 16 & 50 & 0 & 0 & 79 \\ \hline
-			\end{tabular}
-		\end{center}
+	\begin{center}
+		\captionof{table}{Distribution} \label{tab:title} 
+		\begin{tabular} { | l | l | l | l | l | l | l | l | l | }
+			\hline
+			Dept & Affinity & BUS & LIV & CAC & D/C & DNB & Other & Total \\ \hline
+			165 & CAC & 0 & 0 & 37 & 0 & 0 & 0 & 37 \\ \hline
+			198 & BUS & 44 & 2 & 4 & 1 & 0 & 0 & 51 \\ \hline
+			355 & LIV & 111 & 184 & 196 & 185 & 41 & 0 & 717 \\ \hline
+			640 & BUS & 123 & 132 & 54 & 70 & 10 & 0 & 389 \\ \hline
+			940 & D/C & 2 & 11 & 16 & 50 & 0 & 0 & 79 \\ \hline
+		\end{tabular}
+	\end{center}
 
-		\begin{center}
-			\captionof{table}{Affinity and Distribution} \label{tab:title} 
-			\begin{tabular} { | l | l | l | l | l | l | l | l | l | }
-				\hline
-				Dept & AFF & BUS & LIV & CAC & D/C & DNB & Other & Total \\ \hline
-				165 & CAC & 0 & 0 & 37 & 0 & 0 & 0 & 37 \\ \hline
-				198 & BUS & 44 & 1 & 5 & 1 & 0 & 0 & 51 \\ \hline
-				355 & LIV & 93 & 226 & 178 & 179 & 41 & 0 & 717 \\ \hline
-				640 & BUS & 152 & 129 & 35 & 64 & 9 & 0 & 389 \\ \hline
-				940 & D/C & 0 & 6 & 17 & 56 & 0 & 0 & 79 \\ \hline
-			\end{tabular}
-		\end{center}
+	\begin{center}
+		\captionof{table}{Affinity and Distribution} \label{tab:title} 
+		\begin{tabular} { | l | l | l | l | l | l | l | l | l | }
+			\hline
+			Dept & Affinity & BUS & LIV & CAC & D/C & DNB & Other & Total \\ \hline
+			165 & CAC & 0 & 0 & 37 & 0 & 0 & 0 & 37 \\ \hline
+			198 & BUS & 44 & 1 & 5 & 1 & 0 & 0 & 51 \\ \hline
+			355 & LIV & 93 & 226 & 178 & 179 & 41 & 0 & 717 \\ \hline
+			640 & BUS & 152 & 129 & 35 & 64 & 9 & 0 & 389 \\ \hline
+			940 & D/C & 0 & 6 & 17 & 56 & 0 & 0 & 79 \\ \hline
+		\end{tabular}
+	\end{center}
 
-		Total number of classes: 6522 \\
-		Successfully scheduled: 4940 \\
-		Failed to schedule: 1582 \\
+	\hfill\\Total number of classes: 6522 \\
+	Successfully scheduled: 4940 \\
+	Failed to schedule: 1582
 
-	\subsection{Analysis}
+\subsection{Analysis}
+Overall, the success rate for scheduling 6522 courses is around 76\%. It is crucial that the success and failure rates for all four runs are identical. The inclusion of geographical clustering and distribution of introductory courses should only alter the overall distribution of courses across the sub-campuses. In other words, they should not change the success rate of ensuring that courses are being scheduled.
+\\\\
+For larger departments, it is evident that geographical clustering is present on top of the greedy room assignment algorithm. These departments already have assignments in all of the campuses, but after triggering the affinity feature, the assignments display a shift towards the campus assigned to be the affinity of the department. For example, the affinity for the Mathematics department (640) is Busch (BUS), and after including the geographical clustering feature, 32 courses shifted from the other campuses to Busch. Likewise, 42 English courses (355) were reassigned to Livingston (LIV), the affinity for the English department. 
+\\\\
+The distribution of introductory courses, however, does not seem to make a significant impact when compared with the basic greedy algorithm. Likewise, the results for the combination of affinity and distribution resemble those for the affinity alone. This can be attributed to the default behavior of the course-room assignment process: if they fail to schedule with the affinities or distribution methods, they revert back to the generic greedy algorithm. This is done to prioritize minimizing failed assignments over the assignment behaviors, so that courses are at least being scheduled somewhere, even if the locations are not ``ideal." This is especially true for departments with fewer than 50 courses; the distribution of classes across different campuses for these departments are likely to remain the same for all four ways to schedule classes.
 
-	\subsection{Possible Explanations}
+\subsection{Possible Explanations}
+While over three-quarters of the courses are successfully scheduled with this solution, a failure rate of 24\% is relatively high considering that all courses must be scheduled in order to produce a complete course offering for students. There are several explanations that could explain the unaccounted courses. 
 
-		\subsubsection{Affinity Assignment}
+\subsubsection{Affinity Assignment}
+The basis for the affinity assignment is the location of the department building for each subject. In an ideal scenario, the departments are evenly spread across all of the campuses. When the courses are assigned according to their affinities, they will exhibit an even distribution across the campuses as well. This is not the case in reality, since there are many more departments located on College Ave (CAC) than there are on other campuses. This overburdens CAC and creates a bottleneck. Even with slight adjustments to normalize the affinity distribution, the larger classes are exhausting the lecture rooms too quickly. As a result, many courses end up in the failed list.
 
-		\subsubsection{Strain of Resources}
+\subsubsection{Strain of Resources}
+The lack of complete data for all of the available classroom space presents a large hurdle for this solution to have a good basis for scheduling. This missing data problem is alleviated by adding a set number of generic rooms for each department to the collection of classrooms prior to the assignment process. The numbers used in the sample runs are estimates for each department, but this may not be an entirely accurate reflection of the space at Rutgers. 
+\\\\
+From the University Scheduling site, 353 rooms are obtained for scheduling purposes \cite{citation3}. The staggered class schedule at Rutgers maps out 9 periods for course assignments, which means there are 353*9 = 3177 possible combinations to schedule all of the courses. However, this is not feasible since this number is less than half of the total number of courses waiting to be scheduled (6522). Introducing the generic rooms increases the number of combinations, but this is only applicable for courses with capacity less than the specified generic room capacity (which was 40 in the sample runs). One way to measure the effectiveness of the generic rooms is to calculate the success rate of an attempt to schedule all classes without any generic rooms. With no generic rooms, the statistics for scheduling classes are as the following:
+
+\begin{verbatim}
+Total number of classes: 6522
+Successfully scheduled: 1786
+Failed to schedule: 4736
+\end{verbatim}
+
+\hfill\\
+The success rate is 27\%, which is not nearly as satisfactory as 76\% when scheduling with the generic rooms.
 
 \section{Issues}
+Several issues are encountered, all of which can be attribute to poorly structured and incomplete data. 
 
-	\subsection{Pooly Structure Data}
+\subsection{Poorly Structure Data}
+The data gathered from the Rutgers Schedule of Classes API is good for presentation, but the internal formatting is not ideal for drawing relations between courses and sections. There are many inconsistencies with the data formatting, including irregular class time grouping, and empty or null fields crucial for identifying unique classes. It is difficult to take into account all irregularities because the assumptions made about its formatting do not hold for the entire set. As a result, some courses are rendered unschedulable, or difficult to automatically and accurately calculate their capacity. 
+\\\\
+The data does not contain information about special room needs, which makes it impossible to schedule some courses in the appropriate rooms. For example, some recitation sections are held in computer labs because they require the use of computers for programming exercises. Without indicators to schedule them in the computer labs, the solution cannot accurately reflect the needs of these courses. 
+\\\\
+Finally, the data lacks indicators for cross-listed courses, or courses that are offered under multiple departments. As a consequence, there are duplicate courses that should only be listed once, which translates to an inflated total number of courses. It is difficult to prune the list for duplicates in an efficient manner, since many aspects are involved in defining a completely unique course. 
 	
-	\subsection{Incomplete Data}
+\subsection{Incomplete Data}
+The building data from University Scheduling only contains general-purpose rooms and some restricted classrooms. It does not contain departmental conference rooms and other smaller room that may not be official classrooms, but are nevertheless used to host many courses (especially recitations). In addition, the data is somewhat outdated due to the completion of various new buildings around the University. This lack of data greatly limits the number of available classrooms, and therefore increases the failure rate for scheduling courses.
 
 \section{Conclusions}
+With a success rate of 76\% for scheduling all undergraduate lectures and recitations, this solution provides an encouraging start for automating and optimizing the current manual scheduling process at Rutgers University. It is clear that the geographical clustering is a promising feature that could facilitate the process to create the ?ideal? schedule, but additional work will be required to make the distribution of introductory courses more effective. While this solution does not yet address other aspects of courses (e.g. lab sections), solidifying the current implementation and then expanding it is a definite possibility.
+\\\\
+The biggest challenge at this step stems from a lack of knowledge about rooms and constraints on courses. Moving forward, obtaining a more complete set of data can improve accuracy in scheduling. This would require closer contacts with University Scheduling and individual departments for specific details on departmental rooms and special course constraints.
+\\\\
+Additionally, it would be beneficial to revamp the way campus distribution is handled. Currently, the distribution is determined with a raw count of courses for each campus. This quickly uses up the resources of smaller campuses and effectively ends distribution prematurely. Using the percentage of availability for each campus instead of the raw number of classes assigned to each campus would fix the issue and normalize campus availability.
+\\\\
+In conclusion, this solution is a promising first step in automating and optimizing the current Rutgers University scheduling process. 
 
 \section{Acknowledgement}
+We would like to express our gratitude to our thesis adviser, Professor Matthew Stone, for his continuous support, patience, and advice throughout this year. We would also like to thank Vaibhav Verma for contributing the Rutgers Schedule Sniper, which was adapted and used for the data collection process.
 
-\section{References}
 \begin{thebibliography}{9}
 	\bibitem{citation1}
-		Keith Murray, Tomáš Müller, and Hana Rudová.
+		Keith Murray, Tom� M�ller, and Hana Rudov�
+		Keith Murray, Tom{\'a}{\v s} M{\"u}ller, and Hana Rudov{\'a}.
 		Modeling and Solution of a Complex University Course Timetabling Problem.
-		In Edmund Burke and Hana Rudová, editors,
+		In Edmund Burke and Hana Rudov{\'a}, editors,
 		\emph{Practice and Theory of Automated Timetabling, Selected Revised Papers},
 		Springer-Verlag LNCS 3867,
 		Pages 189-209,
 		2007.
+	\bibitem{citation2}
+		Staggered Class Schedule, Effective Fall 2005, New Brunswick/Piscataway Campuses.
+		Retrieved May 7, 2014, from Rutgers University:
+		\url{http://scheduling.rutgers.edu/downloads/0405-0146-01_class_schedule.pdf}.
+	\bibitem{citation3}
+		Room Capacities \& Accessibility
+		Retrieved May 7, 2014, from Rutgers University:
+		\url{http://scheduling.rutgers.edu/capacities.shtml}.
 \end{thebibliography}
 \end{document}

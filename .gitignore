@@ -4,8 +4,10 @@
 .settings
 bin
 pyrusoc
+.DS_Store
 
 *.aux
 *.log
 *.out
 *.pdf
+*.gz
