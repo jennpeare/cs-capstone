@@ -25,10 +25,10 @@ This paper provides an overview of the current scheduling implementation at Rutg
 \section{Motivation}
 Although there have been several different scheduling methods implemented for other universities, Rutgers is in a unique position for improvements due to its large campus size. Since the New Brunswick campus is spread over a large geographic area that is segmented into five sub-campuses, it is difficult to make ideal course-room assignments for the entire university. Nevertheless, the large campus size highlights the necessity to minimize time spent on the campus buses for students. 
 \\\\
-The main motivation behind this optimization is to automate the Rutgers scheduling process. At the same time, it endeavors to localize the amount of travel needed for students to go between classes. Therefore, it is crucial to examine ways to algorithmically assign classes of the same academic major rooms in geographic clusters. Both the university and its students may benefit from this optimization: while students can enjoy more free time by not having to travel back and forth between classes, a reduction in travel means that the University does not have to deploy as many buses. This directly translates to thousands of dollars worth of savings over time. 
+The main motivation behind this optimization is to automate the Rutgers scheduling process. At the same time, it endeavors to localize the amount of travel needed for students to go between classes. Therefore, it is crucial to examine ways to algorithmically assign classes of the same academic major rooms in geographic clusters. Both the University and its students may benefit from this optimization: while students can enjoy more free time by not having to travel back and forth between classes, a reduction in travel means that the University does not have to deploy as many buses. This directly translates to thousands of dollars worth of savings over time. 
 
 \subsection{Current Implementation}
-As previously mentioned, the current Rutgers scheduling system is a manual process. University Scheduling duplicates the course-room assignments for the previous semester, and manually fix any conflicts and unassigned courses. For example, the Fall 2014 schedule is chiefly based on the Fall 2013 schedule, with minor differences accounting for changes in course offering and room availability. While this system is effective in producing a working schedule, it does not allow for flexibility of course-room assignments. In other words, once a class has been assigned to a certain campus, and if it continues to be offered in subsequent semesters without conflicts, its location is unlikely to change. However, if an assignment creates a conflict, or if there is available space to relocate courses, then new assignment changes will persist across future semesters. This shifting behavior makes little sense under certain situations, and an example of this can be seen with courses in the Computer Science department. 
+As previously mentioned, the current Rutgers scheduling system is a manual process. University Scheduling duplicates the course-room assignments for the previous semester, and manually fixes any conflicts and unassigned courses. For example, the Fall 2014 schedule is chiefly based on the Fall 2013 schedule, with minor differences accounting for changes in course offering and room availability. While this system is effective in producing a working schedule, it does not allow for flexibility of course-room assignments. In other words, once a class has been assigned to a certain campus, and if it continues to be offered in subsequent semesters without conflicts, its location is unlikely to change. However, if an assignment creates a conflict, or if there is available space to relocate courses, then new assignment changes will persist across future semesters. This shifting behavior makes little sense under certain situations, and an example of this can be seen with courses in the Computer Science department. 
 
 \subsubsection{Course Shifting in the Computer Science Department}
 With the completion of the Rutgers Business School building, most of the business classes migrated from existing classrooms on Livingston to the new building. In order to fill in these empty rooms, University Scheduling moved many traditionally ``Busch courses" to Livingston. A majority of the Computer Science department courses were affected by this migration. The tables below clearly illustrate the location shift between the Fall 2012 and Fall 2014 course offering.
@@ -71,7 +71,7 @@ With the completion of the Rutgers Business School building, most of the busines
 The newly renovated Livingston classes and better technological support may have been good reasons to move the Computer Science courses. However, it poses an inconvenience for the students and staff. Since the Computer Science department is located on Busch, the majority of the professors' offices are in Hill Center or CoRE. This shift means that they will have to allocate more time for traveling in their schedule in order to teach their courses. For the students, their resources (e.g. office hour, peer mentoring, iLab, etc.) are all located on Busch and not Livingston. Therefore, it would make more sense to keep their classes and resources on the same campus. 
 
 \subsection{Goals for Optimization}
-In response to the shortcomings of the current scheduling system, a solution to automate and improve the scheduling process is proposed. In this solution, an ``ideal" schedule is defined as one where courses in the same department are assigned to the same campus. At the same time, the solution should minimize scheduling conflicts in an attempt to not overburden a particular campus. 
+In response to the shortcomings of the current scheduling system, a solution to automate and improve the scheduling process is proposed. In this solution, an ``ideal" schedule is defined as one where courses in the same department are assigned to the same campus. Also, the solution should minimize scheduling conflicts in an attempt to not overburden a particular campus. 
 \\\\
 Two key factors involved in the UCTP are identified to help produce this ``ideal" schedule. The first factor is the course affinity, which dictates that courses should be assigned near or on the same campus as the location of their departments. This way, students can minimize travel time while enjoying easy access to academic resources for their affiliated departments. The second factor is the distribution of introductory courses, where the affinities for 100-level courses are overruled in favor of equal distribution among all campuses. These two factors and their implementations will be discussed in detail in the Method section.
 
@@ -131,18 +131,22 @@ Since the raw data is structured for display, it follows a one directional, hier
 \subsection{Data Separation}
 A significant portion of this solution is the separation of unique lectures and recitations for the course data. A unique lecture is defined by a key comprised of the following attributes:
 
+\begin{quote}
 \begin{verbatim}
-uniqueLecture = courseNumber + meetingDay + startTime + 
-endTime + pmCode + professorName
+uniqueLecture = courseNumber + meetingDay + startTime + endTime + 
+				pmCode + professorName
 \end{verbatim}
+\end{quote}
 
 \hfill\\
 Similarly, the following key defines a unique recitation:
 
+\begin{quote}
 \begin{verbatim}
-uniqueRecitation = meetingDay + startTime + endTime + 
-pmCode + buildingCode + roomNumber + professorName
+uniqueRecitation = meetingDay + startTime + endTime + pmCode + 
+				buildingCode + roomNumber + professorName
 \end{verbatim}
+\end{quote}
 
 \hfill\\
 Since a lecture is comprised of several sections, by iterating through each section, the number of unique lectures for a given course can be determined. At the same time, the aggregation of section sizes for each unique lecture is computed. This aggregation step is crucial for the greedy algorithm, since it ensures that lectures can be appropriately assigned to lecture halls instead of smaller classrooms. The key is paired with the wrapper course object to form a key-value pair, which is stored into a hashmap of lectures. 
@@ -246,11 +250,13 @@ The lack of complete data for all of the available classroom space presents a la
 \\\\
 From the University Scheduling site, 353 rooms are obtained for scheduling purposes \cite{citation3}. The staggered class schedule at Rutgers maps out 9 periods for course assignments, which means there are 353*9 = 3177 possible combinations to schedule all of the courses. However, this is not feasible since this number is less than half of the total number of courses waiting to be scheduled (6522). Introducing the generic rooms increases the number of combinations, but this is only applicable for courses with capacity less than the specified generic room capacity (which was 40 in the sample runs). One way to measure the effectiveness of the generic rooms is to calculate the success rate of an attempt to schedule all classes without any generic rooms. With no generic rooms, the statistics for scheduling classes are as the following:
 
+\begin{quote}
 \begin{verbatim}
 Total number of classes: 6522
 Successfully scheduled: 1786
 Failed to schedule: 4736
 \end{verbatim}
+\end{quote}
 
 \hfill\\
 The success rate is 27\%, which is not nearly as satisfactory as 76\% when scheduling with the generic rooms.
@@ -269,7 +275,7 @@ Finally, the data lacks indicators for cross-listed courses, or courses that are
 The building data from University Scheduling only contains general-purpose rooms and some restricted classrooms. It does not contain departmental conference rooms and other smaller room that may not be official classrooms, but are nevertheless used to host many courses (especially recitations). In addition, the data is somewhat outdated due to the completion of various new buildings around the University. This lack of data greatly limits the number of available classrooms, and therefore increases the failure rate for scheduling courses.
 
 \section{Conclusions}
-With a success rate of 76\% for scheduling all undergraduate lectures and recitations, this solution provides an encouraging start for automating and optimizing the current manual scheduling process at Rutgers University. It is clear that the geographical clustering is a promising feature that could facilitate the process to create the ?ideal? schedule, but additional work will be required to make the distribution of introductory courses more effective. While this solution does not yet address other aspects of courses (e.g. lab sections), solidifying the current implementation and then expanding it is a definite possibility.
+With a success rate of 76\% for scheduling all undergraduate lectures and recitations, this solution provides an encouraging start for automating and optimizing the current manual scheduling process at Rutgers University. It is clear that the geographical clustering is a promising feature that could facilitate the process to create the ``ideal" schedule, but additional work will be required to make the distribution of introductory courses more effective. While this solution does not yet address other aspects of courses (e.g. lab sections), solidifying the current implementation and then expanding it is a definite possibility.
 \\\\
 The biggest challenge at this step stems from a lack of knowledge about rooms and constraints on courses. Moving forward, obtaining a more complete set of data can improve accuracy in scheduling. This would require closer contacts with University Scheduling and individual departments for specific details on departmental rooms and special course constraints.
 \\\\
@@ -282,7 +288,6 @@ We would like to express our gratitude to our thesis adviser, Professor Matthew 
 
 \begin{thebibliography}{9}
 	\bibitem{citation1}
-		Keith Murray, Tomá¨ Müller, and Hana Rudová
 		Keith Murray, Tom{\'a}{\v s} M{\"u}ller, and Hana Rudov{\'a}.
 		Modeling and Solution of a Complex University Course Timetabling Problem.
 		In Edmund Burke and Hana Rudov{\'a}, editors,
