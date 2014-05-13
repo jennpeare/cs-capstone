@@ -195,11 +195,6 @@ public class Schedule {
 		"data/92013/U/965.json",
 		"data/92013/U/966.json",
 		"data/92013/U/988.json",
-		/*
-		"data/92013/U/640.json",
-		"data/92013/U/198.json",
-		"data/92013/U/160.json"
-		*/
 	};
 	private static final String capacityFile = "data/roomcapacity.json";
 	public static final Map<String, Campus> campus = ImmutableMap.of(
