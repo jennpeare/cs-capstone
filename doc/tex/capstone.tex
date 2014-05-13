@@ -1,0 +1,200 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage[margin=1in]{geometry}
+
+\title{Rutgers Room Scheduling Optimization}
+\author {William Lynch \\ wlynch92@cs.rutgers.edu \\ Rutgers University
+	\and Jingfei Shi \\ jenny.shi@rutgers.edu \\ Rutgers University
+}
+\begin{document}
+\maketitle
+\section{Abstract}
+An examination of the University Course Timetabling Problem (UCTP) at Rutgers
+University is presented. The current scheduling process is largely manual
+process, which prompts an exploration for ways to algorithmically assign
+courses of the same academic major to rooms in geographic clusters. The
+solution features a basic greedy algorithm to select the best room for a given
+course, and clustering and distribution across the sub-campuses for
+introductory courses can be layered on top. The results for different ways to
+scheduling are displayed, along with an analysis and subsequent discussion of
+issues and future improvements. 
+\\\\
+Keywords: University Course Timetabling Problem (UCTP), course scheduling,
+geographical clustering, course distribution, Rutgers University scheduling
+
+\section{Introduction}
+Course-room assignment is an integral part of the Rutgers University
+administration. An efficient and functional implementation allows for students
+to build schedules with minimal travel time and without conflicts. This is
+especially important for a large, multi-campus university, where students could
+potentially spend a significant amount of time traveling between classes via
+campus buses. While the Scheduling and Space Management office (University
+Scheduling) at Rutgers have created a functional system to provide a working
+assignment for each semester, their method is sometimes inefficient. Depending
+on a student’s career path, traveling between classes located on different
+campuses can be arduous and unintuitive (i.e. back and forth between two
+campuses). With that, there is a need to analyze the current system and offer
+improvements to optimize the scheduling process. 
+\\\\
+This process is part of the University Course Timetabling Problem (UCTP). The
+UCTP deals with assigning all events or classes to available time slots and
+classrooms. As described by Murray et al., UCTP is a xc, where the solution
+must satisfy both hard and soft constraints so as to avoid scheduling conflicts
+[1]. This is largely dependent on the university layout, available resources,
+and main method of transportation. Unfortunately, the current scheduling system
+at Rutgers is mostly a manual process.
+\\\\
+This paper provides an overview of the current scheduling implementation at
+Rutgers, and as well as existing studies done by researchers at another large
+university. In addition, an algorithm has been developed for automating and
+optimizing the current system. The basis for this is a greedy algorithm to
+assignment courses to rooms. Rather than over-extending this function, two
+other factors of the scheduling problem are identified to work in conjunction
+with it. These factors are concerned with geographical clustering and the
+distribution of introductory classes. The algorithm and each of these factors
+will be examined in greater details in the following sections. Overall, this
+solution successfully schedules 76% of undergraduate lectures and recitations.
+An analysis of the results, as well as factors contributing and/or affecting
+the scheduling process are also detailed in the results section. 
+
+\section{Motivation}
+	Although there have been several different methods of scheduling implemented
+	for other universities, Rutgers is in a unique position for improvements due to
+	its large campus size. Since the New Brunswick campus is spread over a large
+	geographic area that is segmented into five sub-campuses, it is difficult to
+	make ideal course-room assignments for the entire university. Nevertheless,
+	the large campus size highlights the necessity to minimize time spent on the
+	campus buses for students. 
+	\\\\
+	The main motivation behind this optimization is to automate the Rutgers
+	scheduling process. At the same time, it endeavors to localize the amount of
+	travel needed for students to go between classes. Therefore, it is crucial to
+	examine ways to algorithmically assign classes of the same academic major rooms
+	in geographic clusters. Both the university and its students may benefit from
+	this optimization: while students can enjoy more free time by not having to
+	travel back and forth between classes, a reduction in travel means that the
+	university does not have to deploy as many buses. This directly translates to
+	thousands of dollars worth of savings over time. 
+
+	\subsection{Current Implementation}
+		As previously mentioned, the current Rutgers scheduling system is a manual
+		process. University Scheduling takes the schedule for the previous semester,
+		duplicate the assignments for the courses, and manually fix any conflicts and
+		unassigned courses. For example, the Fall 2014 schedule is largely based on the
+		Fall 2013 schedule, with minor differences accounting for changes in course
+		offering and building availability. While this system is effective in producing
+		a working schedule, it does not allow for flexibility of course-room
+		assignments. Once a class has been assigned to a certain campus, and if it
+		continues to be offered in subsequent semesters without conflicts, its location
+		is unlikely to change. However, if an assignment creates a conflict, or if
+		there is available space to relocate courses, then the new assignments change
+		will persist across future semesters. This gradual shifting makes little sense
+		under certain situations, and this directly relates to the motivation for this
+		optimization.
+
+		\subsubsection{Course Shifting in the Computer Science Department}
+			With the completion of the Rutgers Business School building, most of the
+			business classes migrated from the existing classrooms on Livingston to the new
+			building. In order to fill in these empty rooms, University Scheduling many
+			traditionally “Busch courses” to Livingston. These courses include a majority
+			of the Computer Science department. The tables below clearly illustrate this
+			shift between the course offering for Fall 2012 and Fall 2014.
+			
+			\begin{center}
+				\captionof{table}{CS Department Courses, Fall 2014} \label{tab:title} 
+				\begin{tabular}{ | l | l | l | l | }
+					\hline
+					Course & Campus & Course &	Campus \\ \hline
+					111 & CAC, LIV & 344 & LIV \\ \hline
+					112 & LIV & 352 & BUS \\ \hline
+					205 & LIV & 416 & LIV \\ \hline
+					206 & LIV & 417 & LIV \\ \hline
+					211 & LIV & 431 & BUS \\ \hline
+					214 & LIV & 437 & LIV \\ \hline
+					314 & BUS, LIV & 440 & LIV \\ \hline
+					334 & BUS & 452 & LIV \\ \hline
+					336 & LIV & & \\ 
+					\hline
+				\end{tabular}
+			\end{center}
+			TABLE 2
+			\\\\
+			The newly renovated Livingston classes may have been a good reason to migrate
+			the Computer Science courses. However, it poses an inconvenience to the
+			students and staff. Since the Computer Science department is on Busch, the
+			majority of the professors’ offices are located at Hill Center or CoRE. This
+			shift causes an inconvenience for them, since they will have to allocate more
+			time for traveling in their schedule in order to teach their courses. For the
+			students, their resources (e.g. office hour, peer mentoring, iLab, etc.) are
+			all located on Busch. It would make more sense to keep their classes and
+			resources on the same campus. 
+
+	\subsection{Goals for Optimization}
+	In response to the shortcomings of the current scheduling system, a solution to
+	automate the scheduling process has been proposed. In this solution, an “ideal”
+	schedule is defined as one where courses in the same department are assigned to
+	the same campus. At the same time, the solution should minimize scheduling
+	conflicts in an attempt to not overburden a particular campus. 
+	\\\\
+	Two key factors involved in the UCTP are identified to help produce the said
+	schedule. The first factor is the affinity of a course, which dictates that it
+	should be assigned near or on the same campus as the location of the
+	department. This way, students can minimize travel time while enjoying easy
+	access to academic resources for their affiliated departments. The second
+	factor is the distribution of introductory courses, where the affinities for
+	100 level courses are overruled in favor of equal distribution among all
+	campuses. These two factors and their implementations will be further analyzed
+	in the Method section.
+
+\section{Existing Research}
+The University Course Timetabling Problem has been studied by researchers at
+many universities. Specifically, Murray, Müller, and Rudová have provided a
+summary and analysis of their scheduling model in [1] under Purdue University
+and Masaryk University (Czech Republic). For Murray et al., the UCTP is a
+multi-layered problem and can be decomposed into subproblems. In addition,
+there exists a set of constraints for each course being scheduled, and these
+can be categorized into soft and hard constraints. The solution presented in
+this paper is partially influenced by several aspects of their research.
+
+\subsection{Subproblems}
+The UCTP is an extremely complex problem, and it is difficult to develop a
+solution that will meet all of the details and requirements. With that, Murray
+et al. approached the problem by breaking it into a general course model with
+customizable constraints and relationships. This enables the use of a single
+solution that will apply to all courses, instead of separate designed
+specifically to fit certain departments. Each aspect of this model can then be
+broken down into subproblems with specific characteristics. Solutions to each
+subproblem are found and combined into one complete implementation.
+\\\\
+Some subproblems identified by Murray et al. are listed below:
+
+\begin{enumerate}
+	\item centrally timetabled large lecture room problem
+	\item individually timetabled departmental problems
+	\item centrally timetabled computer laboratory problem
+\end{enumerate}
+
+While the timetabling system is different at Purdue University, the general
+idea of decomposition is applicable for Rutgers University scheduling. All
+courses have lectures, and some include recitations and labs. The proposed
+solution only analyzes lectures and recitations, but the subproblem approach is
+largely inspired by Murray et al.
+
+\subsection{Soft vs. Hard Constraints}
+In addition to being a resource allocation problem, the UCTP problem can also
+be viewed as a constraint satisfaction and optimization problem (CSOP). Each
+course being scheduled contains a set of finite constraints, which can be
+categorized into hard or soft. Hard constraints are constraints that must be
+met in order to successfully schedule a course, while soft constraints are
+associated with optimization. Therefore, the goal of the constraint
+satisfaction and optimization problem is to meet all of the hard constraints,
+while violating the least number of soft constraints.
+\\\\
+Recognizing the UCTP as a CSOP is the driving force behind the design to this
+proposed optimization. It is obvious that courses must be scheduled based on
+their capacity and time--the hard constraints. The soft constraints aspect of
+the CSOP inspired the addition of two factors: affinity and distribution of
+introductory courses. This solution endeavors to satisfy these soft constraints
+after fulfilling the hard constraints.
+\end{document}

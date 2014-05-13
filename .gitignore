@@ -4,3 +4,8 @@
 .settings
 bin
 pyrusoc
+
+*.aux
+*.log
+*.out
+*.pdf
