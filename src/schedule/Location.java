@@ -3,6 +3,7 @@ package schedule;
 import com.google.gson.annotations.SerializedName;
 
 /**
+ * Location contains location information for each Building.
  * @author Billy Lynch
  * @author Jenny Shi
  *

@@ -22,6 +22,10 @@ import com.google.gson.reflect.TypeToken;
 
 
 /**
+ * Schedule is the main driver of the scheduling process. 
+ * It handles the loading of various data files and holds the setting for 
+ * various configs such as generic classrooms/size and scheduling options such as affinity/class distribution. 
+ *  
  * @author Billy Lynch
  * @author Jenny Shi
  *

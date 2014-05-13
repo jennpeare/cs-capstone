@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import schedule.campus.*;
 
-
 public class CampusTest {
 
 	private Campus[] campus = {new CollegeAve(), new Busch(), new Livingston(), new CookDouglass()};

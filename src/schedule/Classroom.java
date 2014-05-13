@@ -5,6 +5,13 @@ import java.util.Map;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Classroom contains the data for each bookable classroom, as well as the means
+ * to reserve each room.
+ * @author Billy Lynch
+ * @author Jenny Shi
+ *
+ */
 public class Classroom {
 	
 	@SerializedName("Building")
@@ -37,6 +44,14 @@ public class Classroom {
 	
 	public Classroom() {}
 	
+	/**
+	 * @param building
+	 * @param room
+	 * @param capacity
+	 * @param wheelchair
+	 * @param restricted
+	 * @param type
+	 */
 	public Classroom(String building, String room, int capacity, boolean wheelchair,
 			boolean restricted, String type) {
 		this.building = building;
@@ -51,12 +66,18 @@ public class Classroom {
 	 * Checks if the classroom is available for a given period
 	 * @param day
 	 * @param period
-	 * @return
+	 * @return True if classroom is booked at particular (day, period)
 	 */
 	public boolean isBooked(String day, int period) {
 		return booked[weekday.get(day)][period];
 	}
 	
+	/**
+	 * @param day
+	 * @param startPeriod
+	 * @param endPeriod
+	 * @return True if classroom is booked for any period between the range.
+	 */
 	public boolean isBooked(String day, int startPeriod, int endPeriod) {
 		for (int i = startPeriod; i <= endPeriod; i++) {
 			if (isBooked(day, i)) {
@@ -107,7 +128,7 @@ public class Classroom {
 	 * @param day
 	 * @param startPeriod
 	 * @param endPeriod
-	 * @return true is classroom booked successfully, else false
+	 * @return True if classroom booked successfully, else false
 	 */
 	public boolean bookRoom(String day, int startPeriod, int endPeriod) {
 		if (isBooked(day, startPeriod, endPeriod)) {

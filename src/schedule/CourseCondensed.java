@@ -1,5 +1,12 @@
 package schedule;
 
+/**
+ * CourseCondensed is a distilled version of a Course, Section, and MeetingTime.
+ * This is necessary due to the nested nature of the data and needs a place to be linked together.
+ * @author Billy Lynch
+ * @author Jenny Shi
+ *
+ */
 public class CourseCondensed implements Comparable<CourseCondensed> {
 	
 	Course course;
@@ -36,7 +43,7 @@ public class CourseCondensed implements Comparable<CourseCondensed> {
 	public static void setSortMode(String mode) {
 		 sortMode = mode;
 	}
-	
+
 	@Override
 	public int compareTo(CourseCondensed o) {
 		// TODO Auto-generated method stub

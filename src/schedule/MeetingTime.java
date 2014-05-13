@@ -1,6 +1,7 @@
 package schedule;
 
 /**
+ * MeetingTime contains information about Course meeting times.
  * @author Billy Lynch
  * @author Jenny Shi
  *

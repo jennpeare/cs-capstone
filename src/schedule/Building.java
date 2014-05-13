@@ -1,6 +1,7 @@
 package schedule;
 
 /**
+ * Building contains the data for various buildings on campus.
  * @author Billy Lynch
  * @author Jenny Shi
  *

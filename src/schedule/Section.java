@@ -1,6 +1,7 @@
 package schedule;
 
 /**
+ * Section contains information about Course sections.
  * @author Billy Lynch
  * @author Jenny Shi
  * 
@@ -37,7 +38,7 @@ public class Section {
 	boolean editedCap;
 	
 	/**
-	 *
+	 * Comments contains supplemental information pertaining to each section.
 	 */
 	public static class Comments {
 		String code;

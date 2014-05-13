@@ -3,6 +3,7 @@ package schedule;
 import com.google.gson.annotations.SerializedName;
 
 /**
+ * Course contains the various data for individual courses.
  * @author Billy Lynch
  * @author Jenny Shi
  * 
@@ -108,7 +109,7 @@ public class Course {
 	String unitNotes;
 	
 	/**
-	 *
+	 * CoreCodes are supplemental data corresponding to SAS requirements fulfilled by the course.
 	 */
 	public static class CoreCodes {
 		String code;

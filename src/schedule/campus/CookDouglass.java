@@ -1,5 +1,11 @@
 package schedule.campus;
 
+/**
+ * Period information for Cook/Douglass Campus.
+ * @author Billy Lynch
+ * @author Jenny Shi
+ *
+ */
 public class CookDouglass extends Campus {
 	public CookDouglass() {
 		periods = new int[][]{{915, 1035}, {1055, 1215}, {1235, 1355}, {1415, 1535}, {1555, 1715}, 

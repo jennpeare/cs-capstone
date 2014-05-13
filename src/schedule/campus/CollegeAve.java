@@ -1,5 +1,11 @@
 package schedule.campus;
 
+/**
+ * Period information for College Ave Campus.
+ * @author Billy Lynch
+ * @author Jenny Shi
+ *
+ */
 public class CollegeAve extends Campus {
 	public CollegeAve() {
 		periods = new int[][]{{810, 930}, {950, 1110}, {1130, 1250}, {1310, 1430}, {1450, 1610}, 

@@ -1,5 +1,10 @@
 package schedule.campus;
 
+/**
+ * Campus defines common utilities used for determining periods based on a given time for a campus.
+ * @author Billy Lynch
+ *
+ */
 public abstract class Campus {
 	protected int[][] periods;
 	public int count;
@@ -9,6 +14,11 @@ public abstract class Campus {
 		return this.name;
 	}
 	
+	/**
+	 * @param timeStr
+	 * @param pmCode
+	 * @return AM/PM agnostic time
+	 */
 	public static int parseTime(String timeStr, String pmCode) {
 		if (timeStr.equals("1200") && pmCode.equalsIgnoreCase("a")) {
 			return 0;
@@ -20,6 +30,11 @@ public abstract class Campus {
 		return time;
 	}
 	
+	/**
+	 * @param timeStr
+	 * @param pmCode
+	 * @return Period corresponding to the given time.
+	 */
 	public int getPeriod(String timeStr, String pmCode) {
 		// Convert time string into 24-hour time represented by an int
 		int time = parseTime(timeStr, pmCode);

@@ -7,6 +7,13 @@ import java.util.TreeSet;
 import schedule.Classroom;
 import schedule.CourseCondensed;
 
+/**
+ * Analysis handles the analysis of the scheduling results.
+ * It prints out various stats about each course and where it was scheduled.
+ * @author Billy Lynch
+ * @author Jenny Shi
+ *
+ */
 public class Analysis {
 	private static int[] campusTotalFreq = new int[6];
 	private static class Stats {
